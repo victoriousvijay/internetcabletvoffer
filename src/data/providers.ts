@@ -18,6 +18,11 @@ export type Provider = {
   name: string;
   monogram: string;
   accent: string;
+  logo: string;
+  /** Logo artwork is taller than wide-format wordmarks; render it larger. */
+  logoTall?: boolean;
+  blurb: string;
+  loader: { primary: string; light: string };
   tagline: string;
   quickAnswer: string;
   intro: string;
@@ -48,6 +53,9 @@ export const providers: Provider[] = [
     name: "AT&T",
     monogram: "AT",
     accent: "#009fdb",
+    logo: "/logos/att.png",
+    blurb: "Multi-gig fiber, zero contracts",
+    loader: { primary: "#00a8e0", light: "#4cc6ef" },
     tagline: "Multi-gig fiber with no annual contract",
     quickAnswer:
       "AT&T is one of the largest fiber internet providers in the U.S., offering AT&T Fiber plans from 300 Mbps up to 5 Gbps with symmetrical upload speeds, no annual contract and no data caps on fiber. Where fiber isn't available, AT&T Internet Air delivers wireless home internet over its 5G/4G network.",
@@ -112,7 +120,10 @@ export const providers: Provider[] = [
     slug: "earthlink",
     name: "EarthLink",
     monogram: "EL",
-    accent: "#e4002b",
+    accent: "#f7941d",
+    logo: "/logos/earthlink.png",
+    blurb: "Privacy-first nationwide internet",
+    loader: { primary: "#f7941d", light: "#ffb257" },
     tagline: "Trusted ISP with fiber, wireless and satellite options",
     quickAnswer:
       "EarthLink is a nationwide internet service provider that sells fiber, 5G home internet, fixed wireless and satellite plans over partner networks. Its fiber plans reach up to 5 Gbps with unlimited data, and EarthLink is known for transparent pricing and strong privacy commitments.",
@@ -176,7 +187,10 @@ export const providers: Provider[] = [
     slug: "spectrum",
     name: "Spectrum",
     monogram: "SP",
-    accent: "#0099d8",
+    accent: "#0b2d5b",
+    logo: "/logos/spectrum.png",
+    blurb: "Unlimited cable, no contracts",
+    loader: { primary: "#0b2d5b", light: "#1e5cae" },
     tagline: "No contracts, no data caps, huge cable footprint",
     quickAnswer:
       "Spectrum is the largest cable internet provider in the U.S., with plans from 500 Mbps up to 2 Gbps, no annual contracts, no data caps and a free modem. Spectrum also offers cable TV, Spectrum Mobile and home phone bundles in 41 states.",
@@ -238,7 +252,10 @@ export const providers: Provider[] = [
     slug: "kinetic",
     name: "Kinetic",
     monogram: "KI",
-    accent: "#6d28d9",
+    accent: "#8b1e7e",
+    logo: "/logos/kinetic.png",
+    blurb: "Fiber for small-town America",
+    loader: { primary: "#8b1e7e", light: "#b54aa8" },
     tagline: "Fast-growing fiber across small-town America",
     quickAnswer:
       "Kinetic is a fiber and DSL internet provider serving suburban and rural communities in 18 states. Kinetic fiber plans reach up to 8 Gbps with unlimited data, free Wi-Fi equipment on many plans and no annual contract.",
@@ -301,7 +318,10 @@ export const providers: Provider[] = [
     slug: "brightspeed",
     name: "Brightspeed",
     monogram: "BS",
-    accent: "#f5b700",
+    accent: "#ffb400",
+    logo: "/logos/brightspeed.png",
+    blurb: "Fresh fiber for rural homes",
+    loader: { primary: "#ffb400", light: "#ffd24d" },
     tagline: "New fiber network built for rural and suburban homes",
     quickAnswer:
       "Brightspeed is an internet provider serving 20 states, primarily in rural and suburban communities. It offers fiber internet up to 2 Gbps with unlimited data and no annual contract, plus DSL where fiber isn't yet available.",
@@ -364,7 +384,11 @@ export const providers: Provider[] = [
     slug: "verizon",
     name: "Verizon",
     monogram: "VZ",
-    accent: "#ee0000",
+    accent: "#111111",
+    logo: "/logos/verizon.png",
+    logoTall: true,
+    blurb: "Fios fiber & 5G Home",
+    loader: { primary: "#262626", light: "#525252" },
     tagline: "Fios fiber and 5G Home with price guarantees",
     quickAnswer:
       "Verizon offers Fios fiber internet from 300 Mbps to 2 Gbps in the Northeast and Mid-Atlantic, plus 5G Home Internet in hundreds of cities nationwide. Plans have no annual contracts, no data caps, and include multi-year price guarantees with big discounts for Verizon mobile customers.",
@@ -429,6 +453,9 @@ export const providers: Provider[] = [
     name: "Frontier",
     monogram: "FR",
     accent: "#ff0037",
+    logo: "/logos/frontier.png",
+    blurb: "Pure fiber up to 7 Gig",
+    loader: { primary: "#ff0037", light: "#ff5577" },
     tagline: "100% fiber plans up to 7 Gbps",
     quickAnswer:
       "Frontier Communications offers Frontier Fiber internet with speeds from 500 Mbps to 7 Gbps in 25 states. Fiber plans include unlimited data, no annual contract, a Wi-Fi router and symmetrical upload speeds, making Frontier one of the fastest-growing fiber ISPs.",
@@ -491,7 +518,10 @@ export const providers: Provider[] = [
     slug: "hughesnet",
     name: "HughesNet",
     monogram: "HN",
-    accent: "#005eb8",
+    accent: "#005bac",
+    logo: "/logos/hughesnet.png",
+    blurb: "Satellite internet, almost anywhere",
+    loader: { primary: "#005bac", light: "#0a9bff" },
     tagline: "Satellite internet that reaches almost anywhere",
     quickAnswer:
       "HughesNet is a satellite internet provider available in all 50 states, including remote rural areas without cable or fiber. Plans offer download speeds of 50–100 Mbps with no hard data limits, though higher latency makes satellite less suited to competitive gaming.",
@@ -552,7 +582,10 @@ export const providers: Provider[] = [
     slug: "optimum",
     name: "Optimum",
     monogram: "OP",
-    accent: "#ff6b00",
+    accent: "#111111",
+    logo: "/logos/optimum.png",
+    blurb: "Fiber, cable & TV bundles",
+    loader: { primary: "#262626", light: "#525252" },
     tagline: "Fiber and cable up to 8 Gbps in the Northeast & beyond",
     quickAnswer:
       "Optimum offers fiber and cable internet from 300 Mbps up to 8 Gbps across 21 states, with unlimited data, no annual contracts and a price guarantee on many plans. Optimum also bundles TV, mobile and home phone service.",

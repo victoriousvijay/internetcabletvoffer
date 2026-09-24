@@ -65,7 +65,7 @@ src/
     sections/                Reusable page sections (Hero, ProviderGrid, CompareTable, TypeGrid, CTA…)
     seo/JsonLd.tsx           Structured data helper
   data/
-    providers.ts             9 providers: plans, pros/cons, features, ratings, FAQs, images
+    providers.ts             9 providers: logo, blurb, loader colors, plans, pros/cons, features, ratings, FAQs, images
     internetTypes.ts         7 internet types: summary, how it works, pros/cons, speeds, FAQs
     faqs.ts                  General FAQs
   lib/
@@ -94,13 +94,18 @@ src/
 - **Colors:** `brand-50…950` blue scale, `navy` for dark sections, white cards with `ring-1 ring-slate-200/70`, soft shadows (`shadow-card`).
 - **Type:** Plus Jakarta Sans (headings + body). Tight tracking on headings, generous line-height on body.
 - **Radius:** 2xl/3xl cards, full-round buttons and pills.
-- **Motion:** content reveals on scroll (fade + 24px rise, staggered), hover lift on cards, sliding pill in navbar that follows hover/active link, animated mega-menu, spring mobile drawer with staggered links, page-transition fade. Respect `prefers-reduced-motion`.
+- **Motion:** content reveals on scroll (fade + 24px rise, staggered), hover lift on cards, spring mobile drawer with staggered links, page-transition fade. Respect `prefers-reduced-motion`.
+- **Navbar:** floating white bar; center "rail" (slate pill track) with a white sliding pill that follows hover/active item; dropdowns anchored under their item (icon rows for Internet, logo grid for Providers, list for Company); shimmer CTA; scroll-progress line along the bottom edge.
+- **Home hero:** deep-blue layered background (`HeroBackground.tsx`): gradient mesh, drifting aurora blobs, masked grid, pulsing signal rings, animated fiber light streaks, twinkles, curved edge into the page. No "deals updated" label.
+- **Page loader:** 3D assembling-boxes loader (`components/layout/PageLoader.tsx`, CSS in `globals.css`). Shows on first load and on internal navigation. Color = site blue on home / internet-type / other pages; on `/providers/[slug]` it uses that provider's `loader.primary/light` from `providers.ts` (e.g. EarthLink orange, Verizon black).
+- **Provider cards:** logo + name + a 2–5 word `blurb` only — no pricing on cards (pricing lives on the provider page and comparison tables).
 - **Images:** relevant photography (Unsplash) on every major section — never a wall of text. Keep paragraphs short; prefer cards, icons, stats, tables.
 - **Mobile:** dedicated layout — hamburger → full-height drawer with accordions, sticky bottom CTA bar, horizontally scrollable tables, 16px gutters, touch targets ≥ 44px.
 
 ## 7. Legal / compliance
 
-- The site is an **independent comparison site**. Provider names and trademarks belong to their owners; no provider logos are reproduced (monogram badges only).
+- The site is an **independent comparison site**. Provider names, logos and trademarks belong to their owners and are shown for identification only.
+- Provider logos live in `public/logos/*.png` (sourced from the reference site). **Never use logo variants that say "Authorized Retailer / Reseller / Agent"** — we are not an authorized reseller, so those taglines were cropped off. Keep it that way for any new logo.
 - Every data page shows the pricing disclaimer from `site.ts` ("representative starting rates… confirm with provider").
 - Footer: © Internet Cable TV Offers, disclosure, legal links.
 

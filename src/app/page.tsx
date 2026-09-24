@@ -8,7 +8,7 @@ import { CompareTable } from "@/components/sections/CompareTable";
 import { SpeedGuide } from "@/components/sections/SpeedGuide";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProviderBadge } from "@/components/ui/ProviderBadge";
+import { ProviderLogo } from "@/components/ui/ProviderBadge";
 import { FaqList } from "@/components/ui/FaqList";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -44,19 +44,19 @@ export default function Home() {
       <HomeHero />
 
       {/* Provider marquee */}
-      <section aria-label="Providers we compare" className="border-y border-slate-100 bg-white py-6">
+      <section aria-label="Providers we compare" className="bg-white pb-6 pt-2">
+        <p className="mb-5 text-center text-xs font-bold uppercase tracking-[0.25em] text-slate-400">Compare plans from top providers</p>
         <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
             {[...providers, ...providers].map((p, i) => (
               <Link
                 key={`${p.slug}-${i}`}
                 href={`/providers/${p.slug}`}
-                className="flex items-center gap-3 rounded-2xl bg-slate-50 px-4 py-2.5 ring-1 ring-slate-100 transition-colors hover:bg-brand-50"
+                className="flex h-16 w-44 items-center justify-center rounded-2xl bg-white px-6 ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:ring-brand-200"
                 tabIndex={i >= providers.length ? -1 : undefined}
                 aria-hidden={i >= providers.length ? true : undefined}
               >
-                <ProviderBadge p={p} size="sm" />
-                <span className="whitespace-nowrap text-sm font-bold text-navy">{p.name}</span>
+                <ProviderLogo p={p} className="h-8 max-w-full" />
               </Link>
             ))}
           </div>

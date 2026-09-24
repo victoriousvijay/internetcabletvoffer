@@ -2,42 +2,33 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { BadgeCheck, Gauge, ShieldCheck, Sparkles, Star, Tv, Wifi } from "lucide-react";
+import { BadgeCheck, Gauge, ShieldCheck, Star, Tv, Wifi } from "lucide-react";
 import { ZipSearch } from "@/components/ui/ZipSearch";
-import { img, images, site } from "@/lib/site";
+import { img, images } from "@/lib/site";
+import { HeroBackground } from "./HeroBackground";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-sky-soft via-white to-white pb-16 pt-28 sm:pb-24 sm:pt-36">
-      <div className="grid-bg pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
-      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-brand-200/50 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 -top-10 h-[30rem] w-[30rem] rounded-full bg-brand-300/30 blur-3xl" />
+    <section className="relative overflow-hidden bg-navy pb-24 pt-32 text-white sm:pb-32 sm:pt-40">
+      <HeroBackground />
 
       <div className="container-x relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         <div>
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-            className="eyebrow"
-          >
-            <Sparkles className="h-3.5 w-3.5" /> Deals updated {site.lastReviewed}
-          </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.08, ease }}
-            className="mt-5 text-[2.35rem] font-extrabold leading-[1.05] tracking-tight text-navy sm:text-6xl lg:text-[4.1rem]"
+            className="text-[2.35rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.1rem]"
           >
             The best internet &amp; cable TV offers,{" "}
-            <span className="relative bg-gradient-to-r sm:whitespace-nowrap from-brand-600 to-brand-800 bg-clip-text text-transparent">
+            <span className="relative bg-gradient-to-r from-sky-300 via-brand-200 to-white bg-clip-text sm:whitespace-nowrap text-transparent">
               compared clearly.
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" aria-hidden="true">
                 <motion.path
                   d="M2 9C60 3 140 1 298 7"
-                  stroke="#6096fa"
+                  stroke="#93bbfd"
                   strokeWidth="4"
                   strokeLinecap="round"
                   initial={{ pathLength: 0 }}
@@ -51,7 +42,7 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.18, ease }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-brand-100/80"
           >
             Compare plans, prices and speeds from AT&amp;T, Spectrum, Verizon, Frontier, Optimum and more — then pick the
             deal that fits your home.
@@ -69,7 +60,7 @@ export function HomeHero() {
             initial="hidden"
             animate="show"
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.45 } } }}
-            className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-600"
+            className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-brand-100/85"
           >
             {[
               { icon: BadgeCheck, t: "Free to compare" },
@@ -77,7 +68,7 @@ export function HomeHero() {
               { icon: Gauge, t: "Speeds up to 8 Gbps" },
             ].map(({ icon: Icon, t }) => (
               <motion.li key={t} variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-2">
-                <Icon className="h-5 w-5 text-brand-600" /> {t}
+                <Icon className="h-5 w-5 text-sky-300" /> {t}
               </motion.li>
             ))}
           </motion.ul>
@@ -89,7 +80,7 @@ export function HomeHero() {
           transition={{ duration: 1, delay: 0.15, ease }}
           className="relative mx-auto w-full max-w-xl"
         >
-          <div className="relative aspect-[4/4.3] overflow-hidden rounded-[2.2rem] shadow-lift ring-1 ring-slate-200/60 sm:aspect-[4/3.9]">
+          <div className="relative aspect-[4/4.3] overflow-hidden rounded-[2.2rem] shadow-[0_40px_90px_-30px_rgb(0_0_0/0.6)] ring-1 ring-white/15 sm:aspect-[4/3.9]">
             <Image
               src={img(images.friendsLaptops, 1400)}
               alt="Friends streaming and browsing together on fast home Wi-Fi"
@@ -107,10 +98,8 @@ export function HomeHero() {
                 <Wifi className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-[11px] font-medium text-slate-500">Fiber 1 Gig from</p>
-                <p className="text-lg font-extrabold text-navy">
-                  $65<span className="text-xs font-semibold text-slate-500">/mo</span>
-                </p>
+                <p className="text-[11px] font-medium text-slate-500">Fiber speeds up to</p>
+                <p className="text-lg font-extrabold text-navy">8 Gbps</p>
               </div>
             </div>
           </div>
@@ -136,7 +125,7 @@ export function HomeHero() {
           </div>
 
           <div className="absolute -bottom-5 left-6 animate-float [animation-delay:3s] sm:left-12">
-            <div className="flex items-center gap-3 rounded-2xl bg-navy p-3 pr-5 text-white shadow-lift">
+            <div className="flex items-center gap-3 rounded-2xl bg-white/10 p-3 pr-5 text-white shadow-lift ring-1 ring-white/20 backdrop-blur-xl">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
                 <Tv className="h-5 w-5 text-brand-200" />
               </span>

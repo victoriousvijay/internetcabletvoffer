@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { PageLoader } from "@/components/layout/PageLoader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { orgSchema, websiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2">
           Skip to content
         </a>
+        <PageLoader />
         <JsonLd data={[orgSchema, websiteSchema]} />
         <Navbar />
         <main id="main">{children}</main>
