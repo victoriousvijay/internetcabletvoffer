@@ -137,7 +137,7 @@ export const internetTypes: InternetType[] = [
     quickAnswer:
       "Cable internet delivers broadband over the same coaxial lines used for cable TV. It's available to most U.S. homes, offers download speeds from about 300 Mbps to 2 Gbps, and plans typically start around $40–$50 per month — but upload speeds are usually much lower than fiber.",
     heroImage: images.ethernet,
-    sideImage: images.livingTv,
+    sideImage: images.livingRoom,
     keyFacts: [
       { label: "Typical speeds", value: "300 Mbps – 2 Gbps" },
       { label: "Upload speeds", value: "10 – 100 Mbps" },

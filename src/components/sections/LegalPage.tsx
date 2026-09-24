@@ -11,7 +11,7 @@ export function LegalPage({ title, path, intro, children }: { title: string; pat
   return (
     <>
       <JsonLd data={breadcrumbSchema(crumbs)} />
-      <PageHero crumbs={crumbs} eyebrow="Legal" title={title} text={intro} showReviewed={false} />
+      <PageHero crumbs={crumbs} title={title} text={intro} showReviewed={false} />
       <section className="container-x pb-24">
         <article className="prose-legal card mx-auto max-w-3xl p-6 sm:p-10">
           <p className="text-sm font-semibold text-brand-700">Effective date: {site.lastReviewed}</p>

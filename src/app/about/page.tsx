@@ -33,7 +33,6 @@ export default function AboutPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        eyebrow="Our story"
         title="Helping every home find a better connection"
         text={`${site.name} was built to make choosing internet and TV simple — clear comparisons, honest pros and cons, and zero pressure.`}
         image={images.teamOffice}
@@ -43,7 +42,7 @@ export default function AboutPage() {
 
       <section className="container-x grid items-center gap-12 py-10 sm:py-16 lg:grid-cols-2">
         <div>
-          <SectionHeading eyebrow="Our mission" title="Clarity in a confusing market" />
+          <SectionHeading title="Clarity in a confusing market" />
           <Reveal delay={0.1} className="mt-6 space-y-4 leading-relaxed text-slate-600">
             <p>
               Promo prices, equipment fees, data caps and contracts make internet shopping harder than it should be. We cut through
@@ -62,7 +61,7 @@ export default function AboutPage() {
 
       <section className="bg-sky-soft py-16 sm:py-24">
         <div className="container-x">
-          <SectionHeading center eyebrow="What we stand for" title="Our values" />
+          <SectionHeading center title="Our values" />
           <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map(({ icon: Icon, title, text }) => (
               <StaggerItem key={title} className="card p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
@@ -78,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       <section className="container-x py-16 sm:py-24">
-        <SectionHeading eyebrow="Methodology" title="How we rate providers" />
+        <SectionHeading title="How we rate providers" />
         <Reveal delay={0.1} className="mt-8 grid gap-4 md:grid-cols-4">
           {[
             { k: "Speed", v: "Available tiers, upload speeds and consistency" },

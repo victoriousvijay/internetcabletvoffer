@@ -79,7 +79,6 @@ export default function Home() {
       <section className="container-x py-10 sm:py-16">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
-            eyebrow="Top providers"
             title="Compare America's leading internet providers"
             text="Fiber, cable, 5G and satellite — every major provider rated on speed, value, reliability and service."
           />
@@ -102,7 +101,6 @@ export default function Home() {
       <section className="bg-gradient-to-b from-white to-sky-soft py-16 sm:py-24">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Internet types"
             title="Find the right connection for your home"
             text="Every technology has trade-offs. Explore how each one works, what it costs and who it's best for."
           />
@@ -115,7 +113,6 @@ export default function Home() {
       {/* Speed guide */}
       <section className="container-x py-16 sm:py-24">
         <SectionHeading
-          eyebrow="Speed guide"
           title="How much internet speed do you need?"
           text="Pick the household that sounds like yours — we'll recommend a speed and connection type."
         />
@@ -155,7 +152,6 @@ export default function Home() {
           <div className="order-1 lg:order-2">
             <SectionHeading
               light
-              eyebrow="Internet + TV"
               title="Bundle internet and cable TV to save more"
               text="Spectrum, Verizon Fios and Optimum offer cable TV bundles, while fiber providers pair perfectly with live TV streaming."
             />
@@ -187,7 +183,7 @@ export default function Home() {
 
       {/* How it works */}
       <section className="container-x py-16 sm:py-24">
-        <SectionHeading center eyebrow="How it works" title="Better internet in three simple steps" />
+        <SectionHeading center title="Better internet in three simple steps" />
         <Stagger className="mt-12 grid gap-5 md:grid-cols-3">
           {steps.map((s, i) => {
             const Icon = s.icon;
@@ -209,7 +205,6 @@ export default function Home() {
       <section id="compare" className="bg-sky-soft py-16 sm:py-24">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Side-by-side"
             title="Internet provider comparison chart"
             text="Starting prices, top speeds, contract terms and ratings for every provider we cover."
           />
@@ -222,7 +217,7 @@ export default function Home() {
       {/* Choosing guide with image */}
       <section className="container-x grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
         <div>
-          <SectionHeading eyebrow="Buyer's guide" title="Choosing the right internet provider in 2026" />
+          <SectionHeading title="Choosing the right internet provider in 2026" />
           <Reveal delay={0.1} className="mt-8 space-y-5">
             {[
               { t: "Check what's available first", d: "Availability varies street by street. Start with the providers that actually serve your address." },
@@ -256,7 +251,7 @@ export default function Home() {
       <section className="container-x pb-8 sm:pb-12">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr]">
           <div>
-            <SectionHeading eyebrow="FAQs" title="Internet & cable TV questions, answered" />
+            <SectionHeading title="Internet & cable TV questions, answered" />
             <Reveal delay={0.1}>
               <Link href="/faqs" className="btn btn-ghost mt-6">
                 View all FAQs <ArrowRight className="h-4 w-4" />

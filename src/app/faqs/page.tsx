@@ -27,7 +27,6 @@ export default function FaqsPage() {
       <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(all)]} />
       <PageHero
         crumbs={crumbs}
-        eyebrow="Help center"
         title="Frequently Asked Questions"
         text="Straight answers about internet providers, speeds, connection types and TV bundles."
         image={images.phoneApps}

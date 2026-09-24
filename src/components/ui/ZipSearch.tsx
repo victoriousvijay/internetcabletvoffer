@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { MapPin, Search } from "lucide-react";
 
-export function ZipSearch({ compact = false }: { compact?: boolean }) {
+/** `provider` keeps the visitor on that provider's page instead of sending them to the multi-provider hub. */
+export function ZipSearch({ compact = false, provider }: { compact?: boolean; provider?: string }) {
   const [zip, setZip] = useState("");
   const [error, setError] = useState("");
+  const [done, setDone] = useState("");
   const router = useRouter();
 
   const submit = (e: React.FormEvent) => {
@@ -17,6 +19,11 @@ export function ZipSearch({ compact = false }: { compact?: boolean }) {
       return;
     }
     setError("");
+    if (provider) {
+      setDone(`Showing ${provider} plans for ${zip}. Final availability is confirmed by ${provider} at checkout.`);
+      document.getElementById("plans")?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
     router.push(`/internet-providers?zip=${zip}#compare`);
   };
 
@@ -24,10 +31,10 @@ export function ZipSearch({ compact = false }: { compact?: boolean }) {
     <form onSubmit={submit} className="w-full" noValidate>
       <div
         className={`flex items-center gap-2 rounded-2xl bg-white p-2 ring-1 transition-shadow focus-within:shadow-lift ${
-          error ? "ring-red-300" : "ring-slate-200 focus-within:ring-brand-300"
+          error ? "ring-red-300" : "ring-slate-200 focus-within:ring-acc/40"
         } ${compact ? "" : "shadow-card"}`}
       >
-        <MapPin className="ml-2 h-5 w-5 shrink-0 text-brand-600" aria-hidden="true" />
+        <MapPin className="ml-2 h-5 w-5 shrink-0 text-acc-text" aria-hidden="true" />
         <label htmlFor={compact ? "zip-c" : "zip"} className="sr-only">ZIP code</label>
         <input
           id={compact ? "zip-c" : "zip"}
@@ -37,7 +44,7 @@ export function ZipSearch({ compact = false }: { compact?: boolean }) {
           placeholder="Enter your ZIP code"
           value={zip}
           onChange={(e) => setZip(e.target.value.replace(/\D/g, ""))}
-          className="min-w-0 flex-1 bg-transparent py-2 text-base font-semibold text-navy placeholder:font-medium placeholder:text-slate-400 focus:outline-none"
+          className="min-w-0 flex-1 bg-transparent py-2 text-base font-semibold text-acc-ink placeholder:font-medium placeholder:text-slate-400 focus:outline-none"
         />
         <button type="submit" className="btn btn-primary shrink-0 !px-4 sm:!px-6">
           <Search className="h-4 w-4" />
@@ -52,6 +59,11 @@ export function ZipSearch({ compact = false }: { compact?: boolean }) {
           </motion.p>
         )}
       </AnimatePresence>
+      {done && (
+        <p className="mt-2 pl-2 text-sm font-medium opacity-90" role="status">
+          {done}
+        </p>
+      )}
     </form>
   );
 }

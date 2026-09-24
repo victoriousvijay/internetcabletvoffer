@@ -212,7 +212,7 @@ export const providers: Provider[] = [
     ],
     coverage: "Serves customers in 41 states, making it one of the most widely available wired providers.",
     bestFor: "Families who want simple, unlimited internet bundled with TV and mobile",
-    heroImage: images.livingTv,
+    heroImage: images.kitchen,
     sideImage: images.cozyRoom,
     plans: [
       { name: "Spectrum Internet Premier", download: "500 Mbps", upload: "Up to 20 Mbps", price: 50 },
@@ -477,8 +477,8 @@ export const providers: Provider[] = [
     ],
     coverage: "Serves customers in 25 states, with fiber passing millions of homes.",
     bestFor: "Speed seekers who want multi-gig fiber at competitive prices",
-    heroImage: images.gaming,
-    sideImage: images.lightWaves,
+    heroImage: images.lightWaves,
+    sideImage: images.gaming,
     plans: [
       { name: "Fiber 500", download: "500 Mbps", upload: "500 Mbps", price: 45 },
       { name: "Fiber 1 Gig", download: "1 Gbps", upload: "1 Gbps", price: 65, popular: true },
@@ -608,7 +608,7 @@ export const providers: Provider[] = [
     coverage: "Available in 21 states with its largest presence in the New York metro area.",
     bestFor: "Households wanting internet, TV and mobile from one company",
     heroImage: images.livingRoom,
-    sideImage: images.livingTv,
+    sideImage: images.bedroom,
     plans: [
       { name: "Optimum 300", download: "300 Mbps", upload: "Up to 300 Mbps on fiber", price: 40 },
       { name: "Optimum 500", download: "500 Mbps", upload: "Up to 500 Mbps on fiber", price: 60 },

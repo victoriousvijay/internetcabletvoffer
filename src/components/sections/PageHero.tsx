@@ -6,7 +6,6 @@ import { img, site } from "@/lib/site";
 
 export function PageHero({
   crumbs,
-  eyebrow,
   title,
   text,
   image,
@@ -16,7 +15,6 @@ export function PageHero({
   showReviewed = true,
 }: {
   crumbs: { name: string; path: string }[];
-  eyebrow?: string;
   title: string;
   text?: string;
   image?: string;
@@ -32,8 +30,7 @@ export function PageHero({
       <div className={`container-x relative grid items-center gap-10 ${image || aside ? "lg:grid-cols-[1.15fr_1fr]" : ""}`}>
         <Reveal>
           <Breadcrumbs items={crumbs} />
-          {eyebrow && <span className="eyebrow mt-6">{eyebrow}</span>}
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-navy sm:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">{title}</h1>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-navy sm:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">{title}</h1>
           {text && <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">{text}</p>}
           {showReviewed && (
             <p className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-slate-500">

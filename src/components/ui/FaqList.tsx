@@ -19,10 +19,10 @@ export function FaqList({ faqs, defaultOpen = 0 }: { faqs: Faq[]; defaultOpen?: 
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
               >
-                <span className={`text-base font-bold transition-colors sm:text-lg ${isOpen ? "text-brand-700" : "text-navy"}`}>{f.q}</span>
+                <span className={`text-base font-bold transition-colors sm:text-lg ${isOpen ? "text-acc-text" : "text-acc-ink"}`}>{f.q}</span>
                 <span
                   className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
-                    isOpen ? "rotate-45 bg-brand-700 text-white" : "bg-brand-50 text-brand-700"
+                    isOpen ? "rotate-45 bg-acc text-on-acc" : "bg-acc-soft text-acc-text"
                   }`}
                 >
                   <Plus className="h-4 w-4" />

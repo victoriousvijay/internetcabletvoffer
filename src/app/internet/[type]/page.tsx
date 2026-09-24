@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowRight, Lightbulb, Target } from "lucide-react";
-import { PageHero } from "@/components/sections/PageHero";
+import { Lightbulb, Target } from "lucide-react";
+import { ThemedHero } from "@/components/themed/ThemedHero";
 import { ProviderCard } from "@/components/sections/ProviderCard";
 import { CompareTable } from "@/components/sections/CompareTable";
 import { ProsCons } from "@/components/sections/ProsCons";
@@ -14,9 +13,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqList } from "@/components/ui/FaqList";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getInternetType, internetTypes, providersForType } from "@/data/internetTypes";
+import { getInternetType, internetTypes, providersForType, type InternetType } from "@/data/internetTypes";
+import { typeThemes, themeVars, type PageTheme } from "@/data/themes";
 import { breadcrumbSchema, faqSchema, pageMeta, abs } from "@/lib/schema";
 import { img, site } from "@/lib/site";
+
+/** Lower-case for mid-sentence use, but keep acronyms like DSL and 5G. */
+const lc = (s: string) => s.split(" ").map((w) => (/^[A-Z0-9]{2,}/.test(w) ? w : w.toLowerCase())).join(" ");
 
 export function generateStaticParams() {
   return internetTypes.map((t) => ({ type: t.slug }));
@@ -31,10 +34,59 @@ export async function generateMetadata({ params }: { params: Promise<{ type: str
   return pageMeta({ title: t.metaTitle, description: t.metaDescription, path: `/internet/${t.slug}`, image: img(t.heroImage, 1200) });
 }
 
+/** "How it works" in two looks: dark numbered steps, or a vertical timeline beside a photo. */
+function HowItWorks({ t, theme }: { t: InternetType; theme: PageTheme }) {
+  const title = `How does ${lc(t.short)} internet work?`;
+  if (theme.features === "bento") {
+    return (
+      <section className="container-x py-16 sm:py-24">
+        <SectionHeading title={title} />
+        <Stagger className="mt-10 grid gap-4 md:grid-cols-3">
+          {t.howItWorks.map((s, i) => (
+            <StaggerItem
+              key={s.title}
+              className={`relative overflow-hidden rounded-3xl p-7 ${i === 1 ? "bg-acc text-on-acc" : "text-white"}`}
+            >
+              {i !== 1 && <div className="absolute inset-0 -z-0" style={{ background: "var(--acc-ink)" }} />}
+              <span className="relative text-6xl font-black opacity-25">0{i + 1}</span>
+              <h3 className="relative mt-4 text-xl font-extrabold">{s.title}</h3>
+              <p className="relative mt-2 text-sm leading-relaxed opacity-80">{s.text}</p>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </section>
+    );
+  }
+  return (
+    <section className="container-x grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
+      <Reveal className="relative order-2 lg:order-1">
+        <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] shadow-lift">
+          <Image src={img(t.sideImage, 1200)} alt={`How ${lc(t.name)} reaches your home`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+        </div>
+      </Reveal>
+      <div className="order-1 lg:order-2">
+        <SectionHeading title={title} />
+        <ol className="relative mt-8 space-y-8 border-l-2 border-acc/20 pl-8">
+          {t.howItWorks.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.08} className="relative">
+              <span className="absolute -left-[2.85rem] top-0 flex h-9 w-9 items-center justify-center rounded-full bg-acc text-sm font-extrabold text-on-acc ring-4 ring-white">
+                {i + 1}
+              </span>
+              <h3 className="text-lg font-extrabold text-acc-ink">{s.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-slate-600">{s.text}</p>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 export default async function InternetTypePage({ params }: { params: Promise<{ type: string }> }) {
   const { type } = await params;
   const t = getInternetType(type);
   if (!t) notFound();
+  const theme = typeThemes[t.slug];
   const list = providersForType(t);
   const crumbs = [
     { name: "Home", path: "/" },
@@ -54,63 +106,29 @@ export default async function InternetTypePage({ params }: { params: Promise<{ t
   };
 
   return (
-    <>
+    <div style={themeVars(theme)}>
       <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(t.faqs), article]} />
-      <PageHero
+      <ThemedHero
+        theme={theme}
         crumbs={crumbs}
-        eyebrow={t.eyebrow}
         title={t.h1}
-        text={`Compare ${t.name.toLowerCase()} providers, plans and prices — plus how ${t.short.toLowerCase()} works and who it's best for.`}
+        intro={`Compare ${lc(t.name)} providers, plans and prices, plus how ${lc(t.short)} works and who it's best for.`}
         image={t.heroImage}
-        imageAlt={`${t.name} — ${t.eyebrow}`}
-      >
-        <div className="flex flex-wrap gap-3">
-          <Link href="#providers" className="btn btn-primary">
-            See {t.short} providers <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link href="#faqs" className="btn btn-ghost">
-            Read FAQs
-          </Link>
-        </div>
-      </PageHero>
+        imageAlt={`${t.name}: ${t.eyebrow.toLowerCase()}`}
+        stats={t.keyFacts}
+        primary={{ href: "#providers", label: `See ${t.short} providers` }}
+        secondary={{ href: "#faqs", label: "Read FAQs" }}
+      />
 
-      <section className="container-x">
-        <QuickAnswer text={t.quickAnswer} facts={t.keyFacts} />
+      <section className="container-x pt-10 sm:pt-14">
+        <QuickAnswer text={t.quickAnswer} />
       </section>
 
-      {/* How it works */}
-      <section className="container-x grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
-        <Reveal className="relative order-2 lg:order-1">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] shadow-lift">
-            <Image src={img(t.sideImage, 1200)} alt={`How ${t.name.toLowerCase()} is delivered to your home`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
-            <p className="absolute bottom-5 left-5 right-5 text-lg font-bold text-white">{t.keyFacts[0].label}: {t.keyFacts[0].value}</p>
-          </div>
-        </Reveal>
-        <div className="order-1 lg:order-2">
-          <SectionHeading eyebrow="How it works" title={`How does ${t.short.toLowerCase()} internet work?`} />
-          <Stagger className="mt-8 space-y-4">
-            {t.howItWorks.map((s, i) => (
-              <StaggerItem key={s.title} className="flex gap-4 rounded-2xl bg-sky-soft p-5 ring-1 ring-brand-100/70">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-sm font-extrabold text-white">{i + 1}</span>
-                <div>
-                  <h3 className="font-bold text-navy">{s.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{s.text}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+      <HowItWorks t={t} theme={theme} />
 
-      {/* Providers */}
-      <section id="providers" className="scroll-mt-28 bg-sky-soft py-16 sm:py-24">
+      <section id="providers" className="scroll-mt-28 bg-acc-soft py-16 sm:py-24">
         <div className="container-x">
-          <SectionHeading
-            eyebrow={`${list.length} providers`}
-            title={`Best ${t.name.toLowerCase()} providers`}
-            text={`Providers offering ${t.name.toLowerCase()}, rated on speed, value, reliability and service.`}
-          />
+          <SectionHeading title={`Best ${lc(t.name)} providers`} text={`${list.length} providers offering ${lc(t.name)}, rated on speed, value, reliability and service.`} />
           <Stagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {list.map((p) => (
               <StaggerItem key={p.slug}>
@@ -124,53 +142,51 @@ export default async function InternetTypePage({ params }: { params: Promise<{ t
         </div>
       </section>
 
-      {/* Pros & cons */}
       <section className="container-x py-16 sm:py-24">
-        <SectionHeading eyebrow="Pros & cons" title={`Is ${t.short.toLowerCase()} internet worth it?`} />
+        <SectionHeading title={`Is ${lc(t.short)} internet worth it?`} />
         <div className="mt-10">
           <ProsCons pros={t.pros} cons={t.cons} subject={t.short} />
         </div>
       </section>
 
-      {/* Best for */}
       <section className="container-x pb-16 sm:pb-24">
-        <SectionHeading eyebrow="Best for" title={`Who should choose ${t.short.toLowerCase()}?`} />
+        <SectionHeading title={`Who should choose ${lc(t.short)}?`} />
         <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
           {t.bestFor.map((b) => (
             <StaggerItem key={b.title} className="card group p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 transition-colors group-hover:bg-brand-700 group-hover:text-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-acc-soft text-acc-text transition-colors group-hover:bg-acc group-hover:text-on-acc">
                 <Target className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 text-lg font-extrabold text-navy">{b.title}</h3>
+              <h3 className="mt-5 text-lg font-extrabold text-acc-ink">{b.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{b.text}</p>
             </StaggerItem>
           ))}
         </Stagger>
-        <Reveal className="mt-8 flex gap-4 rounded-3xl bg-gradient-to-br from-brand-700 to-navy p-6 text-white sm:p-8">
-          <Lightbulb className="h-7 w-7 shrink-0 text-brand-200" />
-          <div>
+        <Reveal className="relative mt-8 flex gap-4 overflow-hidden rounded-3xl p-6 text-white sm:p-8">
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, var(--acc), var(--acc-ink))" }} />
+          <Lightbulb className="relative h-7 w-7 shrink-0 opacity-80" />
+          <div className="relative">
             <h3 className="text-lg font-extrabold">Our verdict</h3>
-            <p className="mt-2 leading-relaxed text-brand-100/90">{t.verdict}</p>
+            <p className="mt-2 leading-relaxed text-white/90">{t.verdict}</p>
           </div>
         </Reveal>
       </section>
 
-      {/* FAQs */}
       <section id="faqs" className="container-x scroll-mt-28">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr]">
-          <SectionHeading eyebrow="FAQs" title={`${t.name} FAQs`} />
+          <SectionHeading title={`${t.name} FAQs`} />
           <FaqList faqs={t.faqs} />
         </div>
       </section>
 
       <section className="container-x pt-16 sm:pt-24">
-        <SectionHeading eyebrow="Keep exploring" title="Other internet types" />
+        <SectionHeading title="Other internet types" />
         <div className="mt-10">
           <TypeGrid exclude={t.slug} />
         </div>
       </section>
 
-      <CtaBand title={`Find ${t.name.toLowerCase()} deals near you`} />
-    </>
+      <CtaBand title={`Find ${lc(t.name)} deals near you`} />
+    </div>
   );
 }

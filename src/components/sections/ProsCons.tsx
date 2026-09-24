@@ -5,7 +5,7 @@ export function ProsCons({ pros, cons, subject }: { pros: string[]; cons: string
   return (
     <div className="grid gap-5 md:grid-cols-2">
       <Reveal className="card p-6 sm:p-8">
-        <h3 className="flex items-center gap-3 text-lg font-extrabold text-navy">
+        <h3 className="flex items-center gap-3 text-lg font-extrabold text-acc-ink">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
             <CheckCircle2 className="h-5 w-5" />
           </span>
@@ -21,7 +21,7 @@ export function ProsCons({ pros, cons, subject }: { pros: string[]; cons: string
         </ul>
       </Reveal>
       <Reveal delay={0.1} className="card p-6 sm:p-8">
-        <h3 className="flex items-center gap-3 text-lg font-extrabold text-navy">
+        <h3 className="flex items-center gap-3 text-lg font-extrabold text-acc-ink">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-rose-50 text-rose-500">
             <XCircle className="h-5 w-5" />
           </span>

@@ -33,9 +33,9 @@ export function SubNav({ items }: { items: { id: string; label: string }[] }) {
             <a
               key={it.id}
               href={`#${it.id}`}
-              className={`relative shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${on ? "text-white" : "text-slate-600 hover:text-navy"}`}
+              className={`relative shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${on ? "text-on-acc" : "text-slate-600 hover:text-acc-ink"}`}
             >
-              {on && <motion.span layoutId="subnav-pill" className="absolute inset-0 rounded-full bg-brand-700" transition={{ type: "spring", stiffness: 400, damping: 34 }} />}
+              {on && <motion.span layoutId="subnav-pill" className="absolute inset-0 rounded-full bg-acc" transition={{ type: "spring", stiffness: 400, damping: 34 }} />}
               <span className="relative">{it.label}</span>
             </a>
           );

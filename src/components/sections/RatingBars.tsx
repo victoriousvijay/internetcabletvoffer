@@ -9,11 +9,11 @@ export function RatingBars({ scores }: { scores: { label: string; value: number 
         <li key={s.label}>
           <div className="flex items-center justify-between text-sm">
             <span className="font-semibold text-slate-700">{s.label}</span>
-            <span className="font-extrabold text-navy">{s.value.toFixed(1)}</span>
+            <span className="font-extrabold text-acc-ink">{s.value.toFixed(1)}</span>
           </div>
           <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-100">
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-brand-400 to-brand-700"
+              className="h-full rounded-full bg-gradient-to-r from-acc-2 to-acc"
               initial={{ width: 0 }}
               whileInView={{ width: `${(s.value / 5) * 100}%` }}
               viewport={{ once: true }}

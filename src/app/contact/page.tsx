@@ -25,7 +25,6 @@ export default function ContactPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        eyebrow="We're here to help"
         title="Contact Internet Cable TV Offers"
         text="Questions about a plan, spotted an outdated price, or want to partner with us? Send us a note."
         showReviewed={false}

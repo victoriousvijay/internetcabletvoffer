@@ -9,9 +9,9 @@ export function Breadcrumbs({ items, light = false }: { items: { name: string; p
           <li key={it.path} className="flex items-center gap-1">
             {i > 0 && <ChevronRight className="h-3.5 w-3.5 opacity-60" />}
             {i === items.length - 1 ? (
-              <span className={light ? "text-white" : "text-navy"} aria-current="page">{it.name}</span>
+              <span className={light ? "text-white" : "text-acc-ink"} aria-current="page">{it.name}</span>
             ) : (
-              <Link href={it.path} className={light ? "hover:text-white" : "hover:text-brand-700"}>{it.name}</Link>
+              <Link href={it.path} className={light ? "hover:text-white" : "hover:text-acc-text"}>{it.name}</Link>
             )}
           </li>
         ))}

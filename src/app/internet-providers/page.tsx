@@ -46,7 +46,6 @@ export default function ProvidersHub() {
       <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(faqs), itemList]} />
       <PageHero
         crumbs={crumbs}
-        eyebrow="Compare providers"
         title="Internet Providers: Compare Plans & Prices"
         text="Every major U.S. internet provider in one place — filter by connection type and sort by price, speed or rating."
         image={images.earthLights}
@@ -70,7 +69,7 @@ export default function ProvidersHub() {
       </section>
 
       <section id="compare" className="container-x scroll-mt-28 py-16 sm:py-20">
-        <SectionHeading eyebrow="Explore" title="Find your provider" text="Filter by technology and sort to find the right plan faster." />
+        <SectionHeading title="Find your provider" text="Filter by technology and sort to find the right plan faster." />
         <div className="mt-8">
           <Suspense>
             <ProviderExplorer />
@@ -80,7 +79,7 @@ export default function ProvidersHub() {
 
       <section className="bg-sky-soft py-16 sm:py-20">
         <div className="container-x">
-          <SectionHeading eyebrow="Comparison chart" title="Internet providers side by side" />
+          <SectionHeading title="Internet providers side by side" />
           <div className="mt-10">
             <CompareTable list={providers} caption="Internet providers side by side" />
           </div>
@@ -88,7 +87,7 @@ export default function ProvidersHub() {
       </section>
 
       <section className="container-x py-16 sm:py-20">
-        <SectionHeading eyebrow="By technology" title="Browse providers by internet type" />
+        <SectionHeading title="Browse providers by internet type" />
         <div className="mt-10">
           <TypeGrid />
         </div>
@@ -96,7 +95,7 @@ export default function ProvidersHub() {
 
       <section className="container-x">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr]">
-          <SectionHeading eyebrow="FAQs" title="Internet provider FAQs" />
+          <SectionHeading title="Internet provider FAQs" />
           <FaqList faqs={faqs} />
         </div>
       </section>
