@@ -20,10 +20,10 @@ import { faqSchema, abs } from "@/lib/schema";
 import { img, images } from "@/lib/site";
 
 const stats = [
-  { value: "9", label: "Top national providers" },
-  { value: "7", label: "Internet types explained" },
-  { value: "8 Gbps", label: "Fastest plan we track" },
-  { value: "$40", label: "Lowest starting price" },
+  { value: "9", label: "Top national providers", art: "providers" as const },
+  { value: "7", label: "Internet types explained", art: "types" as const },
+  { value: "8 Gbps", label: "Fastest plan we track", art: "speed" as const },
+  { value: "$40", label: "Lowest starting price", art: "price" as const },
 ];
 
 export default function Home() {
