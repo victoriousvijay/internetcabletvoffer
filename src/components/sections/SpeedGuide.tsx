@@ -1,97 +1,136 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Gamepad2, Home, Laptop, User, Users } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
+import { Briefcase, Film, Gamepad2, Globe, Home, Upload, User, Users, UsersRound } from "lucide-react";
+import { Step, Stepper } from "@/components/ui/Stepper";
 
-const profiles = [
-  { key: "solo", icon: User, label: "Just me", devices: "1–3 devices", speed: 100, range: "100–200 Mbps", type: "5G Home, Cable or DSL", href: "/internet/5g-home-internet", text: "Browsing, HD streaming and occasional video calls run smoothly at this tier." },
-  { key: "couple", icon: Users, label: "Couple / roommates", devices: "4–8 devices", speed: 300, range: "300–500 Mbps", type: "Cable or Fiber", href: "/internet/cable", text: "Enough headroom for two people streaming 4K and working from home at the same time." },
-  { key: "family", icon: Home, label: "Family home", devices: "8–15 devices", speed: 500, range: "500 Mbps – 1 Gbps", type: "Fiber or Cable", href: "/internet/fiber", text: "Multiple 4K TVs, tablets, smart-home gear and school video calls — without the buffering." },
-  { key: "wfh", icon: Laptop, label: "Remote worker", devices: "Heavy uploads", speed: 1000, range: "1 Gbps symmetrical", type: "Fiber", href: "/internet/fiber", text: "Fiber's matching upload speed keeps video calls sharp and large file uploads fast." },
-  { key: "gamer", icon: Gamepad2, label: "Gamer / creator", devices: "Low latency", speed: 2000, range: "1–2+ Gbps fiber", type: "Multi-gig Fiber", href: "/internet/fiber", text: "Low ping, fast game downloads and live streaming to your audience at full quality." },
+const people = [
+  { v: 100, label: "Just me", icon: User },
+  { v: 300, label: "2 people", icon: Users },
+  { v: 500, label: "3–4 people", icon: UsersRound },
+  { v: 800, label: "5 or more", icon: Home },
+];
+const activities = [
+  { k: "browse", add: 0, label: "Browsing & email", icon: Globe },
+  { k: "stream", add: 100, label: "HD / 4K streaming", icon: Film },
+  { k: "wfh", add: 200, label: "Work-from-home calls", icon: Briefcase, upload: true },
+  { k: "game", add: 200, label: "Online gaming", icon: Gamepad2, upload: true },
+  { k: "create", add: 300, label: "Uploading & creating", icon: Upload, upload: true },
+];
+const devices = [
+  { add: 0, label: "1–5 devices" },
+  { add: 100, label: "6–10 devices" },
+  { add: 200, label: "11–20 devices" },
+  { add: 400, label: "20+ devices" },
 ];
 
+function recommend(score: number, upload: boolean) {
+  const r =
+    score <= 200
+      ? { range: "100–200 Mbps", type: "5G Home, Cable or DSL", href: "/internet/5g-home-internet", pct: 18 }
+      : score <= 500
+        ? { range: "300–500 Mbps", type: "Cable or Fiber", href: "/internet/cable", pct: 42 }
+        : score <= 1000
+          ? { range: "500 Mbps – 1 Gbps", type: "Fiber or Cable", href: "/internet/fiber", pct: 68 }
+          : { range: "1–2+ Gbps", type: "Multi-gig Fiber", href: "/internet/fiber", pct: 95 };
+  return upload && r.pct > 18 ? { ...r, type: "Fiber (fast uploads)", href: "/internet/fiber" } : r;
+}
+
+function Choice({ on, onClick, icon: Icon, label }: { on: boolean; onClick: () => void; icon?: React.ElementType; label: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={on}
+      className={`flex min-h-14 items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm font-semibold transition-all duration-300 ${
+        on ? "bg-brand-700 text-white shadow-lift" : "bg-slate-50 text-navy ring-1 ring-slate-200 hover:ring-brand-300"
+      }`}
+    >
+      {Icon && (
+        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${on ? "bg-white/15" : "bg-white text-brand-700"}`}>
+          <Icon className="h-[18px] w-[18px]" />
+        </span>
+      )}
+      {label}
+    </button>
+  );
+}
+
 export function SpeedGuide() {
-  const [active, setActive] = useState(2);
-  const p = profiles[active];
-  const pct = Math.min(100, (Math.log10(p.speed) - 1.5) / (Math.log10(2000) - 1.5) * 100);
+  const router = useRouter();
+  const [who, setWho] = useState<number | null>(null);
+  const [acts, setActs] = useState<string[]>([]);
+  const [dev, setDev] = useState<number | null>(null);
+
+  const chosen = activities.filter((a) => acts.includes(a.k));
+  const score = (who ?? 0) + chosen.reduce((s, a) => s + a.add, 0) + (dev !== null ? devices[dev].add : 0);
+  const rec = recommend(score, chosen.some((a) => a.upload));
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-      <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 lg:mx-0 lg:grid lg:overflow-visible lg:px-0" role="tablist" aria-label="Household type">
-        {profiles.map((pr, i) => {
-          const Icon = pr.icon;
-          const on = i === active;
-          return (
-            <button
-              key={pr.key}
-              role="tab"
-              aria-selected={on}
-              onClick={() => setActive(i)}
-              className={`relative flex min-w-[10.5rem] shrink-0 items-center gap-3 rounded-2xl p-4 text-left transition-colors lg:min-w-0 ${
-                on ? "text-white" : "bg-white text-navy ring-1 ring-slate-200/70 hover:ring-brand-200"
-              }`}
-            >
-              {on && (
-                <motion.span
-                  layoutId="speed-tab"
-                  className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 shadow-lift"
-                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                />
-              )}
-              <span className={`relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${on ? "bg-white/15" : "bg-brand-50 text-brand-700"}`}>
-                <Icon className="h-5 w-5" />
-              </span>
-              <span className="relative">
-                <span className="block text-sm font-bold">{pr.label}</span>
-                <span className={`block text-xs ${on ? "text-brand-100" : "text-slate-500"}`}>{pr.devices}</span>
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="card relative overflow-hidden p-6 sm:p-8">
-        <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-100 blur-2xl" />
-        <AnimatePresence mode="wait">
+    <Stepper
+      initialStep={1}
+      backButtonText="Previous"
+      nextButtonText="Next"
+      finalButtonText="See matching plans"
+      canProceed={(s) => (s === 1 ? who !== null : s === 2 ? acts.length > 0 : s === 3 ? dev !== null : true)}
+      onFinalStepCompleted={() => router.push(rec.href)}
+    >
+      <Step>
+        <h3 className="text-xl font-extrabold text-navy sm:text-2xl">Who uses the internet at home?</h3>
+        <p className="mt-1 text-sm text-slate-500">Pick one.</p>
+        <div className="mt-5 grid grid-cols-2 gap-2.5">
+          {people.map((p) => (
+            <Choice key={p.label} on={who === p.v} onClick={() => setWho(p.v)} icon={p.icon} label={p.label} />
+          ))}
+        </div>
+      </Step>
+      <Step>
+        <h3 className="text-xl font-extrabold text-navy sm:text-2xl">What do you do most online?</h3>
+        <p className="mt-1 text-sm text-slate-500">Choose all that apply.</p>
+        <div className="mt-5 grid gap-2.5 sm:grid-cols-2">
+          {activities.map((a) => (
+            <Choice
+              key={a.k}
+              on={acts.includes(a.k)}
+              onClick={() => setActs((s) => (s.includes(a.k) ? s.filter((x) => x !== a.k) : [...s, a.k]))}
+              icon={a.icon}
+              label={a.label}
+            />
+          ))}
+        </div>
+      </Step>
+      <Step>
+        <h3 className="text-xl font-extrabold text-navy sm:text-2xl">How many connected devices?</h3>
+        <p className="mt-1 text-sm text-slate-500">Phones, TVs, laptops, consoles, smart-home gear.</p>
+        <div className="mt-5 grid grid-cols-2 gap-2.5">
+          {devices.map((d, i) => (
+            <Choice key={d.label} on={dev === i} onClick={() => setDev(i)} label={d.label} />
+          ))}
+        </div>
+      </Step>
+      <Step>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Your recommended speed</p>
+        <p className="mt-2 text-4xl font-extrabold tracking-tight text-navy sm:text-5xl">{rec.range}</p>
+        <div className="mt-6 h-3 overflow-hidden rounded-full bg-slate-100">
           <motion.div
-            key={p.key}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Recommended speed</p>
-            <p className="mt-2 text-4xl font-extrabold tracking-tight text-navy sm:text-5xl">{p.range}</p>
-            <div className="mt-6 h-3 overflow-hidden rounded-full bg-slate-100">
-              <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-brand-400 to-brand-700"
-                initial={{ width: 0 }}
-                animate={{ width: `${Math.max(12, pct)}%` }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </div>
-            <div className="mt-2 flex justify-between text-[11px] font-medium text-slate-400">
-              <span>50 Mbps</span>
-              <span>500 Mbps</span>
-              <span>2 Gbps+</span>
-            </div>
-            <p className="mt-6 leading-relaxed text-slate-600">{p.text}</p>
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-sky-soft p-4 ring-1 ring-brand-100">
-              <div>
-                <p className="text-xs text-slate-500">Best connection type</p>
-                <p className="font-extrabold text-navy">{p.type}</p>
-              </div>
-              <Link href={p.href} className="btn btn-primary !py-2.5">
-                See plans <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
+            className="h-full rounded-full bg-gradient-to-r from-brand-400 to-brand-700"
+            initial={{ width: 0 }}
+            animate={{ width: `${rec.pct}%` }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </div>
+        <div className="mt-2 flex justify-between text-[11px] font-medium text-slate-400">
+          <span>50 Mbps</span>
+          <span>500 Mbps</span>
+          <span>2 Gbps+</span>
+        </div>
+        <div className="mt-6 rounded-2xl bg-sky-soft p-4 ring-1 ring-brand-100">
+          <p className="text-xs text-slate-500">Best connection type</p>
+          <p className="font-extrabold text-navy">{rec.type}</p>
+        </div>
+      </Step>
+    </Stepper>
   );
 }

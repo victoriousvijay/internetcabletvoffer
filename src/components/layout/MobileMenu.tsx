@@ -14,7 +14,7 @@ const listV = { hidden: {}, show: { transition: { staggerChildren: 0.05, delayCh
 const itemV = { hidden: { opacity: 0, x: 24 }, show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const } } };
 
 export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const [section, setSection] = useState<string | null>("internet");
+  const [section, setSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {

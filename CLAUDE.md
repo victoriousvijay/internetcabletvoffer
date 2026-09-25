@@ -104,6 +104,12 @@ src/
 - **Provider pages are self-contained:** nothing about other providers (no alternatives section; the ZIP search stays on the page via `<ZipSearch provider=…>`). Only the global navbar lists other providers.
 - **Themed components:** `components/themed/ThemedHero.tsx` (4 hero layouts), `Motif.tsx` (brand patterns), `ProviderSections.tsx` (Plans, Features, Ratings, TV).
 - **Mobile specifics:** themed sticky bottom bar (`MobileCtaBar`) with page-specific actions/colors; plan cards become a swipeable snap carousel; plan rows stack; big line-art motifs hidden below `lg`; `.grid > * { min-width: 0 }` and `overflow-x: clip` on html/body so nothing ever scrolls sideways. Test at 360px width.
+- **Home sections:**
+  - Stats = mac-window tiles (`sections/StatCards.tsx`): dark navy card, traffic-light dots, big number, blue on hover; 2×2 on phones.
+  - Internet types = accordion gallery (`sections/AccordionGallery.tsx`, used by `TypeGrid`): hover-expands to 52% on desktop (defaultIndex 2), vertical tap-to-open stack on phones.
+  - Speed guide = stepper quiz (`ui/Stepper.tsx` + `sections/SpeedGuide.tsx`): household → activities → devices → recommendation; final button goes to the matching internet-type page.
+  - "Three simple steps" = scroll-driven timeline (`sections/ScrollSteps.tsx`, art in `StepIllustrations.tsx`): center line fills on scroll, steps alternate sides with keywords opposite; phones show line on the left with illustration + headline only.
+- **Mobile menu:** all accordions start closed.
 - **Photos:** never use photos showing third-party brands (TV UIs, gaming logos) on provider pages.
 - **Images:** relevant photography (Unsplash) on every major section — never a wall of text. Keep paragraphs short; prefer cards, icons, stats, tables.
 - **Mobile:** dedicated layout — hamburger → full-height drawer with accordions, sticky bottom CTA bar, horizontally scrollable tables, 16px gutters, touch targets ≥ 44px.

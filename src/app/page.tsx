@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ClipboardList, MousePointerClick, PlugZap, Tv, Radio, Smartphone } from "lucide-react";
+import { ArrowRight, CheckCircle2, Tv, Radio, Smartphone } from "lucide-react";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { ProviderCard } from "@/components/sections/ProviderCard";
 import { TypeGrid } from "@/components/sections/TypeGrid";
 import { CompareTable } from "@/components/sections/CompareTable";
 import { SpeedGuide } from "@/components/sections/SpeedGuide";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { StatCards } from "@/components/sections/StatCards";
+import { ScrollSteps } from "@/components/sections/ScrollSteps";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProviderLogo } from "@/components/ui/ProviderBadge";
 import { FaqList } from "@/components/ui/FaqList";
@@ -22,12 +24,6 @@ const stats = [
   { value: "7", label: "Internet types explained" },
   { value: "8 Gbps", label: "Fastest plan we track" },
   { value: "$40", label: "Lowest starting price" },
-];
-
-const steps = [
-  { icon: ClipboardList, title: "Tell us what you need", text: "Enter your ZIP or pick your household type to see the speed you actually need." },
-  { icon: MousePointerClick, title: "Compare real plans", text: "See prices, speeds, contracts and data caps side by side — no fine-print surprises." },
-  { icon: PlugZap, title: "Connect with confidence", text: "Choose your plan and order directly from the provider. Our service is always free." },
 ];
 
 export default function Home() {
@@ -65,14 +61,7 @@ export default function Home() {
 
       {/* Stats */}
       <section className="container-x py-14 sm:py-16">
-        <Stagger className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {stats.map((s) => (
-            <StaggerItem key={s.label} className="rounded-3xl bg-sky-soft p-6 text-center ring-1 ring-brand-100/70">
-              <p className="bg-gradient-to-br from-brand-600 to-navy bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">{s.value}</p>
-              <p className="mt-1 text-sm font-medium text-slate-600">{s.label}</p>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        <StatCards stats={stats} />
       </section>
 
       {/* Providers */}
@@ -114,7 +103,7 @@ export default function Home() {
       <section className="container-x py-16 sm:py-24">
         <SectionHeading
           title="How much internet speed do you need?"
-          text="Pick the household that sounds like yours — we'll recommend a speed and connection type."
+          text="Answer three quick questions and we'll recommend a speed and connection type."
         />
         <div className="mt-10">
           <SpeedGuide />
@@ -184,21 +173,7 @@ export default function Home() {
       {/* How it works */}
       <section className="container-x py-16 sm:py-24">
         <SectionHeading center title="Better internet in three simple steps" />
-        <Stagger className="mt-12 grid gap-5 md:grid-cols-3">
-          {steps.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <StaggerItem key={s.title} className="card group relative overflow-hidden p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-lift">
-                <span className="absolute right-6 top-4 text-6xl font-extrabold text-brand-50 transition-colors group-hover:text-brand-100">0{i + 1}</span>
-                <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-800 text-white shadow-lift">
-                  <Icon className="h-6 w-6" />
-                </span>
-                <h3 className="relative mt-6 text-lg font-extrabold text-navy">{s.title}</h3>
-                <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{s.text}</p>
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
+        <ScrollSteps />
       </section>
 
       {/* Comparison table */}
