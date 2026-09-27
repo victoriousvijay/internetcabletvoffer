@@ -13,7 +13,7 @@
 | **Goal** | A clean, modern, professional and "crispy" internet & TV comparison site that is SEO + GEO (Generative Engine Optimization) ready. |
 | **Theme** | Blue & white, professional, clean, unique. Primary `#1d4ed8` family, deep navy `#0b1b3f`, white surfaces, soft sky tints. |
 | **Out of scope (for now)** | State / city / location pages. Do **not** add location pages until asked. |
-| **Deploy** | GitHub `victoriousvijay/internetcabletvoffer` → Vercel. |
+| **Deploy** | Production: Hostinger VPS (internetcabletvoffers.com). GitHub `victoriousvijay/internetcabletvoffer` is the source; Vercel keeps a preview copy. |
 
 ## 2. Page map
 
@@ -137,7 +137,23 @@ npm run lint
 
 ## 10. Deployment
 
-1. Push `main` to `https://github.com/victoriousvijay/internetcabletvoffer`.
-2. Vercel project imports the repo (framework preset: Next.js, no env vars required).
-3. Optional env `NEXT_PUBLIC_SITE_URL` sets the canonical domain (defaults to the value in `src/lib/site.ts`).
-4. Env `NEXT_PUBLIC_PHONE` sets the Call Now number (placeholder until set).
+**Production: Hostinger VPS** `srv1824329` (187.127.249.30, Ubuntu 24.04), domain **internetcabletvoffers.com**.
+The VPS also hosts other client sites (areainternetproviders, coreconnectnet on :3000, businessinternetwifi). **Only touch this site's own files:**
+
+| What | Where |
+|---|---|
+| Code | `/var/www/internetcabletvoffers` (git clone of the GitHub repo, branch `main`) |
+| Process | pm2 app `internetcabletvoffers` → `next start` on **127.0.0.1:3100** |
+| Nginx | `/etc/nginx/sites-available/internetcabletvoffers` (+ symlink in sites-enabled), proxies to :3100 |
+| SSL | Let's Encrypt via `certbot --nginx -d internetcabletvoffers.com -d www.internetcabletvoffers.com` |
+| DNS (Hostinger) | A `@` → 187.127.249.30, CNAME `www` → internetcabletvoffers.com |
+
+Update production after pushing to `main`:
+
+```bash
+ssh root@187.127.249.30 "cd /var/www/internetcabletvoffers && git pull && npm ci && npm run build && pm2 restart internetcabletvoffers"
+```
+
+Env: `NEXT_PUBLIC_SITE_URL` defaults to https://internetcabletvoffers.com. `NEXT_PUBLIC_PHONE` (Call Now number) goes in `/var/www/internetcabletvoffers/.env.production` on the VPS, then rebuild + restart. Never run `nginx` edits on other sites' files, never `pm2 delete all` / `pm2 kill`.
+
+Vercel (`internetcabletvoffer` project) still builds from GitHub as a preview copy; its canonical URLs point at the real domain.

@@ -1,7 +1,7 @@
 export const site = {
   name: "Internet Cable TV Offers",
   shortName: "ICTO",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://internetcabletvoffer.vercel.app").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://internetcabletvoffers.com").replace(/\/$/, ""),
   tagline: "Compare internet & TV deals from America's top providers",
   description:
     "Internet Cable TV Offers helps you compare internet, cable TV and home phone deals from AT&T, Spectrum, Verizon, Frontier, Optimum, HughesNet and more — plans, prices, speeds and honest guidance in one place.",
