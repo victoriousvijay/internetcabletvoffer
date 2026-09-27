@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { ZipSearch } from "@/components/ui/ZipSearch";
+import { CallButton } from "@/components/ui/CallButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { img, images } from "@/lib/site";
 
 export function CtaBand({
   title = "Ready to find a better internet deal?",
-  text = "Enter your ZIP code to compare internet and TV providers, plans and prices.",
+  text = "Call now and we'll help you compare internet and TV plans available at your address.",
 }: {
   title?: string;
   text?: string;
@@ -21,7 +21,10 @@ export function CtaBand({
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>
             <p className="mt-3 max-w-lg text-brand-100/85">{text}</p>
           </div>
-          <ZipSearch compact />
+          <div className="flex flex-col items-start gap-2 lg:items-end">
+            <CallButton variant="light" className="w-full !py-4 !text-base sm:w-auto" />
+            <p className="text-xs text-brand-100/70">Talk to a specialist. No obligation.</p>
+          </div>
         </div>
       </Reveal>
     </section>

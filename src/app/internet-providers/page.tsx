@@ -8,7 +8,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqList } from "@/components/ui/FaqList";
-import { ZipSearch } from "@/components/ui/ZipSearch";
+import { CallButton } from "@/components/ui/CallButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { providers } from "@/data/providers";
 import { breadcrumbSchema, faqSchema, pageMeta, abs } from "@/lib/schema";
@@ -51,8 +51,9 @@ export default function ProvidersHub() {
         image={images.earthLights}
         imageAlt="Night view of Earth with city lights representing nationwide internet coverage"
       >
-        <div className="max-w-lg">
-          <ZipSearch />
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <CallButton className="w-full sm:w-auto" />
+          <a href="#compare" className="btn btn-ghost w-full sm:w-auto">View plans</a>
         </div>
       </PageHero>
 

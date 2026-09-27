@@ -5,7 +5,7 @@ import { QuickAnswer } from "@/components/ui/QuickAnswer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqList } from "@/components/ui/FaqList";
 import { Reveal } from "@/components/ui/Reveal";
-import { ZipSearch } from "@/components/ui/ZipSearch";
+import { CallButton } from "@/components/ui/CallButton";
 import { SubNav } from "@/components/sections/SubNav";
 import { ThemedHero } from "@/components/themed/ThemedHero";
 import { Features, Plans, Ratings, TvBlock } from "@/components/themed/ProviderSections";
@@ -116,7 +116,6 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
           { label: "Our rating", value: `${p.rating.toFixed(1)} / 5` },
         ]}
         primary={{ href: "#plans", label: `View ${p.name} plans` }}
-        secondary={{ href: "#availability", label: "Check availability" }}
         topline={
           <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold ${dark ? "bg-white/10 ring-1 ring-white/15" : "bg-white ring-1 ring-black/5"}`}>
             <Star className="h-4 w-4 fill-amber-400 text-amber-400" /> {p.rating.toFixed(1)}
@@ -134,12 +133,15 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
         <section id="availability" className="container-x scroll-mt-32 py-16 sm:py-24">
           <Reveal className="relative overflow-hidden rounded-[2rem] px-6 py-12 sm:px-12">
             <div className="absolute inset-0" style={{ background: theme.heroDark ? theme.heroBg : "var(--acc-ink)" }} />
-            <div className="relative grid grid-cols-1 items-center gap-8 text-white lg:grid-cols-2">
+            <div className="relative grid grid-cols-1 items-center gap-8 text-white lg:grid-cols-[1.4fr_1fr]">
               <div>
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Is {p.name} available at your address?</h2>
-                <p className="mt-3 text-white/75">Enter your ZIP code to check {p.name} plans near you.</p>
+                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Ready to get {p.name}?</h2>
+                <p className="mt-3 text-white/75">Call now to check {p.name} plans and availability at your address.</p>
               </div>
-              <ZipSearch compact provider={p.name} />
+              <div className="flex flex-col items-start gap-2 lg:items-end">
+                <CallButton variant={theme.invertCta || theme.acc === theme.ink ? "light" : "primary"} className="w-full !py-4 !text-base sm:w-auto" />
+                <p className="text-xs text-white/60">Talk to a specialist. No obligation.</p>
+              </div>
             </div>
           </Reveal>
           <p className="mt-6 text-xs leading-relaxed text-slate-500">{trademarkDisclaimer}</p>

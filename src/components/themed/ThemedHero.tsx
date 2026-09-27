@@ -5,6 +5,7 @@ import type { PageTheme } from "@/data/themes";
 import { img, site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Reveal } from "@/components/ui/Reveal";
+import { CallButton } from "@/components/ui/CallButton";
 import { Motif } from "./Motif";
 
 export type HeroProps = {
@@ -18,7 +19,6 @@ export type HeroProps = {
   chips?: string[];
   stats: { label: string; value: string }[];
   primary: { href: string; label: string };
-  secondary?: { href: string; label: string };
   topline?: React.ReactNode;
 };
 
@@ -68,20 +68,17 @@ function Chips({ chips, dark }: { chips?: string[]; dark: boolean }) {
   );
 }
 
-function Ctas({ primary, secondary, dark, center, invert }: { primary: HeroProps["primary"]; secondary?: HeroProps["secondary"]; dark: boolean; center?: boolean; invert?: boolean }) {
+/** Hero CTAs: "Call Now" leads (the client wants calls), the page link ("View plans") follows. */
+function Ctas({ primary, dark, center, invert }: { primary: HeroProps["primary"]; dark: boolean; center?: boolean; invert?: boolean }) {
   return (
     <div className={`flex flex-col gap-3 sm:flex-row ${center ? "sm:justify-center" : ""}`}>
-      <Link href={primary.href} className={`btn w-full sm:w-auto ${invert ? "bg-white text-acc-ink shadow-lift hover:-translate-y-0.5 hover:bg-white/90" : "btn-primary"}`}>
+      <CallButton variant={invert ? "light" : "primary"} className="w-full sm:w-auto" />
+      <Link
+        href={primary.href}
+        className={`btn w-full sm:w-auto ${dark ? "bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/15" : "btn-ghost"}`}
+      >
         {primary.label} <ArrowRight className="h-4 w-4" />
       </Link>
-      {secondary && (
-        <Link
-          href={secondary.href}
-          className={`btn w-full sm:w-auto ${dark ? "bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/15" : "btn-ghost"}`}
-        >
-          {secondary.label}
-        </Link>
-      )}
     </div>
   );
 }
@@ -141,7 +138,7 @@ function Split(p: HeroProps) {
         <h1 className="text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">{p.title}</h1>
         <p className={`max-w-xl text-base leading-relaxed sm:text-lg ${dark ? "text-white/75" : "text-slate-600"}`}>{p.intro}</p>
         <Chips chips={p.chips} dark={dark} />
-        <Ctas primary={p.primary} secondary={p.secondary} dark={dark} invert={p.theme.invertCta} />
+        <Ctas primary={p.primary} dark={dark} invert={p.theme.invertCta} />
         <Reviewed dark={dark} />
       </Reveal>
       <Reveal delay={0.15} className="relative">
@@ -172,7 +169,7 @@ function Centered(p: HeroProps) {
           <Chips chips={p.chips} dark={dark} />
         </div>
         <div className="w-full sm:w-auto">
-          <Ctas primary={p.primary} secondary={p.secondary} dark={dark} invert={p.theme.invertCta} center />
+          <Ctas primary={p.primary} dark={dark} invert={p.theme.invertCta} center />
         </div>
         <Reviewed dark={dark} center />
       </Reveal>
@@ -206,7 +203,7 @@ function Immersive(p: HeroProps) {
           <h1 className="text-[2.2rem] font-extrabold leading-[1.06] tracking-tight sm:text-6xl">{p.title}</h1>
           <p className="text-base leading-relaxed text-white/80 sm:text-lg">{p.intro}</p>
           <Chips chips={p.chips} dark />
-          <Ctas primary={p.primary} secondary={p.secondary} dark invert={p.theme.invertCta} />
+          <Ctas primary={p.primary} dark invert={p.theme.invertCta} />
         </Reveal>
         <Reveal delay={0.15} className="mt-10">
           <Stats stats={p.stats} dark variant="glass" />
@@ -234,7 +231,7 @@ function Editorial(p: HeroProps) {
           <div className="h-1.5 w-24 rounded-full bg-acc" />
           <p className={`max-w-xl text-base leading-relaxed sm:text-lg ${dark ? "text-white/75" : "text-slate-600"}`}>{p.intro}</p>
           <Chips chips={p.chips} dark={dark} />
-          <Ctas primary={p.primary} secondary={p.secondary} dark={dark} invert={p.theme.invertCta} />
+          <Ctas primary={p.primary} dark={dark} invert={p.theme.invertCta} />
         </Reveal>
         <Reveal delay={0.15} className="relative">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] lg:aspect-[3/4]">

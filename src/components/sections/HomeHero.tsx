@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { BadgeCheck, Gauge, ShieldCheck, Star, Tv, Wifi } from "lucide-react";
-import { ZipSearch } from "@/components/ui/ZipSearch";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { CallButton } from "@/components/ui/CallButton";
 import { img, images } from "@/lib/site";
 import { HeroBackground } from "./HeroBackground";
 
@@ -52,9 +54,12 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.28, ease }}
-            className="mt-8 max-w-xl scroll-mt-32"
+            className="mt-8 flex max-w-xl scroll-mt-32 flex-col gap-3 sm:flex-row"
           >
-            <ZipSearch />
+            <CallButton variant="light" className="w-full !py-4 !text-base sm:w-auto" />
+            <Link href="/internet-providers#compare" className="btn w-full bg-white/10 !py-4 !text-base text-white ring-1 ring-white/25 hover:bg-white/15 sm:w-auto">
+              View plans <ArrowRight className="h-4 w-4" />
+            </Link>
           </motion.div>
           <motion.ul
             initial="hidden"

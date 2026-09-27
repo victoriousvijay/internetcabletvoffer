@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CalendarCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Reveal } from "@/components/ui/Reveal";
+import { CallButton } from "@/components/ui/CallButton";
 import { img, site } from "@/lib/site";
 
 export function PageHero({
@@ -13,6 +14,7 @@ export function PageHero({
   children,
   aside,
   showReviewed = true,
+  call = true,
 }: {
   crumbs: { name: string; path: string }[];
   title: string;
@@ -22,6 +24,8 @@ export function PageHero({
   children?: React.ReactNode;
   aside?: React.ReactNode;
   showReviewed?: boolean;
+  /** Show the "Call Now" button (off for legal pages and when children already include one). */
+  call?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-sky-soft to-white pb-14 pt-28 sm:pb-20 sm:pt-36">
@@ -36,6 +40,11 @@ export function PageHero({
             <p className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-slate-500">
               <CalendarCheck className="h-4 w-4 text-brand-600" /> Last reviewed {site.lastReviewed}
             </p>
+          )}
+          {call && !children && (
+            <div className="mt-7">
+              <CallButton className="w-full sm:w-auto" />
+            </div>
           )}
           {children && <div className="mt-7">{children}</div>}
         </Reveal>

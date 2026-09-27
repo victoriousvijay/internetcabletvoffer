@@ -117,7 +117,6 @@ export default async function InternetTypePage({ params }: { params: Promise<{ t
         imageAlt={`${t.name}: ${t.eyebrow.toLowerCase()}`}
         stats={t.keyFacts}
         primary={{ href: "#providers", label: `See ${t.short} providers` }}
-        secondary={{ href: "#faqs", label: "Read FAQs" }}
       />
 
       <section className="container-x pt-10 sm:pt-14">

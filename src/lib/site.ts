@@ -10,6 +10,18 @@ export const site = {
   lastReviewedISO: "2026-09-24",
 };
 
+/**
+ * Sales phone number used by every "Call Now" button.
+ * PLACEHOLDER until the client sends the real number: set NEXT_PUBLIC_PHONE in Vercel (e.g. "(888) 555-1234")
+ * or replace the fallback below. Only US numbers are expected.
+ */
+const phoneDisplay = process.env.NEXT_PUBLIC_PHONE || "(800) 000-0000";
+export const phone = {
+  display: phoneDisplay,
+  tel: `+1${phoneDisplay.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "")}`,
+  isPlaceholder: !process.env.NEXT_PUBLIC_PHONE,
+};
+
 export const pricingDisclaimer =
   "Prices and speeds shown are representative starting rates reviewed in September 2026. Offers often require autopay and paperless billing, exclude taxes and fees, and vary by address. Always confirm current pricing and availability with the provider before ordering.";
 

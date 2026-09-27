@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, ChevronDown, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { CallButton } from "@/components/ui/CallButton";
 import { ProviderBadge } from "@/components/ui/ProviderBadge";
 import { internetNav, legalNav, resourceNav } from "@/lib/site";
 import { providers } from "@/data/providers";
@@ -118,9 +119,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <Link href="/internet-providers#compare" className="btn btn-primary w-full">
-                Compare Plans <ArrowRight className="h-4 w-4" />
-              </Link>
+              <CallButton className="w-full" />
             </motion.div>
           </motion.aside>
         </div>

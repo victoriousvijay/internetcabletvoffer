@@ -1,4 +1,4 @@
-import { site } from "./site";
+import { phone, site } from "./site";
 import type { Faq } from "@/data/providers";
 
 export const abs = (path: string) => `${site.url}${path}`;
@@ -22,6 +22,7 @@ export const orgSchema = {
   url: site.url,
   logo: abs("/icon.svg"),
   email: site.email,
+  ...(phone.isPlaceholder ? {} : { telephone: phone.tel }),
   description: site.description,
 };
 

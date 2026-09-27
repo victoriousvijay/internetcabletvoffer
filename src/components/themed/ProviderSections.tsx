@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Check, Flame, Gauge, MapPinned, Router, ShieldCheck, Sparkles, Tv, Users } from "lucide-react";
 import type { Provider } from "@/data/providers";
 import type { PageTheme } from "@/data/themes";
 import { img, images, pricingDisclaimer } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CallButton } from "@/components/ui/CallButton";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { Stars } from "@/components/ui/Stars";
 import { RatingBars } from "@/components/sections/RatingBars";
@@ -52,12 +52,7 @@ function PlanCards({ p }: { p: Provider }) {
               {pl.note && <li className="flex items-center gap-2"><Check className="h-4 w-4" /> {pl.note}</li>}
             </ul>
             <div className="mt-auto pt-6">
-              <Link
-                href="#availability"
-                className={`btn w-full ${pl.popular ? "bg-white text-black hover:bg-white/90" : "btn-primary"}`}
-              >
-                Check availability
-              </Link>
+              <CallButton variant={pl.popular ? "light" : "primary"} showNumber={false} className="w-full" />
             </div>
           </div>
         </StaggerItem>
@@ -91,9 +86,7 @@ function PlanRows({ p }: { p: Provider }) {
             <p className="text-right text-2xl font-extrabold text-acc-ink sm:text-left">
               ${pl.price}<span className="text-xs font-semibold text-slate-400">/mo*</span>
             </p>
-            <Link href="#availability" className="btn btn-primary order-4 col-span-2 !py-2.5 sm:order-none sm:col-span-1">
-              Check
-            </Link>
+            <CallButton showNumber={false} label="Call" className="order-4 col-span-2 !py-2.5 sm:order-none sm:col-span-1" />
           </div>
         </StaggerItem>
       ))}
@@ -219,9 +212,7 @@ export function TvBlock({ p }: { p: Provider }) {
             <Tv className="h-8 w-8" style={{ color: "var(--acc-2)" }} />
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight">{p.tv.title}</h2>
             <p className="mt-4 leading-relaxed text-white/80">{p.tv.text}</p>
-            <Link href="#availability" className="btn btn-primary mt-8">
-              Check TV &amp; internet options
-            </Link>
+            <CallButton className="mt-8" label="Call for TV + internet" />
           </div>
           <div className="relative min-h-64">
             <Image src={img(p.slug === "optimum" ? images.cozyRoom : images.livingRoom, 1000)} alt={`${p.name} internet and TV entertainment setup`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
