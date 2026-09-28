@@ -105,11 +105,13 @@ src/
 - **Per-page themes** (`src/data/themes.ts`): every provider page and internet-type page has its own palette (`acc`, `acc2`, `ink`, `soft`, `onAcc`, optional `accText`), hero background, hero layout (`split | centered | immersive | editorial`), plans layout (`cards | rows`), features layout (`bento | list`), decorative motif and section order. The page wrapper sets CSS vars (`--acc`, `--acc-2`, `--acc-ink`, `--acc-soft`, `--on-acc`, `--acc-text`); shared components use the matching Tailwind colors (`bg-acc`, `text-acc-ink`, `text-acc-text`…), so they pick up the page theme automatically and default to site blue elsewhere.
 - **Plan cards** (`sections/PlanCard.tsx`, client reference = Spectrum-style): gradient top edge, icon + tier label, big speed headline, struck-through regular price, big promo price, term, feature checklist, Call Now. Popular plan gets a warm orange edge. Used on provider pages, home featured plans.
 - **Provider pages = content-first (client demand):** each keeps its own theme/layout, but after the plans comes a long SEO guide (`themed/ProviderArticle.tsx` + `data/content`): lead, sticky table of contents, question-style H2s, H3 plan breakdowns, checklists and a mid-article Call Now box. Keep adding relevant original text here rather than decoration; never copy competitor copy.
+- **No pros & cons section on provider pages** (client request). Internet-type pages keep their "Is X worth it?" pros/cons.
+- AT&T plans (client, Sep 28): Internet 300 $35, 500 $50, 1000 $65 and AT&T Internet Air $55 only; no 2 GIG / 5 GIG cards. Spectrum = Internet 100/500/1 Gig; Kinetic = Fiber 300/1 Gig/2 Gig with prepaid card offers.
 - **Provider pages are self-contained:** nothing about other providers (no alternatives section). They close with a themed "Ready to get {provider}?" Call Now banner (`#availability`). Only the global navbar lists other providers.
 - **Themed components:** `components/themed/ThemedHero.tsx` (4 hero layouts), `Motif.tsx` (brand patterns), `ProviderSections.tsx` (Plans, Features, Ratings, TV).
 - **Mobile specifics:** themed sticky bottom bar (`MobileCtaBar`) with page-specific actions/colors; plan cards become a swipeable snap carousel; plan rows stack; big line-art motifs hidden below `lg`; `.grid > * { min-width: 0 }` and `overflow-x: clip` on html/body so nothing ever scrolls sideways. Test at 360px width.
 - **Home sections:**
-  - Below the logo strip: **Today's Best Internet Plans** (`sections/FeaturedPlans.tsx`) — 4 hand-picked plan cards (AT&T 1 GIG, Spectrum Premier, Frontier 1 Gig, Fios 300) in each provider's colors. (Replaced the old stat tiles per client.)
+  - Below the logo strip: **Today's Best Internet Plans** (`sections/FeaturedPlans.tsx`) — 4 hand-picked plan cards (AT&T 1 GIG, Spectrum Internet 500, Frontier 1 Gig, Fios 300) in each provider's colors. (Replaced the old stat tiles per client.)
   - Internet types = accordion gallery (`sections/AccordionGallery.tsx`, used by `TypeGrid`): hover-expands to 52% on desktop (defaultIndex 2), vertical tap-to-open stack on phones.
   - Speed guide = stepper quiz (`ui/Stepper.tsx` + `sections/SpeedGuide.tsx`): household → activities → devices → recommendation with up to 3 real matching plans (one per provider, cheapest first); final button opens that provider's plans.
   - "Three simple steps" = scroll-driven timeline (`sections/ScrollSteps.tsx`, art in `StepIllustrations.tsx`): center line fills on scroll, steps alternate sides with keywords opposite; phones show line on the left with illustration + headline only.
@@ -153,7 +155,7 @@ The VPS also hosts other client sites (areainternetproviders, coreconnectnet on 
 | SSL | Let's Encrypt via `certbot --nginx -d internetcabletvoffers.com -d www.internetcabletvoffers.com` |
 | DNS (Hostinger) | A `@` → 187.127.249.30, CNAME `www` → internetcabletvoffers.com |
 
-Update production after pushing to `main`:
+**Every change must be deployed to the Hostinger VPS** (client requirement), not only pushed to GitHub. Update production after pushing to `main`:
 
 ```bash
 ssh root@187.127.249.30 "cd /var/www/internetcabletvoffers && git pull && npm ci && npm run build && pm2 restart internetcabletvoffers"

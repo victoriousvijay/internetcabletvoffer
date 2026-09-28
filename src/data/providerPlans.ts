@@ -37,20 +37,20 @@ export type PlanOverrides = {
 
 export const planData: Record<string, PlanOverrides> = {
   att: {
-    startingPrice: 40,
-    maxSpeed: "5 Gbps",
-    maxSpeedMbps: 5000,
+    startingPrice: 35,
+    maxSpeed: "1 Gbps",
+    maxSpeedMbps: 1000,
+    blurb: "Fast fiber, zero contracts",
+    tagline: "100% fiber with no annual contract",
     quickAnswer:
-      "AT&T Fiber plans start at $40/mo for 300 Mbps, $50/mo for 500 Mbps and $65/mo for 1 GIG (save $15/mo), with multi-gig 2 GIG and 5 GIG tiers in many areas. Every fiber plan has equal upload and download speeds, unlimited data and no annual contract. Where fiber isn't built, AT&T Internet Air delivers wireless home internet for $60/mo.",
+      "AT&T Fiber plans start at $35/mo for 300 Mbps, $50/mo for 500 Mbps and $65/mo for 1 GIG (save $15/mo), with AutoPay and paperless billing plus taxes and fees. Every fiber plan has equal upload and download speeds, unlimited data and no annual contract. Where fiber isn't built, AT&T Internet Air delivers wireless home internet for $55/mo.",
     priceFaq:
-      "AT&T Internet 300 starts at $40/mo, Internet 500 at $50/mo and Internet 1000 (1 GIG) at $65/mo after a $15/mo savings, plus taxes. AT&T Internet Air costs $60/mo with equipment included. 2 GIG and 5 GIG pricing varies by address, so call to confirm the rate at your home.",
+      "AT&T Internet 300 starts at $35/mo, Internet 500 at $50/mo and Internet 1000 (1 GIG) at $65/mo after a $15/mo savings, with AutoPay and paperless billing, plus taxes and fees. AT&T Internet Air is $55/mo with equipment included.",
     plans: [
-      { tier: "AT&T Internet 300", headline: "300 Mbps Fiber", desc: "Fast, smooth and reliable for everyday streaming, school and work.", download: "300 Mbps", upload: "300 Mbps", price: 40, term: "/mo. plus tax, w/ AutoPay", icon: "shield", features: ["15x faster uploads than cable", "Unlimited data, no annual contract", "Wi-Fi gateway included", "AT&T Internet Backup included"] },
+      { tier: "AT&T Internet 300", headline: "300 Mbps Fiber", desc: "Fast, smooth and reliable for everyday streaming, school and work.", download: "300 Mbps", upload: "300 Mbps", price: 35, term: "/mo. plus taxes & fees, w/ AutoPay & paperless bill", icon: "shield", features: ["15x faster uploads than cable", "Unlimited data, no annual contract", "Wi-Fi gateway included", "AT&T Internet Backup included"] },
       { tier: "AT&T Internet 500", headline: "500 Mbps Fiber", desc: "Lag-free gaming and room to connect every device in the house.", download: "500 Mbps", upload: "500 Mbps", price: 50, term: "/mo. plus tax, w/ AutoPay", icon: "flame", features: ["20x faster uploads than cable", "Unlimited data, no annual contract", "Wi-Fi gateway included", "AT&T Internet Backup included"] },
       { tier: "AT&T Internet 1000", headline: "1 GIG Fiber", desc: "Built for gaming, 4K streaming and a fully connected smart home.", download: "Up to 1 Gbps", upload: "Up to 1 Gbps", price: 65, wasPrice: 80, term: "/mo. plus tax, w/ AutoPay", badge: "Save $15/mo", popular: true, icon: "bolt", features: ["25x faster uploads than cable", "Unlimited data, no annual contract", "Ask about reward card offers", "AT&T Internet Backup included"] },
-      { tier: "AT&T Fiber 2 GIG", headline: "2 GIG Fiber", desc: "Multi-gig speed for creators, large households and home offices.", download: "Up to 2 Gbps", upload: "Up to 2 Gbps", term: "Call for pricing at your address", icon: "rocket", features: ["All-Fi Pro (Wi-Fi 7) included", "Equal upload & download speeds", "Unlimited data", "No annual contract"] },
-      { tier: "AT&T Fiber 5 GIG", headline: "5 GIG Fiber", desc: "AT&T's fastest tier for power users and multi-device homes.", download: "Up to 5 Gbps", upload: "Up to 5 Gbps", term: "Call for pricing at your address", icon: "rocket", features: ["All-Fi Pro (Wi-Fi 7) included", "Up to 4.7 Gbps on one wired device", "Unlimited data", "No annual contract"] },
-      { tier: "AT&T Internet Air", headline: "5G Home Wi-Fi", desc: "Plug-and-play wireless home internet where fiber isn't available.", download: "75–225 Mbps avg.", upload: "Varies", price: 60, term: "/mo., equipment included", icon: "wifi", features: ["Self-install in minutes", "No data caps", "No annual contract", "No price increase after 12 months"] },
+      { tier: "AT&T Internet Air", headline: "AT&T Internet Air", desc: "Plug-and-play wireless home internet where fiber isn't available.", download: "75–225 Mbps avg.", upload: "Varies", price: 55, term: "/mo., equipment included", icon: "wifi", features: ["Self-install in minutes", "No data caps", "No annual contract", "No price increase after 12 months"] },
     ],
   },
   spectrum: {
@@ -58,29 +58,28 @@ export const planData: Record<string, PlanOverrides> = {
     maxSpeed: "1 Gbps",
     maxSpeedMbps: 1000,
     quickAnswer:
-      "Spectrum Internet plans start at $30/mo for 100 Mbps, $40/mo for 500 Mbps and $60/mo for 1 Gig, each for the first year. Every plan comes with no data caps, no annual contract and Unlimited Mobile included for one year, and multi-gig speeds are available in select markets. Spectrum also bundles cable TV and mobile in 41 states.",
+      "Spectrum Internet plans are Internet 100 at $30/mo, Internet 500 at $40/mo and Internet 1 Gig at $60/mo, each for the first year. Every plan includes a free modem, no data caps, no contracts and Spectrum Mobile free for a year, and Internet 1 Gig includes Advanced WiFi. Spectrum also bundles cable TV and mobile in 41 states.",
     priceFaq:
-      "Spectrum Internet Advantage (100 Mbps) is $30/mo, Internet Premier (500 Mbps) is $40/mo (normally $50) and Internet Gig (1 Gig) is $60/mo (normally $70), each for the first year. Standard rates apply after the promotional period.",
+      "Spectrum Internet 100 is $30/mo, Internet 500 is $40/mo and Internet 1 Gig is $60/mo, each for the first year. Advanced WiFi is $10/mo on the 100 and 500 plans and included with 1 Gig. Standard rates apply after the promotional period.",
     plans: [
-      { tier: "Internet Advantage", headline: "100 Mbps Internet", desc: "Reliable speeds for a smooth everyday online experience.", download: "100 Mbps", upload: "Up to 10 Mbps", price: 30, term: "/mo for 1 year", icon: "shield", features: ["Fiber-powered internet", "Unlimited Mobile included for 1 year", "Add Advanced WiFi for $10/mo", "No contracts, no data caps"] },
-      { tier: "Internet Premier", headline: "500 Mbps Internet", desc: "Powers seamless work and entertainment across multiple devices.", download: "500 Mbps", upload: "Up to 20 Mbps", price: 40, wasPrice: 50, term: "/mo for 1 year", badge: "Online exclusive price", popular: true, icon: "flame", features: ["Fiber-powered internet", "Unlimited Mobile included for 1 year", "Add Advanced WiFi for $10/mo", "No contracts, no data caps"] },
-      { tier: "Internet Gig", headline: "1 Gig Internet", desc: "Fuels serious gaming, streaming and working from home for the whole household.", download: "1 Gbps", upload: "Up to 35 Mbps", price: 60, wasPrice: 70, term: "/mo for 1 year", badge: "Online exclusive price", icon: "bolt", features: ["Fiber-powered internet", "Unlimited Mobile included for 1 year", "Advanced WiFi included", "No contracts, no data caps"] },
+      { tier: "Internet 100", headline: "100 Mbps Internet", desc: "Browsing, email, video calls and streaming.", download: "100 Mbps", upload: "Up to 10 Mbps", price: 30, term: "/mo for 1 year", icon: "shield", features: ["Add Advanced WiFi for $10/mo", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
+      { tier: "Internet 500", headline: "500 Mbps Internet", desc: "Multiple streams, work from home and gaming, all at once.", download: "500 Mbps", upload: "Up to 20 Mbps", price: 40, term: "/mo for 1 year", badge: "Online exclusive price", popular: true, icon: "flame", features: ["Add Advanced WiFi for $10/mo", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
+      { tier: "Internet 1 Gig", headline: "1000 Mbps Internet", desc: "4K on every screen, lag-free gaming, smart home devices and more.", download: "1000 Mbps", upload: "Up to 35 Mbps", price: 60, term: "/mo for 1 year", badge: "Online exclusive price", icon: "bolt", features: ["Advanced WiFi included", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
     ],
   },
   kinetic: {
-    startingPrice: 39.99,
+    startingPrice: 34.99,
     maxSpeed: "2 Gbps",
     maxSpeedMbps: 2000,
-    tagline: "Fiber up to 2 Gig with long price guarantees",
+    tagline: "Fiber from $34.99 with prepaid card offers",
     quickAnswer:
-      "Kinetic plans start at $39.99/mo for Kinetic Internet (up to 100 Mbps) and $39.99/mo for Kinetic Fiber 300, with Fiber Gig at $69.99/mo and Fiber 2 Gig at $99.99/mo, all with AutoPay and paperless billing. Fiber plans include unlimited data and price guarantees of 12 to 36 months.",
+      "Kinetic Fiber plans are Fiber 300 at $34.99/mo, Fiber 1 Gig at $39.99/mo with a $100 prepaid Mastercard, and Fiber 2 Gig at $59.99/mo with a $200 prepaid Mastercard, Wi-Fi 7 and a 2-year price guarantee. Fiber plans include unlimited data, and AT&T Wireless customers save $20/mo on their internet bill.",
     priceFaq:
-      "Kinetic Internet (up to 100 Mbps) and Kinetic Fiber 300 both start at $39.99/mo, Fiber Gig is $69.99/mo with a 24-month price guarantee and Fiber 2 Gig is $99.99/mo with a 36-month guarantee, all with AutoPay and paperless billing. One-time charges may apply.",
+      "Kinetic Fiber 300 is $34.99/mo, Fiber 1 Gig is $39.99/mo (plus a $100 prepaid Mastercard) and Fiber 2 Gig is $59.99/mo (plus a $200 prepaid Mastercard and a 2-year price guarantee). AT&T Wireless customers save $20/mo on their Kinetic internet bill. Terms apply.",
     plans: [
-      { tier: "Kinetic Internet", headline: "Up to 100 Mbps", desc: "Dependable internet for browsing, email and HD streaming.", download: "Up to 100 Mbps", upload: "Varies", price: 39.99, term: "/mo w/ AutoPay & paperless bill", icon: "home", features: ["Highest speed available at your address", "Whole-home Wi-Fi setup", "No annual contract", "12-month price guarantee"] },
-      { tier: "Kinetic Fiber 300", headline: "300 Mbps Fiber", desc: "Great for streaming and gaming on several devices at once.", download: "Up to 300 Mbps", upload: "Up to 300 Mbps", price: 39.99, term: "/mo for 12 mos. w/ AutoPay", badge: "Best value", icon: "flame", features: ["100% fiber connection", "No data caps", "Wi-Fi gateway included", "12-month price guarantee"] },
-      { tier: "Kinetic Fiber Gig", headline: "1 Gig Fiber", desc: "Gig speed for busy homes, remote work and 4K on every screen.", download: "Up to 1 Gbps", upload: "Up to 1 Gbps", price: 69.99, term: "/mo w/ AutoPay & paperless bill", popular: true, icon: "bolt", features: ["Symmetrical fiber speeds", "No data caps", "Wi-Fi gateway included", "24-month price guarantee"] },
-      { tier: "Kinetic Fiber 2 Gig", headline: "2 Gig Fiber", desc: "One of the fastest speeds in most Kinetic areas.", download: "Up to 2 Gbps", upload: "Up to 2 Gbps", price: 99.99, term: "/mo w/ AutoPay & paperless bill", icon: "rocket", features: ["Uploads up to 50x faster than basic cable", "No data caps", "Premium Wi-Fi equipment", "36-month price guarantee"] },
+      { tier: "Fiber 300 Mbps", headline: "300 Mbps Fiber", desc: "Good for most day-to-day internet uses, including streaming video.", download: "300 Mbps", upload: "300 Mbps", price: 34.99, term: "per month, terms apply", icon: "shield", features: ["Work, stream and play on multiple devices", "Download a 2.5-hour 4K movie in about 8 minutes", "AT&T Wireless customers save $20/mo on internet", "Unlimited data"] },
+      { tier: "Fiber 1 Gig", headline: "1 Gig Fiber", desc: "Boosted speed and capacity for working from home and gaming.", download: "1 Gbps", upload: "1 Gbps", price: 39.99, term: "per month, terms apply", badge: "$100 prepaid Mastercard", icon: "bolt", features: ["$100 prepaid Mastercard", "Plenty of bandwidth for mid-sized households", "Faster upload speeds than cable", "AT&T Wireless customers save $20/mo on internet"] },
+      { tier: "Fiber 2 Gig", headline: "2 Gig Fiber", desc: "Ultra-fast speeds for large smart homes.", download: "2 Gbps", upload: "2 Gbps", price: 59.99, term: "per month, 2-year price guarantee", badge: "Best value", popular: true, icon: "rocket", features: ["$200 prepaid Mastercard", "Ideal for immersive gaming", "Supports dozens of devices streaming at once", "The most advanced Wi-Fi 7 technology", "AT&T Wireless customers save $20/mo on internet"] },
     ],
   },
   brightspeed: {

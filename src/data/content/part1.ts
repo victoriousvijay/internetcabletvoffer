@@ -18,10 +18,10 @@ export const part1: Record<string, Article> = {
         h2: "Which AT&T internet plan is right for you?",
         body: ["AT&T keeps its lineup simple. Pick the speed that matches the number of people and devices in your home, then let the fiber connection do the rest."],
         subs: [
-          { h3: "AT&T Internet 300 — the everyday plan", body: "At $40/mo, Internet 300 handles HD and 4K streaming, video calls and online classes for a couple or small family. Uploads are roughly 15 times faster than a typical cable plan, so sharing photos and backing up files is quick." },
+          { h3: "AT&T Internet 300 — the everyday plan", body: "At $35/mo with AutoPay and paperless billing, Internet 300 handles HD and 4K streaming, video calls and online classes for a couple or small family. Uploads are roughly 15 times faster than a typical cable plan, so sharing photos and backing up files is quick." },
           { h3: "AT&T Internet 500 — for busy homes", body: "Internet 500 ($50/mo) gives more headroom for gamers and homes with a dozen or more connected devices. It's the sweet spot if several people stream and work online at the same time." },
           { h3: "AT&T Internet 1000 (1 GIG) — the most popular choice", body: "At $65/mo after a $15 monthly savings, the 1 GIG plan is built for heavy streaming, competitive gaming, smart-home setups and remote work. Many households choose it because the jump in price from 500 Mbps is small compared with the jump in performance." },
-          { h3: "AT&T Fiber 2 GIG and 5 GIG — multi-gig power", body: "Creators, large households and home offices that move big files can step up to 2 GIG or 5 GIG where available. Both include All-Fi Pro, AT&T's premium Wi-Fi 7 service. A single wired device can reach up to 4.7 Gbps on the 5 GIG plan. Pricing varies by address, so call to confirm your rate." },
+          { h3: "AT&T Internet Air — $55/mo wireless option", body: "No fiber at your address yet? AT&T Internet Air brings plug-and-play home Wi-Fi over AT&T's wireless network for $55/mo with equipment included, no data caps and no annual contract." },
         ],
       },
       {
@@ -29,7 +29,7 @@ export const part1: Record<string, Article> = {
         h2: "What is AT&T Internet Air?",
         body: [
           "AT&T Internet Air is a plug-and-play wireless home internet service for addresses where AT&T Fiber isn't available. A small receiver picks up AT&T's cellular signal and turns it into home Wi-Fi. Most customers see average download speeds between 75 and 225 Mbps, which is plenty for streaming, browsing and video calls.",
-          "Internet Air costs $60/mo with equipment included, has no data caps and no annual contract, and sets up in minutes using the Smart Home Manager app. During rare periods of heavy network congestion, speeds may be temporarily reduced to keep the network fair for everyone.",
+          "Internet Air costs $55/mo with equipment included, has no data caps and no annual contract, and sets up in minutes using the Smart Home Manager app. During rare periods of heavy network congestion, speeds may be temporarily reduced to keep the network fair for everyone.",
         ],
       },
       {
@@ -55,7 +55,7 @@ export const part1: Record<string, Article> = {
         id: "wifi-security",
         h2: "Wi-Fi, backup and security features",
         body: [
-          "AT&T includes a Wi-Fi gateway with every fiber plan, and you can add All-Fi Pro for $25/mo on lower tiers (it's included with 2 GIG and 5 GIG) for Wi-Fi 7 technology, equipment upgrades and extended whole-home coverage. AT&T Internet Backup can automatically switch your home connection to wireless data if your line ever goes down.",
+          "AT&T includes a Wi-Fi gateway with every fiber plan, and you can add All-Fi Pro for $25/mo for Wi-Fi 7 technology, equipment upgrades and extended whole-home coverage. AT&T Internet Backup can automatically switch your home connection to wireless data if your line ever goes down.",
           "AT&T ActiveArmor adds network-level protection that helps block threats before they reach your devices, and AT&T HomeTech Protection offers device repair and tech support for a monthly fee.",
         ],
       },
@@ -86,7 +86,7 @@ export const part1: Record<string, Article> = {
         h2: "Spectrum Internet at a glance",
         body: [
           "Spectrum delivers internet over a fiber-powered network that connects to homes with coaxial cable. That design lets Spectrum offer fast download speeds almost everywhere it operates, from 100 Mbps up to 1 Gig, with multi-gig speeds in select markets.",
-          "Every plan includes unlimited data, a modem and no annual contract. New customers currently get Spectrum Unlimited Mobile included for one year, which makes Spectrum one of the best-value choices for families that also need phone service.",
+          "Every plan includes unlimited data, a modem and no annual contract. New customers currently get Spectrum Mobile free for a year, which makes Spectrum one of the best-value choices for families that also need phone service.",
         ],
       },
       {
@@ -94,9 +94,9 @@ export const part1: Record<string, Article> = {
         h2: "Spectrum Internet plans explained",
         body: ["Spectrum's three core plans cover almost every household. Promotional prices apply for the first 12 months."],
         subs: [
-          { h3: "Internet Advantage — 100 Mbps for $30/mo", body: "A reliable, budget-friendly plan for browsing, email, HD streaming and video calls on a few devices." },
-          { h3: "Internet Premier — 500 Mbps for $40/mo", body: "The plan most families should start with. 500 Mbps comfortably powers work, school, 4K streaming and gaming across many devices at once. Add Advanced WiFi for $10/mo for mesh coverage." },
-          { h3: "Internet Gig — 1 Gig for $60/mo", body: "Spectrum's fastest widely available plan, built for serious gaming, large households and working from home. Advanced WiFi is included at no extra charge." },
+          { h3: "Internet 100 — 100 Mbps for $30/mo", body: "A reliable, budget-friendly plan for browsing, email, video calls and streaming on a few devices. Add Advanced WiFi for $10/mo." },
+          { h3: "Internet 500 — 500 Mbps for $40/mo", body: "The plan most families should start with. 500 Mbps comfortably powers work, school, 4K streaming and gaming across many devices at once. Add Advanced WiFi for $10/mo for mesh coverage." },
+          { h3: "Internet 1 Gig — 1000 Mbps for $60/mo", body: "Spectrum's fastest widely available plan, built for serious gaming, large households and working from home. Advanced WiFi is included at no extra charge." },
         ],
       },
       {
@@ -148,25 +148,24 @@ export const part1: Record<string, Article> = {
         h2: "Kinetic internet: fiber for smaller communities",
         body: [
           "Many rural and suburban towns have been left with slow internet because big cable companies don't build there. Kinetic focuses on exactly those communities. Where fiber is live, customers get symmetrical upload and download speeds up to 2 Gig. Where the upgrade is still underway, Kinetic Internet provides the fastest speed available at the address.",
-          "Kinetic plans come with no data caps, whole-home Wi-Fi options and price guarantees that last up to 36 months.",
+          "Kinetic Fiber plans come with unlimited data, Wi-Fi equipment and prepaid card offers on gig tiers, and AT&T Wireless customers save $20/mo.",
         ],
       },
       {
         id: "plans-explained",
         h2: "Kinetic plans and pricing",
-        body: ["All prices below include AutoPay and paperless billing. One-time charges may apply."],
+        body: ["Kinetic Fiber comes in three simple tiers. AT&T Wireless customers save $20/mo on their Kinetic internet bill. Terms apply."],
         subs: [
-          { h3: "Kinetic Internet — $39.99/mo", body: "Speeds up to 100 Mbps with whole-home Wi-Fi setup, ideal for browsing, email and HD streaming on a handful of devices." },
-          { h3: "Kinetic Fiber 300 — $39.99/mo for 12 months", body: "The best value in the lineup: 300 Mbps symmetrical fiber for streaming and gaming, with no data caps." },
-          { h3: "Kinetic Fiber Gig — $69.99/mo", body: "Gig-speed fiber with a 24-month price guarantee, great for remote work and homes with lots of connected devices." },
-          { h3: "Kinetic Fiber 2 Gig — $99.99/mo", body: "Kinetic's fastest plan, with uploads up to 50 times faster than basic cable and a 36-month price guarantee." },
+          { h3: "Fiber 300 Mbps — $34.99/mo", body: "Good for most day-to-day internet use, including streaming video. Work, stream and play on multiple devices, and download a 2.5-hour 4K movie in about eight minutes." },
+          { h3: "Fiber 1 Gig — $39.99/mo", body: "Boosted speed and capacity for working from home and gaming, with faster uploads than cable and plenty of bandwidth for mid-sized households. New customers get a $100 prepaid Mastercard." },
+          { h3: "Fiber 2 Gig — $59.99/mo (best value)", body: "Ultra-fast speeds for large smart homes and immersive gaming, the latest Wi-Fi 7 technology, a $200 prepaid Mastercard and a 2-year price guarantee." },
         ],
       },
       {
         id: "price-guarantee",
-        h2: "How Kinetic price guarantees work",
+        h2: "Kinetic prepaid card offers and price guarantee",
         body: [
-          "Unlike many providers that raise prices after a 12-month promotion, Kinetic locks your rate for 12, 24 or 36 months depending on the plan. A longer guarantee makes it easier to budget and protects you from surprise increases.",
+          "Kinetic rewards faster plans: Fiber 1 Gig comes with a $100 prepaid Mastercard and Fiber 2 Gig with a $200 prepaid Mastercard. Fiber 2 Gig also includes a 2-year price guarantee, so your rate stays the same while you enjoy multi-gig speed and Wi-Fi 7. Ask about current offer terms when you call.",
         ],
       },
       {

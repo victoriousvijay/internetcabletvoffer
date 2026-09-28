@@ -61,7 +61,7 @@ const raw: Omit<Provider, "plans">[] = [
     maxSpeedMbps: 5000,
     contract: "No annual contract",
     dataCap: "Unlimited on Fiber & Internet Air",
-    equipment: "Wi-Fi 7 gateway included on fiber",
+    equipment: "Wi-Fi gateway included on fiber",
     rating: 4.6,
     scores: [
       { label: "Speed", value: 4.8 },
@@ -81,12 +81,12 @@ const raw: Omit<Provider, "plans">[] = [
     ],
     cons: [
       "Fiber availability depends on your exact address",
-      "Multi-gig tiers are priced at a premium",
+      "Best prices require AutoPay and paperless billing",
       "Legacy DSL areas offer far slower speeds",
     ],
     features: [
       { title: "Symmetrical fiber", text: "Upload as fast as you download — ideal for video calls, cloud backups and streaming to Twitch." },
-      { title: "Wi-Fi 7 gateway", text: "Higher-tier fiber plans include AT&T's newest gateway for whole-home coverage." },
+      { title: "Wi-Fi gateway", text: "Every AT&T Fiber plan includes a Wi-Fi gateway, with All-Fi Pro (Wi-Fi 7) available as an add-on." },
       { title: "Internet Air", text: "Plug-and-play wireless home internet that sets up in minutes, no technician needed." },
       { title: "Bundle savings", text: "Save on internet when you add an eligible AT&T wireless line." },
     ],
@@ -266,7 +266,7 @@ const raw: Omit<Provider, "plans">[] = [
     features: [
       { title: "Fiber upgrades", text: "Kinetic is rapidly replacing copper with fiber, adding gig speeds to rural towns." },
       { title: "Whole-home Wi-Fi", text: "Mesh extenders available so every room gets a strong signal." },
-      { title: "Price lock", text: "Many plans include a multi-year price guarantee." },
+      { title: "Prepaid card offers", text: "Fiber 1 Gig includes a $100 prepaid Mastercard and Fiber 2 Gig a $200 card plus a 2-year price guarantee." },
       { title: "Secure Shield", text: "Optional online security suite for the household." },
     ],
     tv: {

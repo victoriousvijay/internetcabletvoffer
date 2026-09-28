@@ -8,7 +8,6 @@ import { CallButton } from "@/components/ui/CallButton";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { Stars } from "@/components/ui/Stars";
 import { RatingBars } from "@/components/sections/RatingBars";
-import { ProsCons } from "@/components/sections/ProsCons";
 import { PlanCard } from "@/components/sections/PlanCard";
 
 const featureIcons = [Sparkles, Router, ShieldCheck, Users];
@@ -138,9 +137,6 @@ export function Ratings({ p }: { p: Provider }) {
             <p className="mt-2 text-slate-600">{p.equipment}</p>
           </div>
         </Reveal>
-      </div>
-      <div className="mt-12">
-        <ProsCons pros={p.pros} cons={p.cons} subject={p.name} />
       </div>
     </section>
   );

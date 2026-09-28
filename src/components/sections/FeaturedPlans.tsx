@@ -8,7 +8,7 @@ import { PlanCard } from "./PlanCard";
 /** Hand-picked best-value plans shown on the home page, each in its provider's colors. */
 const picks: { slug: string; tier: string }[] = [
   { slug: "att", tier: "AT&T Internet 1000" },
-  { slug: "spectrum", tier: "Internet Premier" },
+  { slug: "spectrum", tier: "Internet 500" },
   { slug: "frontier", tier: "Fiber 1 Gig" },
   { slug: "verizon", tier: "Fios 300 Mbps" },
 ];
