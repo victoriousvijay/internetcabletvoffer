@@ -130,7 +130,7 @@ src/
 
 - The site is an **independent comparison site**. Provider names, logos and trademarks belong to their owners and are shown for identification only.
 - The client is an **authorized sales partner/dealer**. Footer shows "Our Authorized Network Partners" listing all providers; disclaimer says authorized sales partner, not the providers' official site.
-- Provider logos live in `public/logos/*.png`, using **authorized** variants where they exist: AT&T "Authorized Retailer", Spectrum "Authorized Reseller", Kinetic "Authorized Agent", Optimum "authorized reseller". EarthLink, Brightspeed, Verizon, Frontier and HughesNet use standard logos until the client supplies authorized versions. Only whitespace is trimmed; never alter artwork.
+- Provider logos live in `public/logos/*.png`, using the client-supplied **authorized** variants: AT&T "Authorized Retailer", Spectrum "Authorized Reseller", Kinetic "Authorized Agent", Optimum "authorized reseller", EarthLink "Authorized Reseller", Brightspeed "Authorized Agent". Verizon, Frontier and HughesNet use standard logos until the client supplies authorized versions. Only whitespace/flat background is removed; never alter artwork.
 - Every data page shows the pricing disclaimer from `site.ts` ("representative starting rates… confirm with provider").
 - Footer: © Internet Cable TV Offers, disclosure, legal links.
 
