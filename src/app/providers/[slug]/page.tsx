@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!p) return {};
   return pageMeta({
     title: `${p.name} Internet Plans, Prices & Deals (2026)`,
-    description: `${p.name} internet plans start at $${p.startingPrice}/mo with speeds up to ${p.maxSpeed}. Compare ${p.name} plans, pricing, pros & cons, TV bundles and FAQs.`,
+    description: `${p.name} internet plans start at $${p.startingPrice}/mo with speeds up to ${p.maxSpeed}. Compare ${p.name} plans, pricing, features, TV bundles and FAQs, then call to order.`,
     path: `/providers/${p.slug}`,
     image: img(p.heroImage, 1200),
   });
