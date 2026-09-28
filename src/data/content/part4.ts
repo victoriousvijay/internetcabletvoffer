@@ -66,7 +66,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "who-for",
       h2: "Who should choose Spectrum?",
       body: [
-        "Spectrum fits families that want simple, unlimited internet with the option to bundle TV and mobile on one bill. It's also a smart pick for renters and people who move often, because there are no annual contracts and service is widely available across 41 states.",
+        "Spectrum fits families that want simple, unlimited internet with the option to bundle TV and mobile on one bill. It's also a smart pick for renters and people who move often, because there are no annual contracts and service is widely available across 45 states.",
       ],
     },
     {

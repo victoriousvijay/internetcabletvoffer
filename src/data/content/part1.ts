@@ -71,7 +71,7 @@ export const part1: Record<string, Article> = {
         id: "availability",
         h2: "Is AT&T Fiber available at my address?",
         body: [
-          "AT&T Fiber serves millions of homes across 21 states and keeps expanding every year, but availability changes from street to street. The fastest way to know which plans you qualify for, whether that's Fiber or Internet Air, is to call and give us your address. We'll confirm the best available speed and today's pricing in a few minutes.",
+          "AT&T Fiber now reaches more than 37 million homes and businesses and keeps expanding every year, but availability changes from street to street. The fastest way to know which plans you qualify for, whether that's Fiber or Internet Air, is to call and give us your address. We'll confirm the best available speed and today's pricing in a few minutes.",
         ],
       },
     ],
@@ -79,7 +79,7 @@ export const part1: Record<string, Article> = {
 
   spectrum: {
     lead:
-      "Spectrum is the largest cable internet provider in the country, reaching homes in 41 states. Its plans are easy to understand: no data caps, no annual contracts and a year of Unlimited Mobile included. Here's everything to know before you order Spectrum Internet, TV or a bundle.",
+      "Spectrum is the largest cable internet provider in the country, reaching homes in 45 states. Its plans are easy to understand: no data caps, no annual contracts and a year of Unlimited Mobile included. Here's everything to know before you order Spectrum Internet, TV or a bundle.",
     sections: [
       {
         id: "overview",
@@ -120,7 +120,7 @@ export const part1: Record<string, Article> = {
         body: [
           "For downloads, Spectrum matches fiber on most everyday tasks: streaming, browsing and gaming all run smoothly on 500 Mbps or 1 Gig. The main trade-off is upload speed, which is lower on cable. If you regularly upload large videos or run a home business, compare Spectrum's upload speeds with fiber options at your address.",
         ],
-        bullets: ["No data caps on any plan", "No annual contract", "Free modem, WiFi router available", "Available in 41 states"],
+        bullets: ["No data caps on any plan", "No annual contract", "Free modem, WiFi router available", "Available in 45 states"],
       },
       {
         id: "switching",

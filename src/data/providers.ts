@@ -69,7 +69,7 @@ const raw: Omit<Provider, "plans">[] = [
       { label: "Value", value: 4.3 },
       { label: "Customer service", value: 4.1 },
     ],
-    coverage: "Available to tens of millions of homes across 21 states, with fiber expanding every year.",
+    coverage: "AT&T Fiber reaches more than 37 million homes and businesses, including former Lumen fiber areas added in 2026, and AT&T Internet Air is offered across the contiguous U.S.",
     bestFor: "Remote workers, creators and gamers who need fast, symmetrical uploads",
     heroImage: images.homeOffice,
     sideImage: images.gaming,
@@ -171,7 +171,7 @@ const raw: Omit<Provider, "plans">[] = [
     loader: { primary: "#0b2d5b", light: "#1e5cae" },
     tagline: "No contracts, no data caps, huge cable footprint",
     quickAnswer:
-      "Spectrum is the largest cable internet provider in the U.S., with plans from 500 Mbps up to 2 Gbps, no annual contracts, no data caps and a free modem. Spectrum also offers cable TV, Spectrum Mobile and home phone bundles in 41 states.",
+      "Spectrum is the largest cable internet provider in the U.S., with plans from 500 Mbps up to 2 Gbps, no annual contracts, no data caps and a free modem. Spectrum also offers cable TV, Spectrum Mobile and home phone bundles in 45 states.",
     intro:
       "Spectrum is the go-to cable option for millions of households thanks to straightforward pricing, unlimited data and easy bundling with TV and mobile.",
     types: ["cable", "fiber"],
@@ -188,14 +188,14 @@ const raw: Omit<Provider, "plans">[] = [
       { label: "Value", value: 4.3 },
       { label: "Customer service", value: 3.9 },
     ],
-    coverage: "Serves customers in 41 states, making it one of the most widely available wired providers.",
+    coverage: "Serves homes and businesses in 45 states after combining with Cox in August 2026, making it one of the most widely available wired providers.",
     bestFor: "Families who want simple, unlimited internet bundled with TV and mobile",
     heroImage: images.kitchen,
     sideImage: images.cozyRoom,
     pros: [
       "No data caps and no annual contracts",
       "Free modem and free access to Spectrum Wi-Fi hotspots",
-      "Wide availability across 41 states",
+      "Wide availability across 45 states",
       "Easy bundling with Spectrum TV and Spectrum Mobile",
     ],
     cons: [
@@ -367,7 +367,7 @@ const raw: Omit<Provider, "plans">[] = [
       { label: "Value", value: 4.4 },
       { label: "Customer service", value: 4.3 },
     ],
-    coverage: "Fios in 9 states plus Washington, D.C.; 5G Home Internet in hundreds of cities nationwide.",
+    coverage: "Fios and Frontier Fiber together reach about 30 million homes and businesses in 31 states plus Washington, D.C.; 5G Home Internet covers hundreds of cities.",
     bestFor: "Verizon mobile customers and anyone who wants a long price guarantee",
     heroImage: images.friendsLaptops,
     sideImage: images.phoneHand,
@@ -572,7 +572,7 @@ const raw: Omit<Provider, "plans">[] = [
     },
     faqs: [
       { q: "How much is Optimum internet?", a: "Optimum 300 starts around $40/month, with 1 Gig around $80/month. Prices vary by technology and location." },
-      { q: "Is Optimum fiber or cable?", a: "Both. Optimum operates a hybrid fiber-coax cable network and a growing fiber-to-the-home network." },
+      { q: "Is Optimum fiber or cable?", a: "Both. Optimum operates a hybrid fiber-coax cable network and a growing 100% fiber network that passes about 3.1 million homes and businesses, mainly in New York, New Jersey and Connecticut." },
       { q: "Does Optimum have data caps?", a: "No. Optimum internet plans include unlimited data." },
       { q: "Can I bundle Optimum internet and TV?", a: "Yes. Optimum offers internet, TV, mobile and home phone bundles." },
     ],

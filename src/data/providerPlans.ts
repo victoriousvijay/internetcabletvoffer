@@ -58,7 +58,7 @@ export const planData: Record<string, PlanOverrides> = {
     maxSpeed: "1 Gbps",
     maxSpeedMbps: 1000,
     quickAnswer:
-      "Spectrum Internet plans are Internet 100 at $30/mo, Internet 500 at $40/mo and Internet 1 Gig at $60/mo, each for the first year. Every plan includes a free modem, no data caps, no contracts and Spectrum Mobile free for a year, and Internet 1 Gig includes Advanced WiFi. Spectrum also bundles cable TV and mobile in 41 states.",
+      "Spectrum Internet plans are Internet 100 at $30/mo, Internet 500 at $40/mo and Internet 1 Gig at $60/mo, each for the first year. Every plan includes a free modem, no data caps, no contracts and Spectrum Mobile free for a year, and Internet 1 Gig includes Advanced WiFi. Spectrum also bundles cable TV and mobile in 45 states.",
     priceFaq:
       "Spectrum Internet 100 is $30/mo, Internet 500 is $40/mo and Internet 1 Gig is $60/mo, each for the first year. Advanced WiFi is $10/mo on the 100 and 500 plans and included with 1 Gig. Standard rates apply after the promotional period.",
     plans: [

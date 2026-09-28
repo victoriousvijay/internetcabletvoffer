@@ -3,7 +3,7 @@ import type { Article } from "./types";
 export const part3: Record<string, Article> = {
   optimum: {
     lead:
-      "Optimum is the fourth-largest cable provider in the United States, with a growing fiber network and flexible internet, TV and mobile bundles. Optimum serves 21 states, with its largest presence in the New York metro area. Here's a complete look at Optimum Fiber plans, pricing and price locks.",
+      "Optimum is one of the largest cable and fiber providers in the United States, with a growing fiber network and flexible internet, TV and mobile bundles. Optimum serves 21 states, with its largest presence in the New York metro area. Here's a complete look at Optimum Fiber plans, pricing and price locks.",
     sections: [
       {
         id: "overview",
