@@ -82,17 +82,17 @@ export function FeaturedPlans() {
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-sky-400"
           >
             <Zap className="h-3.5 w-3.5 animate-pulse text-sky-400" />
-            <span>High-Speed Broadband Specials</span>
+            <span>Internet Cable TV Offers Exclusives</span>
           </motion.div>
           <motion.h2
             {...fadeUp}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
           >
-            Fiber-Powered Internet Plans
+            Our Best Internet Offers
           </motion.h2>
           <motion.p {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="text-lg text-slate-500">
-            Explore <span className="font-semibold text-sky-400">Fiber-Powered Internet</span> plans designed for speed, reliability and security.
+            Handpicked plans from <span className="font-semibold text-sky-400">Internet Cable TV Offers</span> — fast speeds, great prices and one call to get connected.
           </motion.p>
         </div>
 
