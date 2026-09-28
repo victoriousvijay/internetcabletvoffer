@@ -65,7 +65,9 @@ src/
     sections/                Reusable page sections (Hero, ProviderGrid, CompareTable, TypeGrid, CTA…)
     seo/JsonLd.tsx           Structured data helper
   data/
-    providers.ts             9 providers: logo, blurb, loader colors, plans, pros/cons, features, ratings, FAQs, images
+    providers.ts             9 providers: logo, blurb, loader colors, pros/cons, features, ratings, FAQs, images; merges plans and sets display ORDER (EarthLink + HughesNet last)
+    providerPlans.ts         Current plans & pricing per provider (source of truth for prices), Plan type, money() / planMbps() helpers
+    content/                 Long-form SEO guides per provider (part1–3 base sections, part4 extra sections) → `articles`
     internetTypes.ts         7 internet types: summary, how it works, pros/cons, speeds, FAQs
     faqs.ts                  General FAQs
   lib/
@@ -101,13 +103,15 @@ src/
 - **Provider cards** (`sections/ProviderCard.tsx`): profile-style hover card. Brand-gradient band on top, logo inside a white circle, name + 2–5 word `blurb` + types/top speed, "View plans" button. On hover the band floods the card, the logo circle scales up and slides to the top-left corner, text lifts. No pricing on cards.
 - **No pill "eyebrow" labels** above headings anywhere — headings stand alone.
 - **Per-page themes** (`src/data/themes.ts`): every provider page and internet-type page has its own palette (`acc`, `acc2`, `ink`, `soft`, `onAcc`, optional `accText`), hero background, hero layout (`split | centered | immersive | editorial`), plans layout (`cards | rows`), features layout (`bento | list`), decorative motif and section order. The page wrapper sets CSS vars (`--acc`, `--acc-2`, `--acc-ink`, `--acc-soft`, `--on-acc`, `--acc-text`); shared components use the matching Tailwind colors (`bg-acc`, `text-acc-ink`, `text-acc-text`…), so they pick up the page theme automatically and default to site blue elsewhere.
+- **Plan cards** (`sections/PlanCard.tsx`, client reference = Spectrum-style): gradient top edge, icon + tier label, big speed headline, struck-through regular price, big promo price, term, feature checklist, Call Now. Popular plan gets a warm orange edge. Used on provider pages, home featured plans.
+- **Provider pages = content-first (client demand):** each keeps its own theme/layout, but after the plans comes a long SEO guide (`themed/ProviderArticle.tsx` + `data/content`): lead, sticky table of contents, question-style H2s, H3 plan breakdowns, checklists and a mid-article Call Now box. Keep adding relevant original text here rather than decoration; never copy competitor copy.
 - **Provider pages are self-contained:** nothing about other providers (no alternatives section). They close with a themed "Ready to get {provider}?" Call Now banner (`#availability`). Only the global navbar lists other providers.
 - **Themed components:** `components/themed/ThemedHero.tsx` (4 hero layouts), `Motif.tsx` (brand patterns), `ProviderSections.tsx` (Plans, Features, Ratings, TV).
 - **Mobile specifics:** themed sticky bottom bar (`MobileCtaBar`) with page-specific actions/colors; plan cards become a swipeable snap carousel; plan rows stack; big line-art motifs hidden below `lg`; `.grid > * { min-width: 0 }` and `overflow-x: clip` on html/body so nothing ever scrolls sideways. Test at 360px width.
 - **Home sections:**
-  - Stats = mac-window tiles (`sections/StatCards.tsx`): dark navy card, traffic-light dots, a flat spot illustration on a pastel panel (blue / amber / violet / green; tower, dish + plug, speed gauge, coins + receipt), big number, blue on hover; 2×2 on phones. Illustrations are simple flat shapes in the brand palette — no outlines-heavy or photo art.
+  - Below the logo strip: **Today's Best Internet Plans** (`sections/FeaturedPlans.tsx`) — 4 hand-picked plan cards (AT&T 1 GIG, Spectrum Premier, Frontier 1 Gig, Fios 300) in each provider's colors. (Replaced the old stat tiles per client.)
   - Internet types = accordion gallery (`sections/AccordionGallery.tsx`, used by `TypeGrid`): hover-expands to 52% on desktop (defaultIndex 2), vertical tap-to-open stack on phones.
-  - Speed guide = stepper quiz (`ui/Stepper.tsx` + `sections/SpeedGuide.tsx`): household → activities → devices → recommendation; final button goes to the matching internet-type page.
+  - Speed guide = stepper quiz (`ui/Stepper.tsx` + `sections/SpeedGuide.tsx`): household → activities → devices → recommendation with up to 3 real matching plans (one per provider, cheapest first); final button opens that provider's plans.
   - "Three simple steps" = scroll-driven timeline (`sections/ScrollSteps.tsx`, art in `StepIllustrations.tsx`): center line fills on scroll, steps alternate sides with keywords opposite; phones show line on the left with illustration + headline only.
 - **Mobile menu:** all accordions start closed.
 - **Photos:** never use photos showing third-party brands (TV UIs, gaming logos) on provider pages.
@@ -117,13 +121,14 @@ src/
 ## 7. Calls to action (client requirement)
 
 - **The business goal is phone calls.** Every banner leads with **Call Now** (`components/ui/CallButton.tsx`, a `tel:` link with a pulsing phone icon). "View plans" is the secondary action. No "Check availability" / ZIP-first CTAs in banners.
-- One number for the whole site: `phone` in `src/lib/site.ts`, read from env `NEXT_PUBLIC_PHONE` (e.g. "(888) 555-1234"). Until the client sends it, the fallback is the **placeholder (800) 000-0000**; set the env var in Vercel and redeploy to go live. The Organization JSON-LD only includes `telephone` when the env var is set.
+- One number for the whole site: **(866) 654-4005** (`phone` in `src/lib/site.ts`, overridable with env `NEXT_PUBLIC_PHONE`). Also in Organization JSON-LD (telephone + sales contactPoint).
 - Where Call Now appears: navbar (icon on phones, "Call Now" + number on xl), mobile menu footer, mobile sticky bar (right button), home hero, every PageHero except legal pages, every ThemedHero (provider + internet-type), plan cards/rows, TV block, the provider page closing banner and the site-wide CtaBand.
 
 ## 8. Legal / compliance
 
 - The site is an **independent comparison site**. Provider names, logos and trademarks belong to their owners and are shown for identification only.
-- Provider logos live in `public/logos/*.png`. Per the client (Sep 2026) they are the official logos used as-is on broadbandsearch.net: AT&T "Authorized Retailer" and Spectrum "Authorized Reseller" versions, the clean Kinetic mark and the Optimum mark with the orange dot. Only surrounding whitespace is trimmed; never alter the artwork. Keep the authorized-retailer/reseller variants only while the client holds that status with those providers.
+- The client is an **authorized sales partner/dealer**. Footer shows "Our Authorized Network Partners" listing all providers; disclaimer says authorized sales partner, not the providers' official site.
+- Provider logos live in `public/logos/*.png`, using **authorized** variants where they exist: AT&T "Authorized Retailer", Spectrum "Authorized Reseller", Kinetic "Authorized Agent", Optimum "authorized reseller". EarthLink, Brightspeed, Verizon, Frontier and HughesNet use standard logos until the client supplies authorized versions. Only whitespace is trimmed; never alter artwork.
 - Every data page shows the pricing disclaimer from `site.ts` ("representative starting rates… confirm with provider").
 - Footer: © Internet Cable TV Offers, disclosure, legal links.
 

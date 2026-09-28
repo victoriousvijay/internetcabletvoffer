@@ -7,7 +7,7 @@ import { TypeGrid } from "@/components/sections/TypeGrid";
 import { CompareTable } from "@/components/sections/CompareTable";
 import { SpeedGuide } from "@/components/sections/SpeedGuide";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { StatCards } from "@/components/sections/StatCards";
+import { FeaturedPlans } from "@/components/sections/FeaturedPlans";
 import { ScrollSteps } from "@/components/sections/ScrollSteps";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProviderLogo } from "@/components/ui/ProviderBadge";
@@ -18,13 +18,6 @@ import { providers } from "@/data/providers";
 import { homeFaqs } from "@/data/faqs";
 import { faqSchema, abs } from "@/lib/schema";
 import { img, images } from "@/lib/site";
-
-const stats = [
-  { value: "9", label: "Top national providers", art: "providers" as const },
-  { value: "7", label: "Internet types explained", art: "types" as const },
-  { value: "8 Gbps", label: "Fastest plan we track", art: "speed" as const },
-  { value: "$40", label: "Lowest starting price", art: "price" as const },
-];
 
 export default function Home() {
   const itemList = {
@@ -59,9 +52,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="container-x py-14 sm:py-16">
-        <StatCards stats={stats} />
+      {/* Featured plans (replaced the stat boxes per client) */}
+      <section className="bg-gradient-to-b from-white to-sky-soft py-14 sm:py-20">
+        <div className="container-x">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">Today&apos;s Best Internet Plans</h2>
+            <p className="mt-4 text-base text-slate-600 sm:text-lg">
+              Fiber and cable deals from America&apos;s top providers. Call now to lock in these prices at your address.
+            </p>
+          </div>
+          <div className="mt-12">
+            <FeaturedPlans />
+          </div>
+        </div>
       </section>
 
       {/* Providers */}

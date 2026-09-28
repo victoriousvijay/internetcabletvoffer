@@ -11,22 +11,19 @@ export const site = {
 };
 
 /**
- * Sales phone number used by every "Call Now" button.
- * PLACEHOLDER until the client sends the real number: set NEXT_PUBLIC_PHONE in Vercel (e.g. "(888) 555-1234")
- * or replace the fallback below. Only US numbers are expected.
+ * Sales phone number used by every "Call Now" button (client line). Override with NEXT_PUBLIC_PHONE if it changes.
  */
-const phoneDisplay = process.env.NEXT_PUBLIC_PHONE || "(800) 000-0000";
+const phoneDisplay = process.env.NEXT_PUBLIC_PHONE || "(866) 654-4005";
 export const phone = {
   display: phoneDisplay,
   tel: `+1${phoneDisplay.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "")}`,
-  isPlaceholder: !process.env.NEXT_PUBLIC_PHONE,
 };
 
 export const pricingDisclaimer =
   "Prices and speeds shown are representative starting rates reviewed in September 2026. Offers often require autopay and paperless billing, exclude taxes and fees, and vary by address. Always confirm current pricing and availability with the provider before ordering.";
 
 export const trademarkDisclaimer =
-  "Internet Cable TV Offers is an independent comparison website and is not owned by, or an official site of, any internet or TV provider. All product names, logos and brands are property of their respective owners and are used for identification purposes only.";
+  "Internet Cable TV Offers is an authorized sales partner for select internet and TV providers and is not owned by, or the official website of, any provider. All product names, logos and brands are property of their respective owners. Plans, pricing and availability are set by each provider and may change.";
 
 export type NavLink = { label: string; href: string; description?: string };
 

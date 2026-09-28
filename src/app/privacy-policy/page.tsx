@@ -14,7 +14,7 @@ export default function PrivacyPage() {
     <LegalPage title="Privacy Policy" path="/privacy-policy" intro={`Your privacy matters. This policy explains what information ${site.name} collects and how we use it.`}>
       <h2>1. Who we are</h2>
       <p>
-        {site.name} (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates this website, an independent comparison service for internet,
+        {site.name} (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates this website, an authorized sales partner and comparison service for internet,
         cable TV and related home services in the United States.
       </p>
 

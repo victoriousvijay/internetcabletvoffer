@@ -22,7 +22,8 @@ export const orgSchema = {
   url: site.url,
   logo: abs("/icon.svg"),
   email: site.email,
-  ...(phone.isPlaceholder ? {} : { telephone: phone.tel }),
+  telephone: phone.tel,
+  contactPoint: { "@type": "ContactPoint", telephone: phone.tel, contactType: "sales", areaServed: "US", availableLanguage: "English" },
   description: site.description,
 };
 

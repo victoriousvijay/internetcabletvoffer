@@ -62,7 +62,7 @@ export default function ProvidersHub() {
           text="The best internet providers in 2026 are AT&T Fiber and Verizon Fios for reliability and symmetrical speed, Frontier and Optimum for multi-gig fiber value, Spectrum for widely available cable with no data caps, and HughesNet for rural satellite coverage. The right choice depends on which providers serve your address."
           facts={[
             { label: "Providers compared", value: `${providers.length}` },
-            { label: "Lowest starting price", value: "$40/mo" },
+            { label: "Lowest starting price", value: `$${Math.min(...providers.map((p) => p.startingPrice))}/mo` },
             { label: "Fastest plan", value: "8 Gbps" },
             { label: "Unlimited data", value: "8 of 9 providers" },
           ]}

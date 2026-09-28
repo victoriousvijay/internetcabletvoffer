@@ -9,12 +9,14 @@ import { CallButton } from "@/components/ui/CallButton";
 import { SubNav } from "@/components/sections/SubNav";
 import { ThemedHero } from "@/components/themed/ThemedHero";
 import { Features, Plans, Ratings, TvBlock } from "@/components/themed/ProviderSections";
+import { ProviderArticle } from "@/components/themed/ProviderArticle";
+import { articles } from "@/data/content";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getProvider, providers } from "@/data/providers";
 import { typeLabels } from "@/data/internetTypes";
 import { providerThemes, themeVars, type PageTheme } from "@/data/themes";
 import { breadcrumbSchema, faqSchema, pageMeta, abs } from "@/lib/schema";
-import { img, trademarkDisclaimer } from "@/lib/site";
+import { img, site, trademarkDisclaimer } from "@/lib/site";
 
 export function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }));
@@ -65,7 +67,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
     areaServed: { "@type": "Country", name: "United States" },
     description: p.quickAnswer,
     url: abs(`/providers/${p.slug}`),
-    offers: p.plans.map((pl) => ({ "@type": "Offer", name: pl.name, price: pl.price, priceCurrency: "USD", description: `${pl.download} download` })),
+    offers: p.plans.map((pl) => ({ "@type": "Offer", name: pl.tier, ...(pl.price !== undefined ? { price: pl.price, priceCurrency: "USD" } : {}), description: `${pl.headline}: ${pl.download} download` })),
   };
 
   const sections: Record<PageTheme["order"][number], React.ReactNode> = {
@@ -98,7 +100,23 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
 
   return (
     <div style={themeVars(theme)}>
-      <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(p.faqs), service]} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          faqSchema(p.faqs),
+          service,
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: `${p.name} Internet Plans, Prices & Deals Guide`,
+            description: articles[p.slug].lead,
+            dateModified: site.lastReviewedISO,
+            author: { "@type": "Organization", name: site.name },
+            publisher: { "@type": "Organization", name: site.name },
+            mainEntityOfPage: abs(`/providers/${p.slug}`),
+          },
+        ]}
+      />
 
       <ThemedHero
         theme={theme}
@@ -125,9 +143,15 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
       />
 
       <div>
-        <SubNav items={theme.order.map((id) => ({ id, label: labels[id] }))} />
+        <SubNav
+          items={theme.order.flatMap((id) => (id === "plans" ? [{ id, label: labels[id] }, { id: "guide", label: "Guide" }] : [{ id, label: labels[id] }]))}
+        />
         {theme.order.map((id) => (
-          <div key={id}>{sections[id]}</div>
+          <div key={id}>
+            {sections[id]}
+            {/* The long-form SEO guide always follows the plans. */}
+            {id === "plans" && <ProviderArticle name={p.name} article={articles[p.slug]} photos={[p.sideImage, p.heroImage]} />}
+          </div>
         ))}
 
         <section id="availability" className="container-x scroll-mt-32 py-16 sm:py-24">

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Check, Flame, Gauge, MapPinned, Router, ShieldCheck, Sparkles, Tv, Users } from "lucide-react";
+import { MapPinned, Router, ShieldCheck, Sparkles, Tv, Users } from "lucide-react";
 import type { Provider } from "@/data/providers";
 import type { PageTheme } from "@/data/themes";
 import { img, images, pricingDisclaimer } from "@/lib/site";
@@ -9,88 +9,34 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { Stars } from "@/components/ui/Stars";
 import { RatingBars } from "@/components/sections/RatingBars";
 import { ProsCons } from "@/components/sections/ProsCons";
+import { PlanCard } from "@/components/sections/PlanCard";
 
 const featureIcons = [Sparkles, Router, ShieldCheck, Users];
 
 /* ---------------- Plans ---------------- */
 
-export function Plans({ p, theme }: { p: Provider; theme: PageTheme }) {
+export function Plans({ p }: { p: Provider; theme?: PageTheme }) {
   return (
-    <section id="plans" className="container-x scroll-mt-40 py-16 sm:py-24">
-      <SectionHeading title={`${p.name} internet plans & pricing`} text={`Every ${p.name} plan by speed and monthly price.`} />
-      {theme.plans === "cards" ? <PlanCards p={p} /> : <PlanRows p={p} />}
-      <p className="mt-6 text-xs leading-relaxed text-slate-500">*{pricingDisclaimer}</p>
+    <section id="plans" className="scroll-mt-40 bg-gradient-to-b from-acc-soft to-white py-16 sm:py-24">
+      <div className="container-x">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-extrabold tracking-tight text-acc-ink sm:text-5xl">{p.name} Internet Plans</h2>
+          <p className="mt-4 text-base text-slate-600 sm:text-lg">
+            Explore <span className="font-semibold text-acc-text">{p.name}</span> plans for speed, reliability and value.
+            Call now to lock in today&apos;s price at your address.
+          </p>
+        </div>
+        {/* Phones: swipeable snap carousel. Desktop: grid. */}
+        <Stagger className="snap-row no-scrollbar -mx-4 mt-12 flex gap-5 overflow-x-auto px-4 pb-4 pt-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+          {p.plans.map((pl) => (
+            <StaggerItem key={pl.tier} className="w-[86%] shrink-0 sm:w-auto">
+              <PlanCard plan={pl} />
+            </StaggerItem>
+          ))}
+        </Stagger>
+        <p className="mt-6 text-xs leading-relaxed text-slate-500">*{pricingDisclaimer}</p>
+      </div>
     </section>
-  );
-}
-
-function PlanCards({ p }: { p: Provider }) {
-  return (
-    // Phones: swipeable snap carousel. Desktop: grid.
-    <Stagger className="snap-row no-scrollbar -mx-4 mt-10 flex gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
-      {p.plans.map((pl) => (
-        <StaggerItem key={pl.name} className="w-[82%] shrink-0 sm:w-auto">
-          <div
-            className={`relative flex h-full flex-col rounded-3xl p-6 transition-all duration-500 hover:-translate-y-1 ${
-              pl.popular ? "bg-acc text-on-acc shadow-lift" : "bg-white text-acc-ink ring-1 ring-slate-200/70 shadow-card hover:shadow-lift"
-            }`}
-          >
-            {pl.popular && (
-              <span className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-full bg-black/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider">
-                <Flame className="h-3.5 w-3.5" /> Popular
-              </span>
-            )}
-            <h3 className="pr-20 text-lg font-extrabold">{pl.name}</h3>
-            <p className="mt-4 flex items-baseline gap-1">
-              <span className="text-4xl font-extrabold tracking-tight">${pl.price}</span>
-              <span className="text-sm opacity-70">/mo*</span>
-            </p>
-            <ul className="mt-5 space-y-2.5 text-sm opacity-90">
-              <li className="flex items-center gap-2"><Gauge className="h-4 w-4" /> Download: <strong>{pl.download}</strong></li>
-              <li className="flex items-center gap-2"><Check className="h-4 w-4" /> Upload: {pl.upload}</li>
-              <li className="flex items-center gap-2"><Check className="h-4 w-4" /> {p.dataCap}</li>
-              {pl.note && <li className="flex items-center gap-2"><Check className="h-4 w-4" /> {pl.note}</li>}
-            </ul>
-            <div className="mt-auto pt-6">
-              <CallButton variant={pl.popular ? "light" : "primary"} showNumber={false} className="w-full" />
-            </div>
-          </div>
-        </StaggerItem>
-      ))}
-    </Stagger>
-  );
-}
-
-function PlanRows({ p }: { p: Provider }) {
-  return (
-    <Stagger className="mt-10 overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200/70 shadow-card">
-      {p.plans.map((pl, i) => (
-        <StaggerItem key={pl.name}>
-          <div
-            className={`group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-3 px-5 py-5 transition-colors hover:bg-acc-soft sm:grid-cols-[1.4fr_1fr_1fr_auto_auto] sm:px-8 ${
-              i > 0 ? "border-t border-slate-100" : ""
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <span className="h-10 w-1.5 rounded-full bg-acc opacity-30 transition-opacity group-hover:opacity-100" />
-              <div>
-                <p className="font-extrabold text-acc-ink">{pl.name}</p>
-                {pl.popular && <p className="text-xs font-bold uppercase tracking-wider text-acc-text">Most popular</p>}
-                {pl.note && <p className="text-xs text-slate-500">{pl.note}</p>}
-              </div>
-            </div>
-            <p className="order-3 col-span-2 flex gap-4 text-sm text-slate-600 sm:order-none sm:col-span-1 sm:block">
-              <span className="sm:block"><span className="text-slate-400">Download </span><strong className="text-acc-ink">{pl.download}</strong></span>
-            </p>
-            <p className="hidden text-sm text-slate-600 sm:block"><span className="text-slate-400">Upload </span>{pl.upload}</p>
-            <p className="text-right text-2xl font-extrabold text-acc-ink sm:text-left">
-              ${pl.price}<span className="text-xs font-semibold text-slate-400">/mo*</span>
-            </p>
-            <CallButton showNumber={false} label="Call" className="order-4 col-span-2 !py-2.5 sm:order-none sm:col-span-1" />
-          </div>
-        </StaggerItem>
-      ))}
-    </Stagger>
   );
 }
 

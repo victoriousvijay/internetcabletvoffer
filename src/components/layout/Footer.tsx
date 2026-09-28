@@ -15,7 +15,7 @@ export function Footer() {
           <div>
             <Logo light />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-brand-100/70">
-              {site.name} is an independent comparison platform helping U.S. households find the right internet, cable TV and
+              {site.name} is an authorized sales partner helping U.S. households find the right internet, cable TV and
               bundle offers — with clear pricing, honest pros and cons, and plain-English guides.
             </p>
             <a href={`mailto:${site.email}`} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-200">
@@ -30,7 +30,20 @@ export function Footer() {
           <FooterCol title="Company" links={[...resourceNav, ...legalNav]} />
         </div>
 
-        <div className="mt-14 rounded-2xl bg-white/[0.04] p-5 text-xs leading-relaxed text-brand-100/60 ring-1 ring-white/10">
+        <div className="mt-14 border-t border-white/10 pt-10">
+          <h3 className="text-lg font-bold text-white">Our Authorized Network Partners</h3>
+          <p className="mt-3 max-w-5xl text-sm leading-7 text-brand-100/80">
+            At <strong className="text-white">{site.name}</strong>, we are proud to be an <strong className="text-white">authorized dealer</strong> for
+            leading <strong className="text-white">internet service providers</strong> nationwide, including{" "}
+            <strong className="text-white">{providers.map((p) => p.name).join(", ").replace(/, ([^,]*)$/, " and $1")}</strong>. Our team works
+            closely with these trusted brands to bring you <strong className="text-white">reliable, high-speed internet options</strong>,{" "}
+            <strong className="text-white">simple installation</strong> and <strong className="text-white">exceptional customer support</strong>,
+            helping you find the <strong className="text-white">best plan</strong> for your <strong className="text-white">home or business</strong>{" "}
+            with confidence.
+          </p>
+        </div>
+
+        <div className="mt-8 rounded-2xl bg-white/[0.04] p-5 text-xs leading-relaxed text-brand-100/60 ring-1 ring-white/10">
           {trademarkDisclaimer}
         </div>
 

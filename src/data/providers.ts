@@ -1,15 +1,9 @@
 import { images } from "@/lib/site";
+import { planData, type Plan } from "./providerPlans";
+
+export type { Plan };
 
 export type TypeKey = "fiber" | "5g" | "cable" | "dsl" | "fixed-wireless" | "satellite";
-
-export type Plan = {
-  name: string;
-  download: string;
-  upload: string;
-  price: number;
-  note?: string;
-  popular?: boolean;
-};
 
 export type Faq = { q: string; a: string };
 
@@ -47,7 +41,7 @@ export type Provider = {
   faqs: Faq[];
 };
 
-export const providers: Provider[] = [
+const raw: Omit<Provider, "plans">[] = [
   {
     slug: "att",
     name: "AT&T",
@@ -79,14 +73,6 @@ export const providers: Provider[] = [
     bestFor: "Remote workers, creators and gamers who need fast, symmetrical uploads",
     heroImage: images.homeOffice,
     sideImage: images.gaming,
-    plans: [
-      { name: "AT&T Fiber 300", download: "300 Mbps", upload: "300 Mbps", price: 55 },
-      { name: "AT&T Fiber 500", download: "500 Mbps", upload: "500 Mbps", price: 65, popular: true },
-      { name: "AT&T Fiber 1 GIG", download: "1 Gbps", upload: "1 Gbps", price: 80 },
-      { name: "AT&T Fiber 2 GIG", download: "2 Gbps", upload: "2 Gbps", price: 150 },
-      { name: "AT&T Fiber 5 GIG", download: "5 Gbps", upload: "5 Gbps", price: 245 },
-      { name: "AT&T Internet Air", download: "Up to ~300 Mbps", upload: "Varies", price: 60, note: "Discount with eligible AT&T wireless" },
-    ],
     pros: [
       "Symmetrical upload and download speeds on fiber",
       "No annual contract and no data caps on fiber plans",
@@ -147,14 +133,6 @@ export const providers: Provider[] = [
     bestFor: "Privacy-minded households and shoppers who want more options at their address",
     heroImage: images.laptopDesk,
     sideImage: images.friendsLaptops,
-    plans: [
-      { name: "EarthLink Fiber 100", download: "100 Mbps", upload: "Up to 100 Mbps", price: 50 },
-      { name: "EarthLink Fiber 500", download: "500 Mbps", upload: "Up to 500 Mbps", price: 60, popular: true },
-      { name: "EarthLink Fiber 1 Gig", download: "1 Gbps", upload: "Up to 1 Gbps", price: 75 },
-      { name: "EarthLink Fiber 2 Gig", download: "2 Gbps", upload: "Up to 2 Gbps", price: 100 },
-      { name: "EarthLink Fiber 5 Gig", download: "5 Gbps", upload: "Up to 5 Gbps", price: 150 },
-      { name: "EarthLink 5G Home", download: "Up to ~300 Mbps", upload: "Varies", price: 55, note: "Where available" },
-    ],
     pros: [
       "Multiple technologies, so it's available almost everywhere",
       "Privacy-focused — EarthLink states it doesn't track browsing to sell ads",
@@ -214,11 +192,6 @@ export const providers: Provider[] = [
     bestFor: "Families who want simple, unlimited internet bundled with TV and mobile",
     heroImage: images.kitchen,
     sideImage: images.cozyRoom,
-    plans: [
-      { name: "Spectrum Internet Premier", download: "500 Mbps", upload: "Up to 20 Mbps", price: 50 },
-      { name: "Spectrum Internet Advantage", download: "1 Gbps", upload: "Up to 35 Mbps", price: 70, popular: true },
-      { name: "Spectrum Internet Gig", download: "2 Gbps", upload: "Up to 1 Gbps", price: 90, note: "In select areas" },
-    ],
     pros: [
       "No data caps and no annual contracts",
       "Free modem and free access to Spectrum Wi-Fi hotspots",
@@ -279,13 +252,6 @@ export const providers: Provider[] = [
     bestFor: "Suburban and rural homes upgrading from DSL to fiber",
     heroImage: images.modernHome,
     sideImage: images.ruralField,
-    plans: [
-      { name: "Kinetic 100", download: "100 Mbps", upload: "Varies", price: 40, note: "DSL/fiber by address" },
-      { name: "Kinetic Fiber 300", download: "300 Mbps", upload: "300 Mbps", price: 50 },
-      { name: "Kinetic Fiber 1 Gig", download: "1 Gbps", upload: "1 Gbps", price: 70, popular: true },
-      { name: "Kinetic Fiber 2 Gig", download: "2 Gbps", upload: "2 Gbps", price: 100 },
-      { name: "Kinetic Fiber 8 Gig", download: "8 Gbps", upload: "8 Gbps", price: 250 },
-    ],
     pros: [
       "Multi-gig fiber in areas with few alternatives",
       "Unlimited data on all plans",
@@ -345,13 +311,6 @@ export const providers: Provider[] = [
     bestFor: "Rural and suburban homes that finally have a fiber option",
     heroImage: images.cozyRoom,
     sideImage: images.kitchen,
-    plans: [
-      { name: "Brightspeed Internet", download: "Up to 140 Mbps", upload: "Varies", price: 49, note: "DSL service" },
-      { name: "Brightspeed Fiber 300", download: "300 Mbps", upload: "300 Mbps", price: 49 },
-      { name: "Brightspeed Fiber 500", download: "500 Mbps", upload: "500 Mbps", price: 59, popular: true },
-      { name: "Brightspeed Fiber 1 Gig", download: "940 Mbps", upload: "940 Mbps", price: 69 },
-      { name: "Brightspeed Fiber 2 Gig", download: "2 Gbps", upload: "2 Gbps", price: 99 },
-    ],
     pros: [
       "Affordable fiber pricing",
       "Unlimited data with no contracts",
@@ -412,13 +371,6 @@ export const providers: Provider[] = [
     bestFor: "Verizon mobile customers and anyone who wants a long price guarantee",
     heroImage: images.friendsLaptops,
     sideImage: images.phoneHand,
-    plans: [
-      { name: "Fios 300 Mbps", download: "300 Mbps", upload: "300 Mbps", price: 50 },
-      { name: "Fios 1 Gig", download: "1 Gbps", upload: "1 Gbps", price: 70, popular: true },
-      { name: "Fios 2 Gig", download: "2 Gbps", upload: "2 Gbps", price: 90 },
-      { name: "5G Home", download: "50–250 Mbps", upload: "Varies", price: 50, note: "Lower with Verizon mobile" },
-      { name: "5G Home Plus", download: "85–250 Mbps", upload: "Varies", price: 70 },
-    ],
     pros: [
       "Fios consistently ranks among the most reliable ISPs",
       "Multi-year price guarantees",
@@ -479,15 +431,8 @@ export const providers: Provider[] = [
     bestFor: "Speed seekers who want multi-gig fiber at competitive prices",
     heroImage: images.lightWaves,
     sideImage: images.gaming,
-    plans: [
-      { name: "Fiber 500", download: "500 Mbps", upload: "500 Mbps", price: 45 },
-      { name: "Fiber 1 Gig", download: "1 Gbps", upload: "1 Gbps", price: 65, popular: true },
-      { name: "Fiber 2 Gig", download: "2 Gbps", upload: "2 Gbps", price: 95 },
-      { name: "Fiber 5 Gig", download: "5 Gbps", upload: "5 Gbps", price: 125 },
-      { name: "Fiber 7 Gig", download: "7 Gbps", upload: "7 Gbps", price: 155 },
-    ],
     pros: [
-      "Symmetrical multi-gig fiber up to 7 Gbps",
+      "Symmetrical fiber from 1 Gig up to 5 Gig",
       "Unlimited data and no annual contract",
       "Wi-Fi router included; Wi-Fi 7 on top tiers",
       "Competitive gig pricing",
@@ -498,7 +443,7 @@ export const providers: Provider[] = [
       "Top tiers need Wi-Fi 7 devices to benefit fully",
     ],
     features: [
-      { title: "Multi-gig fiber", text: "Speeds up to 7 Gbps for power users and large smart homes." },
+      { title: "Multi-gig fiber", text: "Plans from 1 Gig to 5 Gig for power users and large smart homes." },
       { title: "Wi-Fi 7 ready", text: "Premium tiers include next-gen Wi-Fi equipment." },
       { title: "Whole-home Wi-Fi", text: "Add extenders for full coverage in bigger homes." },
       { title: "Premium tech pro", text: "Optional expert support for devices and networking." },
@@ -545,11 +490,6 @@ export const providers: Provider[] = [
     bestFor: "Rural homes without access to cable, fiber or 5G",
     heroImage: images.ruralField,
     sideImage: images.earthSatellite,
-    plans: [
-      { name: "HughesNet Select", download: "50 Mbps", upload: "5 Mbps", price: 50 },
-      { name: "HughesNet Elite", download: "100 Mbps", upload: "5 Mbps", price: 65, popular: true },
-      { name: "HughesNet Fusion", download: "100 Mbps", upload: "5 Mbps", price: 80, note: "Hybrid satellite + wireless for lower latency" },
-    ],
     pros: [
       "Available virtually everywhere in the U.S.",
       "No hard data caps",
@@ -609,13 +549,6 @@ export const providers: Provider[] = [
     bestFor: "Households wanting internet, TV and mobile from one company",
     heroImage: images.livingRoom,
     sideImage: images.bedroom,
-    plans: [
-      { name: "Optimum 300", download: "300 Mbps", upload: "Up to 300 Mbps on fiber", price: 40 },
-      { name: "Optimum 500", download: "500 Mbps", upload: "Up to 500 Mbps on fiber", price: 60 },
-      { name: "Optimum 1 Gig", download: "1 Gbps", upload: "Up to 1 Gbps on fiber", price: 80, popular: true },
-      { name: "Optimum 2 Gig", download: "2 Gbps", upload: "2 Gbps (fiber)", price: 100 },
-      { name: "Optimum 8 Gig", download: "8 Gbps", upload: "8 Gbps (fiber)", price: 180 },
-    ],
     pros: [
       "Low starting price",
       "Fiber tiers up to 8 Gbps",
@@ -645,5 +578,29 @@ export const providers: Provider[] = [
     ],
   },
 ];
+
+/** Display order everywhere (menus, footer, grids): EarthLink and HughesNet go last per the client. */
+const ORDER = ["att", "spectrum", "kinetic", "brightspeed", "verizon", "frontier", "optimum", "earthlink", "hughesnet"];
+
+/** Merge current plans/pricing from providerPlans.ts and keep price FAQs in sync with them. */
+export const providers: Provider[] = raw
+  .map((p) => {
+    const d = planData[p.slug];
+    return {
+      ...p,
+      startingPrice: d.startingPrice,
+      maxSpeed: d.maxSpeed,
+      maxSpeedMbps: d.maxSpeedMbps,
+      blurb: d.blurb ?? p.blurb,
+      tagline: d.tagline ?? p.tagline,
+      quickAnswer: d.quickAnswer,
+      plans: d.plans,
+      faqs: [
+        { q: `How much does ${p.name} internet cost?`, a: d.priceFaq },
+        ...p.faqs.filter((f) => !/^How much/i.test(f.q)),
+      ],
+    };
+  })
+  .sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug));
 
 export const getProvider = (slug: string) => providers.find((p) => p.slug === slug);
