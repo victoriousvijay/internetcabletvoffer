@@ -111,6 +111,7 @@ src/
 - **Themed components:** `components/themed/ThemedHero.tsx` (4 hero layouts), `Motif.tsx` (brand patterns), `ProviderSections.tsx` (Plans, Features, Ratings, TV).
 - **Mobile specifics:** themed sticky bottom bar (`MobileCtaBar`) with page-specific actions/colors; plan cards become a swipeable snap carousel; plan rows stack; big line-art motifs hidden below `lg`; `.grid > * { min-width: 0 }` and `overflow-x: clip` on html/body so nothing ever scrolls sideways. Test at 360px width.
 - **Home sections:**
+  - Plans = `sections/FeaturedPlans.tsx`, a copy (per client) of the CoreConnect (CCN) "Fiber-Powered Internet Plans" block: Internet Advantage 100 Mbps $30, Premier 500 Mbps $40 (was $50), Gig 1 Gig $60 (was $70), gradient buttons "Select Advisor Quote" that dial the site phone. Its small "High-Speed Broadband Specials" pill is the one allowed eyebrow label.
   - Below the logo strip: **Today's Best Internet Plans** (`sections/FeaturedPlans.tsx`) — 4 hand-picked plan cards (AT&T 1 GIG, Spectrum Internet 500, Frontier 1 Gig, Fios 300) in each provider's colors. (Replaced the old stat tiles per client.)
   - Internet types = accordion gallery (`sections/AccordionGallery.tsx`, used by `TypeGrid`): hover-expands to 52% on desktop (defaultIndex 2), vertical tap-to-open stack on phones.
   - Speed guide = stepper quiz (`ui/Stepper.tsx` + `sections/SpeedGuide.tsx`): household → activities → devices → recommendation with up to 3 real matching plans (one per provider, cheapest first); final button opens that provider's plans.

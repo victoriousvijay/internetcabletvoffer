@@ -52,20 +52,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured plans (replaced the stat boxes per client) */}
-      <section className="bg-gradient-to-b from-white to-sky-soft py-14 sm:py-20">
-        <div className="container-x">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">Today&apos;s Best Internet Plans</h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
-              Fiber and cable deals from America&apos;s top providers. Call now to lock in these prices at your address.
-            </p>
-          </div>
-          <div className="mt-12">
-            <FeaturedPlans />
-          </div>
-        </div>
-      </section>
+      {/* Plans section, same as the CCN site (per client) */}
+      <FeaturedPlans />
 
       {/* Providers */}
       <section className="container-x py-10 sm:py-16">
