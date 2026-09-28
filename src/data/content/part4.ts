@@ -20,9 +20,9 @@ export const extraSections: Record<string, ArticleSection[]> = {
       body: ["A few simple steps can lower your AT&T bill and add extra value:"],
       bullets: [
         "Enroll in AutoPay and paperless billing to get the advertised price",
-        "Bundle with an eligible AT&T wireless plan for monthly internet savings",
+        "Bundle with an eligible AT&T wireless plan — it cuts Internet 300 to $20/mo, 500 to $35/mo and 1000 to $45/mo",
         "Ask about new-customer offers such as reward cards and gig-plan discounts",
-        "Choose the 1 GIG plan if you're between tiers — the savings make it close in price to 500 Mbps",
+        "Choose Internet 1000 if you're between tiers — at $45/mo with wireless it's only $10 more than 500 Mbps",
         "If you're switching, ask whether AT&T will cover your current provider's early termination fee",
       ],
     },
@@ -152,7 +152,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "gaming-streaming",
       h2: "Is Verizon Fios good for gaming and streaming?",
       body: [
-        "Fios is one of the best home internet services for gaming, thanks to fiber's low latency and consistent performance even during peak evening hours. For streaming, every Fios tier handles 4K, and the gig and multi-gig plans easily support large households with many screens.",
+        "Fios is one of the best home internet services for gaming, thanks to fiber's low latency and consistent performance even during peak evening hours. For streaming, every Fios tier handles 4K, and the 1 Gig and 2 Gig plans easily support large households with many screens.",
         "Content creators benefit from Fios's near-symmetrical upload speeds, which make uploading videos, streaming live and backing up to the cloud fast and reliable.",
       ],
     },
@@ -161,9 +161,9 @@ export const extraSections: Record<string, ArticleSection[]> = {
       h2: "How to get the best Verizon Fios deal",
       body: ["Maximize your savings with these steps:"],
       bullets: [
-        "Use Auto Pay and paper-free billing to get the advertised Fios price",
+        "Choose 1 Gig or 2 Gig to lock your price for 5 years",
         "Bundle with an eligible Verizon mobile plan for extra monthly savings",
-        "Choose 1 Gig or higher to lock in a 5-year price guarantee",
+        "Enroll in Mobile + Home for up to $10/mo toward Netflix, Disney+ and more",
         "Ask about perks such as discounted streaming subscriptions",
       ],
     },
@@ -178,7 +178,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "equipment",
       h2: "Verizon Fios equipment",
       body: [
-        "Every Fios plan includes a router, and gig and multi-gig plans come with a Wi-Fi 7 router for faster in-home speeds. Extenders are available for larger homes, and professional installation ensures your fiber connection is set up correctly from day one.",
+        "Every Fios plan includes a router at no additional cost, and the 1 Gig and 2 Gig plans add Whole-Home Wi-Fi for coverage in every room. Extenders are available for larger homes, and professional installation ensures your fiber connection is set up correctly from day one.",
       ],
     },
   ],
@@ -187,7 +187,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "gaming-streaming",
       h2: "Is Frontier Fiber good for gaming and streaming?",
       body: [
-        "Frontier Fiber is built for it. With 1 Gig as the entry plan, every Frontier Fiber customer has enough bandwidth for multiple 4K streams, online gaming and video calls at the same time. Symmetrical speeds and low latency keep gameplay responsive and live streams sharp.",
+        "Frontier Fiber is built for it. Even Fiber 500 delivers 500/500 Mbps for multiple 4K streams, online gaming and video calls at once, and Fiber 1 Gig and 2 Gig add room for large smart homes. Symmetrical speeds and low latency keep gameplay responsive and live streams sharp.",
       ],
     },
     {
@@ -195,10 +195,10 @@ export const extraSections: Record<string, ArticleSection[]> = {
       h2: "How to get the best Frontier deal",
       body: ["Frontier offers straightforward pricing, but these tips help:"],
       bullets: [
-        "Start with Fiber 1 Gig — it's the best value for most homes",
-        "Step up to 2 Gig if you upload large files or have many heavy users",
-        "Ask about Wi-Fi 7 equipment on higher tiers",
-        "Check current online-exclusive pricing when you call",
+        "Start with Fiber 1 Gig — the first month is free and it includes a $150 Visa Reward Card",
+        "Add a Verizon mobile line to cut your fiber bill by up to $15/mo",
+        "Step up to Fiber 2 Gig for a $200 Visa Reward Card and free Whole-Home Wi-Fi",
+        "Lock your rate with a 4- or 5-year price guarantee",
       ],
     },
     {
@@ -221,7 +221,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "gaming-streaming",
       h2: "Is Optimum good for streaming and gaming?",
       body: [
-        "Optimum's cable plans deliver plenty of download speed for streaming and gaming, and there are no data caps. Optimum 1 Gig is the most popular choice for gamers and multi-TV households. Where available, Optimum Fiber adds symmetrical upload speeds and lower latency, which is ideal for competitive gaming and live-streaming.",
+        "Optimum Fiber delivers plenty of speed for streaming and gaming, with unlimited data and uploads many times faster than 5G home internet. The 1 Gig plan is the best choice for gamers and multi-TV households, while 500 Mbps suits most families.",
       ],
     },
     {
@@ -230,7 +230,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       body: ["Save more on Optimum with these tips:"],
       bullets: [
         "Bundle internet with Optimum TV and Optimum Mobile",
-        "Check whether Optimum Fiber is available — it adds faster uploads",
+        "Pick 1 Gig for up to a $50 gift of your choice",
         "Choose the tier that fits your household to avoid paying for unused speed",
         "Ask about current promotions and installation offers",
       ],
@@ -239,14 +239,14 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "who-for",
       h2: "Who should choose Optimum?",
       body: [
-        "Optimum is a strong fit for households in its footprint that want an affordable, no-contract internet plan with the option to add TV and mobile. Power users with access to Optimum Fiber can choose some of the fastest residential speeds available anywhere, up to 8 Gig.",
+        "Optimum is a strong fit for households in its footprint that want affordable fiber with a long price lock and the option to add TV and mobile. Plans start at $35/mo, and the 1 Gig plan at $55/mo is one of the best-value gig plans available.",
       ],
     },
     {
       id: "equipment",
       h2: "Optimum equipment and installation",
       body: [
-        "Every Optimum internet plan includes a Smart WiFi 6 router that supports up to 20 wireless devices. Optimum offers professional installation to make sure your equipment and service work correctly from day one, and Wi-Fi extenders are available for larger homes.",
+        "Optimum Fiber includes a WiFi router for your home. Optimum offers professional installation to make sure your equipment and service work correctly from day one, and Wi-Fi extenders are available for larger homes.",
       ],
     },
   ],
@@ -290,7 +290,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       h2: "Can you stream and game on HughesNet?",
       body: [
         "You can stream video on HughesNet, and the no-hard-limit data policy means you won't be cut off. To make your priority data last, set streaming apps to standard definition during the day and schedule large downloads during the 2 AM–8 AM bonus window.",
-        "Casual and turn-based games work fine, but satellite latency makes fast-paced competitive shooters difficult. HughesNet Fusion reduces latency and is the best HughesNet option for gamers and video calls.",
+        "Casual, strategy and role-playing games work fine, but satellite latency makes fast-paced competitive shooters difficult. For video calls and gaming, Elite's 100 Mbps and larger priority data give the smoothest experience.",
       ],
     },
     {
@@ -298,8 +298,9 @@ export const extraSections: Record<string, ArticleSection[]> = {
       h2: "How to get the best HughesNet deal",
       body: ["Get more from your HughesNet plan:"],
       bullets: [
-        "Pick Elite over Select if you stream often — it doubles priority data",
-        "Choose Fusion if you work from home or make lots of video calls",
+        "Start with Lite at $39.99/mo if you only need basic connectivity",
+        "Pick Select for most households: 50 Mbps for $49.99/mo",
+        "Pick Elite over Select if you stream often — it doubles priority data to 200 GB",
         "Use off-peak hours for software updates and big downloads",
         "Ask about equipment lease versus purchase options",
       ],

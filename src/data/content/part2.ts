@@ -60,19 +60,17 @@ export const part2: Record<string, Article> = {
         h2: "Verizon Fios: 100% fiber with price guarantees",
         body: [
           "Fios runs on a 100% fiber-optic network across the Northeast and Mid-Atlantic, including New York, New Jersey, Pennsylvania, Massachusetts, Maryland, Virginia and Washington, D.C. Fiber delivers symmetrical speeds, very low latency and reliable performance during busy evening hours.",
-          "Every Fios plan has no annual contract and no data caps. Prices include the Auto Pay and paper-free billing discount, and each plan is protected by a three- or five-year price guarantee.",
+          "Every Fios plan has no annual contract and no data caps, and when you order today your price is locked for three years (500 Mbps) or five years (1 Gig and 2 Gig).",
         ],
       },
       {
         id: "plans-explained",
         h2: "Verizon Fios plans and pricing",
-        body: ["Fios offers five speed tiers so you only pay for what you need."],
+        body: ["Fios keeps its lineup simple with three fiber speeds. Verizon mobile customers who enroll in Mobile + Home get extra perks on every plan."],
         subs: [
-          { h3: "Fios 300 Mbps — $40/mo", body: "Great for streaming, browsing and remote work in smaller households, with a 3-year price guarantee." },
-          { h3: "Fios 500 Mbps — $75/mo", body: "More bandwidth for families with many devices, also with a 3-year price guarantee." },
-          { h3: "Fios 1 Gig — $90/mo", body: "Up to 940 Mbps download and 750–880 Mbps upload, a 5-year price guarantee and a Wi-Fi 7 router. The most popular choice for gamers and busy homes." },
-          { h3: "Fios 2 Gig — $100/mo", body: "Average wired speeds of 1.5–2.3 Gbps in both directions for creators and large households, with a 5-year guarantee." },
-          { h3: "Fios 5 Gig — $110/mo", body: "Average wired speeds of 4.5–5.3 Gbps, Verizon's fastest home internet, backed by a 5-year price guarantee." },
+          { h3: "Fios 500 Mbps — $65/mo", body: "Up to 500 Mbps with a router included at no additional cost and a 3-year price lock. With Mobile + Home you also get the $99 pro setup fee waived, Cellular Wi-Fi Backup and Priority Care support." },
+          { h3: "Fios 1 Gig — $80/mo", body: "Up to 940 Mbps with a router and Whole-Home Wi-Fi included and a 5-year price lock. Mobile + Home customers get up to $10/mo toward a perk such as Netflix and HBO Max (with ads) or the Disney+, Hulu and ESPN+ bundle." },
+          { h3: "Fios 2 Gig — $90/mo", body: "Up to 2.3 Gbps with a router, Whole-Home Wi-Fi Plus and Digital Home Secure Plus included, plus a 5-year price lock. The best choice for large households, creators and power users." },
         ],
       },
       {
@@ -95,7 +93,7 @@ export const part2: Record<string, Article> = {
         body: [
           "Fios TV brings live channels, on-demand content and a multi-room DVR over the same fiber connection. Many customers pair Fios internet with a streaming service instead. Either way, fiber speeds make 4K streaming on several TVs effortless.",
         ],
-        bullets: ["Symmetrical fiber speeds", "3- to 5-year price guarantees", "No data caps or annual contracts", "Wi-Fi 7 router on gig plans"],
+        bullets: ["Symmetrical fiber speeds", "3- to 5-year price locks", "No data caps or annual contracts", "Whole-Home Wi-Fi included on gig plans"],
       },
       {
         id: "availability",
@@ -107,7 +105,7 @@ export const part2: Record<string, Article> = {
 
   frontier: {
     lead:
-      "Frontier has transformed from a DSL company into one of the fastest-growing fiber providers in America, now part of Verizon. Frontier Fiber offers symmetrical speeds from 1 Gig to 5 Gig in 25 states. Here's what to know about Frontier plans, equipment and availability.",
+      "Frontier has transformed from a DSL company into one of the fastest-growing fiber providers in America, now part of Verizon. Frontier Fiber offers symmetrical speeds from 500 Mbps to 2 Gig in 25 states, with Wi-Fi 7, Visa reward cards and long price guarantees. Here's what to know about Frontier plans, equipment and availability.",
     sections: [
       {
         id: "overview",
@@ -120,11 +118,11 @@ export const part2: Record<string, Article> = {
       {
         id: "plans-explained",
         h2: "Frontier Fiber plans",
-        body: ["Frontier focuses on gig and multi-gig fiber."],
+        body: ["Frontier offers three fiber tiers, all with Wi-Fi 7 and a Visa Reward Card. Verizon mobile customers pay even less."],
         subs: [
-          { h3: "Fiber 1 Gig — $44.99/mo", body: "Up to 1000/1000 Mbps symmetrical speeds. Ideal for families, gamers, remote workers and smart homes." },
-          { h3: "Fiber 2 Gig — $69.99/mo", body: "Up to 2000/2000 Mbps for large households, content creators and anyone who uploads big files." },
-          { h3: "Fiber 5 Gig — call for pricing", body: "Frontier's fastest tier, paired with advanced Wi-Fi 7 equipment, available in select areas." },
+          { h3: "Fiber 500 — $44.99/mo", body: "500/500 Mbps to work, stream and play on several devices. The first month is on Frontier, then $44.99/mo with AutoPay (as low as $29.99/mo with Verizon mobile). Includes a $100 Visa Reward Card, free expert install, a Wi-Fi 7 router and a 4-year price guarantee." },
+          { h3: "Fiber 1 Gig — $64.99/mo (recommended)", body: "1000/1000 Mbps for smart homes with dozens of devices. The first month is free, then $64.99/mo with AutoPay (as low as $49.99/mo with Verizon mobile). Includes a $150 Visa Reward Card, free expert install plus Whole-Home Wi-Fi, advanced parental controls and a 5-year price guarantee." },
+          { h3: "Fiber 2 Gig — $79.99/mo", body: "2000/2000 Mbps for large smart homes, at $79.99/mo with AutoPay (as low as $64.99/mo with Verizon mobile). Includes a $200 Visa Reward Card, free expert install, free Whole-Home Wi-Fi and a 5-year price guarantee." },
         ],
       },
       {
@@ -133,7 +131,7 @@ export const part2: Record<string, Article> = {
         body: ["Here's how Frontier Fiber compares with a typical cable connection:"],
         bullets: [
           "Connection: 100% fiber-to-the-home vs. coaxial cable",
-          "Top speeds: multi-gig vs. typically 1–2 Gig",
+          "Top speeds: up to 2 Gig symmetrical vs. slower cable uploads",
           "Uploads: equal to downloads vs. much slower",
           "Reliability: no peak-time slowdowns vs. neighborhood congestion",
           "Latency: very low, ideal for gaming and video calls",
@@ -143,7 +141,7 @@ export const part2: Record<string, Article> = {
         id: "extras",
         h2: "Wi-Fi and add-ons",
         body: [
-          "Frontier includes a Wi-Fi router with every plan, and higher tiers include premium Wi-Fi 7 equipment. Whole-home Wi-Fi extenders help cover larger homes, and Premium Tech Pro gives you expert help with devices and networking.",
+          "Every Frontier Fiber plan includes a Wi-Fi 7 router, and Fiber 1 Gig and 2 Gig add Whole-Home Wi-Fi. Whole-home Wi-Fi extenders help cover larger homes, and Premium Tech Pro gives you expert help with devices and networking.",
         ],
       },
       {

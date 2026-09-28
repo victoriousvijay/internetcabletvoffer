@@ -432,7 +432,7 @@ const raw: Omit<Provider, "plans">[] = [
     heroImage: images.lightWaves,
     sideImage: images.gaming,
     pros: [
-      "Symmetrical fiber from 1 Gig up to 5 Gig",
+      "Symmetrical fiber from 500 Mbps up to 2 Gig",
       "Unlimited data and no annual contract",
       "Wi-Fi router included; Wi-Fi 7 on top tiers",
       "Competitive gig pricing",
@@ -443,7 +443,7 @@ const raw: Omit<Provider, "plans">[] = [
       "Top tiers need Wi-Fi 7 devices to benefit fully",
     ],
     features: [
-      { title: "Multi-gig fiber", text: "Plans from 1 Gig to 5 Gig for power users and large smart homes." },
+      { title: "Multi-gig fiber", text: "Plans from 500 Mbps to 2 Gig with Wi-Fi 7 for power users and large smart homes." },
       { title: "Wi-Fi 7 ready", text: "Premium tiers include next-gen Wi-Fi equipment." },
       { title: "Whole-home Wi-Fi", text: "Add extenders for full coverage in bigger homes." },
       { title: "Premium tech pro", text: "Optional expert support for devices and networking." },
@@ -493,7 +493,7 @@ const raw: Omit<Provider, "plans">[] = [
     pros: [
       "Available virtually everywhere in the U.S.",
       "No hard data caps",
-      "Fusion plans reduce latency for smoother browsing",
+      "Plans from $39.99/mo for 12 months",
       "Professional installation included",
     ],
     cons: [
@@ -503,7 +503,7 @@ const raw: Omit<Provider, "plans">[] = [
     ],
     features: [
       { title: "Nationwide coverage", text: "If you can see the southern sky, you can likely get HughesNet." },
-      { title: "Fusion technology", text: "Blends satellite with wireless to cut latency for video calls and browsing." },
+      { title: "Whole Home Wi-Fi", text: "Advanced built-in Wi-Fi, with Whole Home Wi-Fi available on Select and Elite." },
       { title: "Built-in Wi-Fi", text: "The HughesNet modem includes Wi-Fi for whole-home coverage." },
       { title: "Bonus data", text: "Off-peak hours offer extra data allowances for big downloads." },
     ],
@@ -514,7 +514,7 @@ const raw: Omit<Provider, "plans">[] = [
     faqs: [
       { q: "How fast is HughesNet?", a: "HughesNet plans offer 50 to 100 Mbps download speeds and about 5 Mbps upload." },
       { q: "Does HughesNet have data caps?", a: "HughesNet has no hard data limits. Each plan includes priority data; after that, speeds may be reduced during congestion." },
-      { q: "Is HughesNet good for gaming?", a: "Satellite latency makes fast-paced online gaming difficult. HughesNet Fusion reduces latency, but wired or 5G internet is better for gaming." },
+      { q: "Is HughesNet good for gaming?", a: "Satellite latency makes fast-paced online gaming difficult. Choose Elite for the most speed and priority data, but wired or 5G internet is better for competitive gaming." },
       { q: "Does HughesNet require a contract?", a: "HughesNet typically uses a 24-month service agreement, with a no-contract option available for an upfront equipment fee." },
     ],
   },
@@ -551,7 +551,7 @@ const raw: Omit<Provider, "plans">[] = [
     sideImage: images.bedroom,
     pros: [
       "Low starting price",
-      "Fiber tiers up to 8 Gbps",
+      "Up to a 3-year price lock",
       "Unlimited data, no annual contract",
       "Flexible TV and mobile bundles",
     ],

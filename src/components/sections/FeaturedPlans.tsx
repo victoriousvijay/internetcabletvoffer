@@ -10,7 +10,7 @@ const picks: { slug: string; tier: string }[] = [
   { slug: "att", tier: "AT&T Internet 1000" },
   { slug: "spectrum", tier: "Internet 500" },
   { slug: "frontier", tier: "Fiber 1 Gig" },
-  { slug: "verizon", tier: "Fios 300 Mbps" },
+  { slug: "verizon", tier: "Fios 1 Gig" },
 ];
 
 export function FeaturedPlans() {

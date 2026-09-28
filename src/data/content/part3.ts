@@ -3,25 +3,24 @@ import type { Article } from "./types";
 export const part3: Record<string, Article> = {
   optimum: {
     lead:
-      "Optimum is the fourth-largest cable provider in the United States, with a growing fiber network and flexible internet, TV and mobile bundles. Optimum serves 21 states, with its largest presence in the New York metro area. Here's a complete look at Optimum cable and fiber plans.",
+      "Optimum is the fourth-largest cable provider in the United States, with a growing fiber network and flexible internet, TV and mobile bundles. Optimum serves 21 states, with its largest presence in the New York metro area. Here's a complete look at Optimum Fiber plans, pricing and price locks.",
     sections: [
       {
         id: "overview",
         h2: "Optimum internet: cable and fiber options",
         body: [
-          "Optimum runs two networks. Its hybrid fiber-coax cable network reaches most of its service area with speeds up to 1 Gig. Where Optimum Fiber has been built, customers can choose symmetrical plans from 1 Gig all the way to 8 Gig.",
-          "All Optimum internet plans include unlimited data, a Smart WiFi 6 router and no annual contract.",
+          "Optimum has been expanding its fiber-to-the-home network alongside its long-standing hybrid fiber-coax network. Optimum Fiber plans deliver fast, reliable speeds with much faster uploads than 5G home internet, from 300 Mbps up to 1 Gig.",
+          "Optimum Fiber plans include unlimited data, a WiFi router and no annual contract, and you can lock in your price for up to three years.",
         ],
       },
       {
         id: "plans-explained",
         h2: "Optimum plans and pricing",
-        body: ["Optimum's cable plans are among the most affordable ways to get fast internet in its footprint."],
+        body: ["Prices below include an eligible $10 AutoPay and paperless bill discount, plus taxes and fees."],
         subs: [
-          { h3: "Optimum 300 — $40/mo", body: "Up to 300 Mbps download, a good fit for streaming and browsing." },
-          { h3: "Optimum 500 — $50/mo", body: "Up to 500 Mbps download for homes with more users and devices." },
-          { h3: "Optimum 1 Gig — $60/mo", body: "Up to 940 Mbps download, the most popular cable plan for gamers and 4K streaming." },
-          { h3: "Optimum Fiber — from $70/mo", body: "Fiber 1 Gig ($70/mo), Fiber 2 Gig ($120/mo), Fiber 5 Gig ($180/mo) and Fiber 8 Gig ($280/mo) offer equal upload and download speeds where available." },
+          { h3: "300 Mbps Fiber Internet — $35/mo", body: "Supports essential online activities like streaming, browsing and video calls, with uploads about 5x faster than 5G home internet and up to a 3-year price lock." },
+          { h3: "500 Mbps Fiber Internet — $45/mo", body: "Great for everyday use in busier homes, with uploads about 9x faster than 5G home internet and up to a 3-year price lock." },
+          { h3: "1 Gig Fiber Internet — $55/mo", body: "More speed for more screens, gaming and working from home. Uploads are about 17x faster than 5G home internet, and the plan includes up to a 3-year price lock plus up to a $50 gift of your choice." },
         ],
       },
       {
@@ -35,12 +34,12 @@ export const part3: Record<string, Article> = {
         id: "why",
         h2: "Why choose Optimum?",
         body: ["Optimum is a strong all-in-one choice for households that want internet, TV and mobile from one company."],
-        bullets: ["Low starting price", "Fiber tiers up to 8 Gig", "Unlimited data", "No annual contract", "Professional installation"],
+        bullets: ["Fiber from $35/mo", "Up to a 3-year price lock", "Up to a $50 gift on 1 Gig", "Unlimited data", "No annual contract"],
       },
       {
         id: "availability",
         h2: "Is Optimum available near me?",
-        body: ["Optimum serves 21 states, including New York, New Jersey, Connecticut, Texas, Arkansas and more. Call us to check whether you can get Optimum Fiber or cable at your address and today's pricing."],
+        body: ["Optimum serves 21 states, including New York, New Jersey, Connecticut, Texas, Arkansas and more. Call us to check whether Optimum Fiber is available at your address and today's pricing."],
       },
     ],
   },
@@ -94,7 +93,7 @@ export const part3: Record<string, Article> = {
 
   hughesnet: {
     lead:
-      "HughesNet is satellite internet that's available almost anywhere in the United States, including remote rural areas without cable, fiber or 5G. Here's how HughesNet plans, priority data and the Fusion plan work so you can pick the right option.",
+      "HughesNet is satellite internet that's available almost anywhere in the United States, including remote rural areas without cable, fiber or 5G. Here's how HughesNet plans, priority data and the Lite, Select and Elite plans work so you can pick the right option.",
     sections: [
       {
         id: "overview",
@@ -107,11 +106,11 @@ export const part3: Record<string, Article> = {
       {
         id: "plans-explained",
         h2: "HughesNet plans and pricing",
-        body: ["All plans use a 24-month service agreement."],
+        body: ["HughesNet offers three plans, each with a 12-month promotional price. Lite uses a 12-month commitment; Select and Elite use a 24-month commitment."],
         subs: [
-          { h3: "Select — $74.99/mo", body: "Up to 50 Mbps with 100 GB of priority data. Best for small families whose internet use is growing." },
-          { h3: "Elite — $89.99/mo", body: "Up to 100 Mbps with 200 GB of priority data, perfect for users and couples who want faster satellite internet." },
-          { h3: "Fusion — $119.99/mo", body: "Up to 100 Mbps and 200 GB of priority data, combining satellite with wireless technology for noticeably lower latency on video calls and browsing." },
+          { h3: "Lite — $39.99/mo (reg. $49.99)", body: "Speeds up to 25 Mbps with 100 GB of priority data, unlimited standard data and built-in Wi-Fi. A budget-friendly plan for customers with basic connectivity needs and light use." },
+          { h3: "Select — $49.99/mo (reg. $74.99)", body: "Speeds up to 50 Mbps with 100 GB of priority data and advanced built-in Wi-Fi, with Whole Home Wi-Fi available. The most popular plan for typical households that browse, shop, stream HD video and join video calls." },
+          { h3: "Elite — $64.99/mo (reg. $89.99)", body: "Speeds up to 100 Mbps with 200 GB of priority data, advanced built-in Wi-Fi and Whole Home Wi-Fi available. Built for larger households with more devices and higher data needs." },
         ],
       },
       {
@@ -122,17 +121,17 @@ export const part3: Record<string, Article> = {
         ],
       },
       {
-        id: "fusion",
-        h2: "Is HughesNet Fusion worth it?",
+        id: "which-plan",
+        h2: "Which HughesNet plan should you choose?",
         body: [
-          "Traditional satellite has higher latency because signals travel thousands of miles. Fusion blends satellite with a wireless connection to route latency-sensitive traffic more efficiently, making video calls, browsing and online apps feel more responsive. It's worth it for remote workers in areas where it's available.",
+          "Choose Lite if you mainly check email, browse and use social media on one or two devices. Select is the right fit for most families: 50 Mbps handles HD streaming, music, video-conferencing and strategy or role-playing games. Pick Elite if more people are online at once or you use more data, since it doubles your priority data to 200 GB and doubles the top speed to 100 Mbps.",
         ],
         bullets: ["Available in all 50 states", "No hard data limits", "Off-peak bonus data", "Professional installation", "HughesNet Voice add-on available"],
       },
       {
         id: "availability",
         h2: "Get HughesNet at your home",
-        body: ["Call us to confirm HughesNet plans and pricing at your address, including whether Fusion is available where you live."],
+        body: ["Call us to confirm HughesNet plans and pricing at your address, including today's promotional pricing."],
       },
     ],
   },

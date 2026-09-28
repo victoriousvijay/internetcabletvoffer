@@ -16,11 +16,11 @@ export const part1: Record<string, Article> = {
       {
         id: "plans-explained",
         h2: "Which AT&T internet plan is right for you?",
-        body: ["AT&T keeps its lineup simple. Pick the speed that matches the number of people and devices in your home, then let the fiber connection do the rest."],
+        body: ["AT&T keeps its lineup simple. Prices below are for new customers with eligible AT&T wireless service, AutoPay and paperless billing, plus taxes and fees; discounts start within three bills. Every plan includes AT&T Internet Backup for unlimited wireless customers and an optional All-Fi Pro add-on for $25/mo."],
         subs: [
-          { h3: "AT&T Internet 300 — the everyday plan", body: "At $35/mo with AutoPay and paperless billing, Internet 300 handles HD and 4K streaming, video calls and online classes for a couple or small family. Uploads are roughly 15 times faster than a typical cable plan, so sharing photos and backing up files is quick." },
-          { h3: "AT&T Internet 500 — for busy homes", body: "Internet 500 ($50/mo) gives more headroom for gamers and homes with a dozen or more connected devices. It's the sweet spot if several people stream and work online at the same time." },
-          { h3: "AT&T Internet 1000 (1 GIG) — the most popular choice", body: "At $65/mo after a $15 monthly savings, the 1 GIG plan is built for heavy streaming, competitive gaming, smart-home setups and remote work. Many households choose it because the jump in price from 500 Mbps is small compared with the jump in performance." },
+          { h3: "AT&T Internet 300 — the everyday plan", body: "Just $20/mo with eligible AT&T wireless service, AutoPay and paperless billing (regular $60/mo, or $35/mo without a wireless plan). Game, stream and video chat with confidence and support all your smart home devices, with uploads far faster than a typical cable plan." },
+          { h3: "AT&T Internet 500 — for busy homes", body: "$35/mo with eligible AT&T wireless (regular $75/mo). Level up your gaming with low lag and connect and control multiple smart devices with ease. It's the sweet spot when several people stream and work online at the same time." },
+          { h3: "AT&T Internet 1000 (1 GIG) — best value", body: "$45/mo with eligible AT&T wireless (regular $90/mo), a $45 monthly savings. It's the speed to succeed for work and pro-level gaming and unleashes the full potential of your smart home ecosystem." },
           { h3: "AT&T Internet Air — $55/mo wireless option", body: "No fiber at your address yet? AT&T Internet Air brings plug-and-play home Wi-Fi over AT&T's wireless network for $55/mo with equipment included, no data caps and no annual contract." },
         ],
       },
