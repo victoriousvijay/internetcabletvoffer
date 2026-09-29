@@ -20,9 +20,10 @@ export const extraSections: Record<string, ArticleSection[]> = {
       body: ["A few simple steps can lower your AT&T bill and add extra value:"],
       bullets: [
         "Enroll in AutoPay and paperless billing to get the advertised price",
-        "Bundle with an eligible AT&T wireless plan — it cuts Internet 300 to $20/mo, 500 to $35/mo and 1000 to $45/mo",
+        "With AutoPay and paperless billing, Internet 300 is $35/mo, 500 is $50/mo and 1000 is $65/mo",
+        "Add an eligible AT&T unlimited wireless plan to get AT&T Internet Backup at no additional cost",
         "Ask about new-customer offers such as reward cards and gig-plan discounts",
-        "Choose Internet 1000 if you're between tiers — at $45/mo with wireless it's only $10 more than 500 Mbps",
+        "Choose Internet 1000 if you're between tiers — at $65/mo it's only $15 more than 500 Mbps",
         "If you're switching, ask whether AT&T will cover your current provider's early termination fee",
       ],
     },

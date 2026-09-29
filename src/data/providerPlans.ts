@@ -37,19 +37,19 @@ export type PlanOverrides = {
 
 export const planData: Record<string, PlanOverrides> = {
   att: {
-    startingPrice: 20,
+    startingPrice: 35,
     maxSpeed: "1 Gbps",
     maxSpeedMbps: 1000,
     blurb: "Fast fiber, zero contracts",
     tagline: "100% fiber with no annual contract",
     quickAnswer:
-      "AT&T Fiber plans are Internet 300 at $20/mo, Internet 500 at $35/mo and Internet 1000 (up to 1 GIG) at $45/mo for new customers with eligible AT&T wireless service, AutoPay and paperless billing, plus taxes and fees (regular $60, $75 and $90/mo). Without a wireless plan, Internet 300 is $35/mo. AT&T Internet Air is $55/mo where fiber isn't available.",
+      "AT&T Fiber plans are Internet 300 at $35/mo, Internet 500 at $50/mo and Internet 1000 (up to 1 GIG) at $65/mo for new customers after discounts with eligible AutoPay and paperless billing, plus taxes and fees (regular $60, $75 and $90/mo). AT&T Internet Air is $55/mo where fiber isn't available.",
     priceFaq:
-      "With eligible AT&T wireless service, AutoPay and paperless billing, AT&T Internet 300 is $20/mo, Internet 500 is $35/mo and Internet 1000 is $45/mo, plus taxes and fees (regular prices $60, $75 and $90/mo; discounts start within 3 bills). Without a wireless plan, Internet 300 starts at $35/mo. AT&T Internet Air is $55/mo with equipment included.",
+      "After discounts with eligible AutoPay and paperless billing, AT&T Internet 300 is $35/mo, Internet 500 is $50/mo and Internet 1000 is $65/mo, plus taxes and fees (regular prices $60, $75 and $90/mo) for new customers in select markets. AT&T Internet Air is $55/mo with equipment included.",
     plans: [
-      { tier: "AT&T Internet 300", headline: "300Mbps speed", desc: "Game, stream and video chat with confidence.", download: "300 Mbps", upload: "300 Mbps", price: 20, wasPrice: 60, term: "/mo. plus taxes & fees w/ eligible AT&T wireless, AutoPay & paperless bill", icon: "shield", features: ["Support your smart home devices", "AT&T Internet Backup included for unlimited wireless customers", "Without a wireless plan: $35/mo", "Optional All-Fi Pro (Wi-Fi 7) add-on: $25/mo"] },
-      { tier: "AT&T Internet 500", headline: "500Mbps speed", desc: "Level up your gaming with low lag.", download: "500 Mbps", upload: "500 Mbps", price: 35, wasPrice: 75, term: "/mo. plus taxes & fees w/ eligible AT&T wireless, AutoPay & paperless bill", popular: true, icon: "flame", features: ["Connect and control multiple smart devices with ease", "AT&T Internet Backup included for unlimited wireless customers", "Unlimited data, no annual contract", "Optional All-Fi Pro (Wi-Fi 7) add-on: $25/mo"] },
-      { tier: "AT&T Internet 1000", headline: "Up to 1 GIG speed", desc: "The speed to succeed for work and pro-level gaming.", download: "Up to 1 Gbps", upload: "Up to 1 Gbps", price: 45, wasPrice: 90, term: "/mo. plus taxes & fees w/ eligible AT&T wireless, AutoPay & paperless bill", badge: "Save $45/mo", icon: "bolt", features: ["Unleash the full potential of your smart home ecosystem", "AT&T Internet Backup included for unlimited wireless customers", "Unlimited data, no annual contract", "Optional All-Fi Pro (Wi-Fi 7) add-on: $25/mo"] },
+      { tier: "AT&T Internet 300", headline: "300Mbps speed", desc: "Game, stream and video chat with confidence.", download: "300 Mbps", upload: "300 Mbps", price: 35, wasPrice: 60, term: "/mo. plus taxes & fees after discounts w/ elig. AutoPay & paperless bill", icon: "shield", features: ["Game, stream and video chat with confidence", "Support your smart home devices", "AT&T Internet Backup included for unlimited wireless customers"] },
+      { tier: "AT&T Internet 500", headline: "500Mbps speed", desc: "Level up your gaming with low lag.", download: "500 Mbps", upload: "500 Mbps", price: 50, wasPrice: 75, term: "/mo. plus taxes & fees after discounts w/ elig. AutoPay & paperless bill", popular: true, icon: "flame", features: ["Level up your gaming with low lag", "Connect and control multiple smart devices with ease", "AT&T Internet Backup included for unlimited wireless customers"] },
+      { tier: "AT&T Internet 1000", headline: "Up to 1 GIG speed", desc: "The speed to succeed for work and pro-level gaming.", download: "Up to 1 Gbps", upload: "Up to 1 Gbps", price: 65, wasPrice: 90, term: "/mo. plus taxes & fees after discounts w/ elig. AutoPay & paperless bill", badge: "Save $25/mo", icon: "bolt", features: ["The speed to succeed for work and pro-level gaming", "Unleash the full potential of your smart home ecosystem", "AT&T Internet Backup included for unlimited wireless customers"] },
       { tier: "AT&T Internet Air", headline: "AT&T Internet Air", desc: "Plug-and-play wireless home internet where fiber isn't available.", download: "75–225 Mbps avg.", upload: "Varies", price: 55, term: "/mo., equipment included", icon: "wifi", features: ["Self-install in minutes", "No data caps", "No annual contract", "No price increase after 12 months"] },
     ],
   },
