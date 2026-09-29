@@ -155,7 +155,11 @@ The VPS also hosts other client sites (areainternetproviders, coreconnectnet on 
 | SSL | Let's Encrypt via `certbot --nginx -d internetcabletvoffers.com -d www.internetcabletvoffers.com` |
 | DNS (Hostinger) | A `@` → 187.127.249.30, CNAME `www` → internetcabletvoffers.com |
 
-**Every change must be deployed to the Hostinger VPS** (client requirement), not only pushed to GitHub. Update production after pushing to `main`:
+**Every change must be deployed to the Hostinger VPS** (client requirement), not only pushed to GitHub.
+
+**Auto-deploy:** `.github/workflows/deploy.yml` runs on every push to `main` (by the owner or contributor `shivelletechnologies`) and can be re-run from the Actions tab. It SSHes in with the `DEPLOY_SSH_KEY` repo secret, a key that `/root/.ssh/authorized_keys` restricts (`command=`) to `/usr/local/bin/deploy-internetcabletvoffers.sh` (fetch + hard reset to origin/main, `npm ci`, build, `pm2 restart internetcabletvoffers`, health check on :3100). Don't edit files directly on the VPS; the reset discards them.
+
+Manual fallback:
 
 ```bash
 ssh root@187.127.249.30 "cd /var/www/internetcabletvoffers && git pull && npm ci && npm run build && pm2 restart internetcabletvoffers"
