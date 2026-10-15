@@ -11,7 +11,6 @@ type Plan = {
   speed: string;
   subtitle: string;
   tag?: string;
-  originalPrice?: number;
   price: number;
   period: string;
   features: string[];
@@ -20,11 +19,11 @@ type Plan = {
   icon: ReactNode;
 };
 
-/** Home-page plans section, matching the client's CoreConnect (CCN) plans block. */
+/** Home-page plans section, matching the client's CoreConnect (CCN) plans block. Spectrum plan names per the Oct 2026 notes; no struck-through prices. */
 const plans: Plan[] = [
   {
     id: "advantage",
-    name: "Internet Advantage",
+    name: "Spectrum Internet 100",
     speed: "100 Mbps Internet",
     subtitle: "Reliable speeds for a smooth online experience.",
     price: 30,
@@ -35,11 +34,10 @@ const plans: Plan[] = [
   },
   {
     id: "premier",
-    name: "Internet Premier",
+    name: "Spectrum Internet 500",
     speed: "500 Mbps Internet",
     subtitle: "Powers seamless work and entertainment across multiple devices.",
     tag: "Online exclusive price",
-    originalPrice: 50,
     price: 40,
     period: "for 1 year",
     icon: <Flame className="h-5 w-5 animate-pulse text-amber-500" />,
@@ -49,11 +47,10 @@ const plans: Plan[] = [
   },
   {
     id: "gig",
-    name: "Internet Gig",
+    name: "Spectrum Internet 1 Gig",
     speed: "1 Gig Internet",
     subtitle: "Fuels serious gaming, streaming and working from home for the whole household.",
     tag: "Online exclusive price",
-    originalPrice: 70,
     price: 60,
     period: "for 1 year",
     icon: <Zap className="h-5 w-5 text-blue-500" />,
@@ -129,9 +126,6 @@ export function FeaturedPlans() {
                   <p className="mt-2 min-h-[40px] text-xs leading-relaxed text-slate-500">{plan.subtitle}</p>
 
                   <div className="mt-8 flex items-baseline gap-1.5">
-                    {plan.originalPrice && (
-                      <span className="mr-1 text-sm font-semibold text-rose-500/80 line-through">${plan.originalPrice}</span>
-                    )}
                     <span className="text-5xl font-extrabold tracking-tight text-slate-900">${plan.price}</span>
                     <span className="text-sm font-semibold uppercase tracking-wider text-slate-500">/mo</span>
                   </div>

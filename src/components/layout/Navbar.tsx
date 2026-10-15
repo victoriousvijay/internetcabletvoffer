@@ -26,7 +26,8 @@ import {
 import { Logo } from "@/components/ui/Logo";
 import { ProviderLogo } from "@/components/ui/ProviderBadge";
 import { internetNav, phone } from "@/lib/site";
-import { providerHref, providers } from "@/data/providers";
+import { providers } from "@/data/providers";
+import { ProviderLink } from "@/components/ui/CallOffersLink";
 import { MobileMenu } from "./MobileMenu";
 
 const typeIcons = [LayoutGrid, Zap, Wifi, Cable, Phone, RadioTower, Satellite, CalendarCheck];
@@ -101,8 +102,8 @@ export function Navbar() {
     <>
       <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
         <motion.nav
-          initial={{ y: -40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          initial={{ y: -12 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className={`relative mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-[1.35rem] py-2 pl-3 pr-2 transition-all duration-500 sm:pl-4 ${
             scrolled
@@ -258,15 +259,17 @@ function ProvidersMenu() {
       <div className="grid grid-cols-3 gap-1.5 p-1">
         {providers.map((p) => (
           <motion.div key={p.slug} variants={itemV}>
-            <Link
-              href={providerHref(p)}
+            <ProviderLink
+              slug={p.slug}
+              name={p.name}
+              callOnly={p.callOnly}
               className="group flex h-full flex-col items-center justify-center gap-2 rounded-xl p-3 text-center ring-1 ring-slate-100 transition-all duration-300 hover:bg-slate-50 hover:ring-brand-200"
             >
               <span className="flex h-9 items-center transition-transform duration-300 group-hover:scale-105">
                 <ProviderLogo p={p} className="h-7 max-w-[7.5rem]" />
               </span>
               <span className="text-[11px] font-medium text-slate-500">{p.callOnly ? "Call for current offers" : p.blurb}</span>
-            </Link>
+            </ProviderLink>
           </motion.div>
         ))}
       </div>

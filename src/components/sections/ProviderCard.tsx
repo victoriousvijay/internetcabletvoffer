@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { providerTypeLabel, type Provider } from "@/data/providers";
 import { providerThemes } from "@/data/themes";
 import { typeLabels } from "@/data/internetTypes";
-import { phone } from "@/lib/site";
+import { ProviderLink } from "@/components/ui/CallOffersLink";
 
 /**
  * Profile-style card: a brand-colored band sits on top; on hover it floods the card, the logo circle grows
@@ -13,11 +12,11 @@ import { phone } from "@/lib/site";
 export function ProviderCard({ p }: { p: Provider }) {
   const t = providerThemes[p.slug];
   const band = `linear-gradient(to bottom left, ${t.soft} 0%, color-mix(in srgb, ${t.acc2} 55%, white) 45%, ${t.acc} 100%)`;
-  // Call-only providers (no plans page) dial the sales line instead.
-  const Wrapper = p.callOnly ? "a" : Link;
   return (
-    <Wrapper
-      href={p.callOnly ? `tel:${phone.tel}` : `/providers/${p.slug}`}
+    <ProviderLink
+      slug={p.slug}
+      name={p.name}
+      callOnly={p.callOnly}
       className="group relative isolate flex h-80 w-full flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-slate-50 text-center ring-1 ring-slate-200/70 shadow-card transition-shadow duration-500 hover:shadow-lift"
       style={{ "--acc": t.acc, "--on-acc": t.onAcc } as React.CSSProperties}
     >
@@ -50,6 +49,6 @@ export function ProviderCard({ p }: { p: Provider }) {
           </>
         )}
       </span>
-    </Wrapper>
+    </ProviderLink>
   );
 }

@@ -6,8 +6,10 @@ import { AnimatePresence, motion } from "motion/react";
 import { providers } from "@/data/providers";
 
 const BRAND = { primary: "#1d43d8", light: "#3b74f6", label: "Internet Cable TV Offers" };
-const MIN_INITIAL = 1500;
-const MIN_NAV = 1100;
+/** Brief first-load splash only; never hold a ready page back (it made the site feel slow). */
+const MIN_INITIAL = 400;
+/** Navigations show the loader only if the next page takes longer than this to appear. */
+const NAV_DELAY = 300;
 
 /** Loader colors: provider pages use the provider's brand color, everything else uses the site blue. */
 function themeFor(path: string) {
@@ -25,17 +27,16 @@ export function PageLoader() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [theme, setTheme] = useState(() => themeFor(pathname));
-  const shownAt = useRef(0);
+  const navTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const firstRoute = useRef(true);
 
   // Initial page load.
   useEffect(() => {
-    shownAt.current = Date.now();
     const t = setTimeout(() => setVisible(false), MIN_INITIAL);
     return () => clearTimeout(t);
   }, []);
 
-  // Show immediately when an internal link to another page is clicked.
+  // When an internal link to another page is clicked, show the loader only if the page is slow to arrive.
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -44,23 +45,25 @@ export function PageLoader() {
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin || url.pathname === location.pathname) return;
       if (/\.(xml|txt|png|svg)$/.test(url.pathname)) return;
-      setTheme(themeFor(url.pathname));
-      shownAt.current = Date.now();
-      setVisible(true);
+      if (navTimer.current) clearTimeout(navTimer.current);
+      navTimer.current = setTimeout(() => {
+        setTheme(themeFor(url.pathname));
+        setVisible(true);
+      }, NAV_DELAY);
     };
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);
   }, []);
 
-  // Hide once the new route has rendered, keeping the animation on screen for a minimum time.
+  // Hide as soon as the new route has rendered.
   useEffect(() => {
     if (firstRoute.current) {
       firstRoute.current = false;
       return;
     }
-    const wait = Math.max(0, MIN_NAV - (Date.now() - shownAt.current));
-    const t = setTimeout(() => setVisible(false), wait);
-    return () => clearTimeout(t);
+    if (navTimer.current) clearTimeout(navTimer.current);
+    navTimer.current = null;
+    setVisible(false);
   }, [pathname]);
 
   return (
@@ -70,7 +73,7 @@ export function PageLoader() {
           key="page-loader"
           className="page-loader fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }}
+          exit={{ opacity: 0, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
           role="status"
           aria-live="polite"
           aria-label={`Loading ${theme.label}`}

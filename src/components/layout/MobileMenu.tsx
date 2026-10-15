@@ -9,7 +9,8 @@ import { Logo } from "@/components/ui/Logo";
 import { CallButton } from "@/components/ui/CallButton";
 import { ProviderBadge } from "@/components/ui/ProviderBadge";
 import { internetNav, legalNav, resourceNav } from "@/lib/site";
-import { providerHref, providers } from "@/data/providers";
+import { providers } from "@/data/providers";
+import { ProviderLink } from "@/components/ui/CallOffersLink";
 
 const listV = { hidden: {}, show: { transition: { staggerChildren: 0.05, delayChildren: 0.12 } } };
 const itemV = { hidden: { opacity: 0, x: 24 }, show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const } } };
@@ -84,16 +85,18 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               <Accordion id="providers" label="Providers" section={section} setSection={setSection}>
                 <div className="grid grid-cols-2 gap-2 pb-1">
                   {providers.map((p) => (
-                    <Link
+                    <ProviderLink
                       key={p.slug}
-                      href={providerHref(p)}
+                      slug={p.slug}
+                      name={p.name}
+                      callOnly={p.callOnly}
                       className={`flex items-center gap-2.5 rounded-xl p-2.5 ring-1 ${
                         isActive(`/providers/${p.slug}`) ? "bg-brand-50 ring-brand-200" : "ring-slate-100"
                       }`}
                     >
                       <ProviderBadge p={p} size="sm" />
                       <span className="text-sm font-semibold text-navy">{p.name}</span>
-                    </Link>
+                    </ProviderLink>
                   ))}
                 </div>
               </Accordion>

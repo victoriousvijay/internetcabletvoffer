@@ -19,8 +19,8 @@ export function HomeHero() {
       <div className="container-x relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         <div>
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 0.08, ease }}
             className="text-[2.35rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.1rem]"
           >
@@ -41,8 +41,8 @@ export function HomeHero() {
             </span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 0.18, ease }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-brand-100/80"
           >
@@ -51,8 +51,8 @@ export function HomeHero() {
           </motion.p>
           <motion.div
             id="check"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.8, delay: 0.28, ease }}
             className="mt-8 flex max-w-xl scroll-mt-32 flex-col gap-3 sm:flex-row"
           >
@@ -72,7 +72,7 @@ export function HomeHero() {
               { icon: ShieldCheck, t: "Independent ratings" },
               { icon: Gauge, t: "Speeds up to 8 Gbps" },
             ].map(({ icon: Icon, t }) => (
-              <motion.li key={t} variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-2">
+              <motion.li key={t} variants={{ hidden: { y: 8 }, show: { y: 0 } }} className="flex items-center gap-2">
                 <Icon className="h-5 w-5 text-sky-300" /> {t}
               </motion.li>
             ))}
@@ -80,8 +80,8 @@ export function HomeHero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ scale: 0.94, y: 30 }}
+          animate={{ scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15, ease }}
           className="relative mx-auto w-full max-w-xl"
         >

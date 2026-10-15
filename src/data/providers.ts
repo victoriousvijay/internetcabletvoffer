@@ -1,4 +1,4 @@
-import { images, phone } from "@/lib/site";
+import { images } from "@/lib/site";
 import { planData, type Plan } from "./providerPlans";
 
 export type { Plan };
@@ -612,9 +612,6 @@ export const providers: Provider[] = raw
   .sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug));
 
 export const getProvider = (slug: string) => providers.find((p) => p.slug === slug);
-
-/** Where a provider link goes: its plans page, or the sales line for call-only providers. */
-export const providerHref = (p: Provider) => (p.callOnly ? `tel:${phone.tel}` : `/providers/${p.slug}`);
 
 /** Providers that have their own plans page (call-only providers are excluded). */
 export const pageProviders = providers.filter((p) => !p.callOnly);

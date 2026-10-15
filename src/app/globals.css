@@ -132,6 +132,10 @@ body {
   .no-scrollbar { scrollbar-width: none; }
 }
 
+/* Fail-safe: the loader can never cover the page for more than ~3s, even if its JS exit animation doesn't run. */
+.page-loader { animation: page-loader-failsafe 0.3s ease 3s forwards; }
+@keyframes page-loader-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .page-loader { display: none !important; }

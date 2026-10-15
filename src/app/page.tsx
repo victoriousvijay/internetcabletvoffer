@@ -17,7 +17,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { pageProviders, providers } from "@/data/providers";
 import { homeFaqs } from "@/data/faqs";
 import { faqSchema, abs } from "@/lib/schema";
-import { img, images, phone } from "@/lib/site";
+import { img, images } from "@/lib/site";
+import { ProviderLink } from "@/components/ui/CallOffersLink";
 
 export default function Home() {
   const itemList = {
@@ -38,16 +39,18 @@ export default function Home() {
         <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
             {[...providers, ...providers].map((p, i) => (
-              <Link
+              <ProviderLink
                 key={`${p.slug}-${i}`}
-                href={p.callOnly ? `tel:${phone.tel}` : `/providers/${p.slug}`}
+                slug={p.slug}
+                name={p.name}
+                callOnly={p.callOnly}
                 aria-label={p.callOnly ? `Call for current ${p.name} offers` : undefined}
                 className="flex h-16 w-44 items-center justify-center rounded-2xl bg-white px-6 ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:ring-brand-200"
                 tabIndex={i >= providers.length ? -1 : undefined}
                 aria-hidden={i >= providers.length ? true : undefined}
               >
                 <ProviderLogo p={p} className="h-8 max-w-full" />
-              </Link>
+              </ProviderLink>
             ))}
           </div>
         </div>
@@ -142,7 +145,7 @@ export default function Home() {
                 <Link href="/providers/spectrum" className="btn btn-light">
                   Spectrum Stream TV® bundles <ArrowRight className="h-4 w-4" />
                 </Link>
-                <CallButton variant="outline-light" label="Call for Verizon Fios TV offers" showNumber={false} />
+                <CallButton variant="outline-light" label="Verizon Fios TV offers" />
               </div>
             </Reveal>
           </div>

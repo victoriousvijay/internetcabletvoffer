@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { PageLoader } from "@/components/layout/PageLoader";
+import { CallOffersDialog } from "@/components/ui/CallOffersLink";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { orgSchema, websiteSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <Footer />
         <MobileCtaBar />
+        <CallOffersDialog />
       </body>
     </html>
   );
