@@ -4,8 +4,8 @@ import { ArrowRight, CheckCircle2, Tv, Radio, Smartphone } from "lucide-react";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { ProviderCard } from "@/components/sections/ProviderCard";
 import { TypeGrid } from "@/components/sections/TypeGrid";
-import { CompareTable } from "@/components/sections/CompareTable";
-import { SpeedGuide } from "@/components/sections/SpeedGuide";
+import { TypeCompareTable } from "@/components/sections/TypeCompareTable";
+import { CallButton } from "@/components/ui/CallButton";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FeaturedPlans } from "@/components/sections/FeaturedPlans";
 import { ScrollSteps } from "@/components/sections/ScrollSteps";
@@ -14,17 +14,17 @@ import { ProviderLogo } from "@/components/ui/ProviderBadge";
 import { FaqList } from "@/components/ui/FaqList";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { providers } from "@/data/providers";
+import { pageProviders, providers } from "@/data/providers";
 import { homeFaqs } from "@/data/faqs";
 import { faqSchema, abs } from "@/lib/schema";
-import { img, images } from "@/lib/site";
+import { img, images, phone } from "@/lib/site";
 
 export default function Home() {
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Top internet providers",
-    itemListElement: providers.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: `${p.name} Internet`, url: abs(`/providers/${p.slug}`) })),
+    itemListElement: pageProviders.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: `${p.name} Internet`, url: abs(`/providers/${p.slug}`) })),
   };
 
   return (
@@ -34,13 +34,14 @@ export default function Home() {
 
       {/* Provider marquee */}
       <section aria-label="Providers we compare" className="bg-white pb-6 pt-2">
-        <p className="mb-5 text-center text-xs font-bold uppercase tracking-[0.25em] text-slate-400">Compare plans from top providers</p>
+        <p className="mb-5 text-center text-xs font-bold uppercase tracking-[0.25em] text-slate-400">Authorized Reseller of these national providers. Compare plans today.</p>
         <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
             {[...providers, ...providers].map((p, i) => (
               <Link
                 key={`${p.slug}-${i}`}
-                href={`/providers/${p.slug}`}
+                href={p.callOnly ? `tel:${phone.tel}` : `/providers/${p.slug}`}
+                aria-label={p.callOnly ? `Call for current ${p.name} offers` : undefined}
                 className="flex h-16 w-44 items-center justify-center rounded-2xl bg-white px-6 ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:ring-brand-200"
                 tabIndex={i >= providers.length ? -1 : undefined}
                 aria-hidden={i >= providers.length ? true : undefined}
@@ -90,17 +91,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Speed guide */}
-      <section className="container-x py-16 sm:py-24">
-        <SectionHeading
-          title="How much internet speed do you need?"
-          text="Answer three quick questions and we'll recommend a speed and connection type."
-        />
-        <div className="mt-10">
-          <SpeedGuide />
-        </div>
-      </section>
-
       {/* TV bundles */}
       <section className="relative overflow-hidden bg-navy py-16 text-white sm:py-24">
         <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
@@ -110,7 +100,7 @@ export default function Home() {
             <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] ring-1 ring-white/10">
               <Image
                 src={img(images.livingRoom, 1200)}
-                alt="Modern living room with a wall-mounted TV ready for cable TV and streaming"
+                alt="Modern living room with a wall-mounted TV ready for live TV and streaming"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -118,7 +108,7 @@ export default function Home() {
             </div>
             <div className="absolute -bottom-6 right-4 grid grid-cols-3 gap-2 rounded-2xl bg-white p-3 text-navy shadow-lift sm:right-8">
               {[
-                { icon: Tv, t: "Cable TV" },
+                { icon: Tv, t: "TV" },
                 { icon: Radio, t: "Internet" },
                 { icon: Smartphone, t: "Mobile" },
               ].map(({ icon: Icon, t }) => (
@@ -132,8 +122,8 @@ export default function Home() {
           <div className="order-1 lg:order-2">
             <SectionHeading
               light
-              title="Bundle internet and cable TV to save more"
-              text="Spectrum, Verizon Fios and Optimum offer cable TV bundles, while fiber providers pair perfectly with live TV streaming."
+              title="Bundle internet and TV to save more"
+              text="Spectrum, Verizon Fios and Optimum offer TV bundles, while fiber providers pair perfectly with live TV streaming."
             />
             <Reveal delay={0.1}>
               <ul className="mt-8 space-y-4">
@@ -150,11 +140,9 @@ export default function Home() {
               </ul>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/providers/spectrum" className="btn btn-light">
-                  Spectrum TV bundles <ArrowRight className="h-4 w-4" />
+                  Spectrum Stream TV® bundles <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/providers/verizon" className="btn bg-white/10 text-white ring-1 ring-white/20 hover:bg-white/15">
-                  Verizon Fios TV
-                </Link>
+                <CallButton variant="outline-light" label="Call for Verizon Fios TV offers" showNumber={false} />
               </div>
             </Reveal>
           </div>
@@ -171,11 +159,11 @@ export default function Home() {
       <section id="compare" className="bg-sky-soft py-16 sm:py-24">
         <div className="container-x">
           <SectionHeading
-            title="Internet provider comparison chart"
-            text="Starting prices, top speeds, contract terms and ratings for every provider we cover."
+            title="Internet connection types compared"
+            text="Fiber, cable, 5G, fixed wireless, DSL and satellite side by side: typical speeds, uploads, latency and who each one suits."
           />
           <div className="mt-10">
-            <CompareTable list={providers} caption="Internet provider comparison" />
+            <TypeCompareTable />
           </div>
         </div>
       </section>

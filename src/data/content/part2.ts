@@ -18,9 +18,9 @@ export const part2: Record<string, Article> = {
         h2: "Brightspeed Fiber plans",
         body: ["Brightspeed offers three fiber tiers. Pricing and availability depend on your address."],
         subs: [
-          { h3: "Fiber 200 — $50/mo", body: "Up to 200 Mbps, enough for streaming, browsing and video calls for a small household." },
-          { h3: "Fiber 500 — $65/mo", body: "Up to 500 Mbps. The best fit for families who stream, game and work from home at the same time." },
-          { h3: "Fiber Gig — $80/mo", body: "Up to 1000 Mbps for heavy streaming, online gaming, remote work and large downloads." },
+          { h3: "Fiber 200 — $29.99/mo", body: "Up to 200 Mbps, enough for streaming, browsing and video calls for a small household." },
+          { h3: "Fiber 500 — $59.99/mo", body: "Up to 500 Mbps. The best fit for families who stream, game and work from home at the same time." },
+          { h3: "Fiber Gig — $79.99/mo", body: "Up to 1000 Mbps for heavy streaming, online gaming, remote work and large downloads." },
         ],
       },
       {
@@ -121,8 +121,8 @@ export const part2: Record<string, Article> = {
         body: ["Frontier offers three fiber tiers, all with Wi-Fi 7 and a Visa Reward Card. Verizon mobile customers pay even less."],
         subs: [
           { h3: "Fiber 500 — $44.99/mo", body: "500/500 Mbps to work, stream and play on several devices. The first month is on Frontier, then $44.99/mo with AutoPay (as low as $29.99/mo with Verizon mobile). Includes a $100 Visa Reward Card, free expert install, a Wi-Fi 7 router and a 4-year price guarantee." },
-          { h3: "Fiber 1 Gig — $64.99/mo (recommended)", body: "1000/1000 Mbps for smart homes with dozens of devices. The first month is free, then $64.99/mo with AutoPay (as low as $49.99/mo with Verizon mobile). Includes a $150 Visa Reward Card, free expert install plus Whole-Home Wi-Fi, advanced parental controls and a 5-year price guarantee." },
-          { h3: "Fiber 2 Gig — $79.99/mo", body: "2000/2000 Mbps for large smart homes, at $79.99/mo with AutoPay (as low as $64.99/mo with Verizon mobile). Includes a $200 Visa Reward Card, free expert install, free Whole-Home Wi-Fi and a 5-year price guarantee." },
+          { h3: "Fiber 1 Gig — $64.99/mo (recommended)", body: "1 Gig upload and download for smart homes with dozens of devices. The first month is free, then $64.99/mo with AutoPay (as low as $49.99/mo with Verizon mobile). Includes a $150 Visa Reward Card, free expert install plus Whole-Home Wi-Fi, advanced parental controls and a 5-year price guarantee." },
+          { h3: "Fiber 2 Gig — $79.99/mo", body: "2 Gig upload and download for large smart homes, at $79.99/mo with AutoPay (as low as $64.99/mo with Verizon mobile). Includes a $200 Visa Reward Card, free expert install, free Whole-Home Wi-Fi and a 5-year price guarantee." },
         ],
       },
       {

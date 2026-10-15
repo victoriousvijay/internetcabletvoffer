@@ -49,8 +49,8 @@ export default function AboutPage() {
               the noise with side-by-side comparisons and guides written for real households.
             </p>
             <p>
-              We cover the nation&apos;s leading providers — from fiber leaders like AT&amp;T, Verizon and Frontier to cable giants
-              like Spectrum and Optimum, and satellite service from HughesNet — so you can decide with confidence.
+              We cover the nation&apos;s leading providers — from fiber leaders like AT&amp;T, Verizon and Frontier to Spectrum&apos;s
+              Fiber-Powered network and Optimum, and satellite service from HughesNet — so you can decide with confidence.
             </p>
           </Reveal>
         </div>

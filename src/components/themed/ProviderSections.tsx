@@ -9,6 +9,7 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { Stars } from "@/components/ui/Stars";
 import { RatingBars } from "@/components/sections/RatingBars";
 import { PlanCard } from "@/components/sections/PlanCard";
+import { OfferDetails } from "@/components/ui/OfferDetails";
 
 const featureIcons = [Sparkles, Router, ShieldCheck, Users];
 
@@ -34,6 +35,7 @@ export function Plans({ p }: { p: Provider; theme?: PageTheme }) {
           ))}
         </Stagger>
         <p className="mt-6 text-xs leading-relaxed text-slate-500">*{pricingDisclaimer}</p>
+        <OfferDetails slug={p.slug} name={p.name} className="mt-3" />
       </div>
     </section>
   );

@@ -47,8 +47,8 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "gaming-streaming",
       h2: "Is Spectrum good for streaming and gaming?",
       body: [
-        "Spectrum is a strong choice for streaming. With no data caps, you can watch as much 4K content as you like without worrying about overage fees. Internet 500 comfortably supports several simultaneous 4K streams, and Internet 1 Gig handles even the busiest households.",
-        "For gaming, Spectrum's download speeds are more than enough, and latency is generally good on its cable network. Competitive gamers and streamers who upload a lot of video may prefer Internet 1 Gig for its higher upload speed.",
+        "Spectrum is a strong choice for streaming. With no data caps, you can watch as much 4K content as you like without worrying about overage fees. Spectrum Internet 500 comfortably supports several simultaneous 4K streams, and Spectrum Internet 1 Gig handles even the busiest households.",
+        "For gaming, Spectrum's download speeds are more than enough, and latency is generally good on its Fiber-Powered network. Competitive gamers and streamers who upload a lot of video may prefer Spectrum Internet 1 Gig for its higher upload speed.",
       ],
     },
     {
@@ -57,8 +57,8 @@ export const extraSections: Record<string, ArticleSection[]> = {
       body: ["Spectrum's best savings come from bundling and choosing the right tier:"],
       bullets: [
         "Take advantage of Spectrum Mobile free for a year with new internet service",
-        "Bundle Spectrum TV or Spectrum Mobile lines to lower your combined bill",
-        "Choose Internet 1 Gig if you want Advanced WiFi included at no extra cost",
+        "Bundle Spectrum Stream TV® or Spectrum Mobile lines to lower your combined bill",
+        "Choose Spectrum Internet 1 Gig if you want Advanced WiFi included at no extra cost",
         "Use Spectrum's contract buyout when leaving another provider",
         "Remember promotional pricing lasts 12 months; call us before it ends to review options",
       ],
@@ -74,7 +74,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "equipment",
       h2: "Spectrum equipment and WiFi",
       body: [
-        "A modem is included with every Spectrum Internet plan. Spectrum Advanced WiFi adds a mesh router system with app-based controls and security features. It's $10/mo on Internet 100 and Internet 500 and included with Internet 1 Gig and many bundles. Self-install kits make it easy to get online the same day.",
+        "A modem is included with every Spectrum Internet plan. Spectrum Advanced WiFi adds a mesh router system with app-based controls and security features. It's $10/mo on Spectrum Internet 100 and Spectrum Internet 500 and included with Spectrum Internet 1 Gig and many bundles. Self-install kits make it easy to get online the same day.",
       ],
     },
   ],
@@ -231,7 +231,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       body: ["Save more on Optimum with these tips:"],
       bullets: [
         "Bundle internet with Optimum TV and Optimum Mobile",
-        "Pick 1 Gig for up to a $50 gift of your choice",
+        "Ask about a 1 Gig gift card offer",
         "Choose the tier that fits your household to avoid paying for unused speed",
         "Ask about current promotions and installation offers",
       ],
@@ -240,7 +240,7 @@ export const extraSections: Record<string, ArticleSection[]> = {
       id: "who-for",
       h2: "Who should choose Optimum?",
       body: [
-        "Optimum is a strong fit for households in its footprint that want affordable fiber with a long price lock and the option to add TV and mobile. Plans start at $35/mo, and the 1 Gig plan at $55/mo is one of the best-value gig plans available.",
+        "Optimum is a strong fit for households in its footprint that want affordable fiber with a 1-year price lock and the option to add TV and mobile. Plans start at $35/mo, and the 1 Gig plan at $55/mo is one of the best-value gig plans available.",
       ],
     },
     {

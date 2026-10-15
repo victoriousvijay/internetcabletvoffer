@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { providers } from "@/data/providers";
+import { pageProviders } from "@/data/providers";
 import { internetTypes } from "@/data/internetTypes";
 import { site } from "@/lib/site";
 
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     u("/", 1),
     u("/internet-providers", 0.9),
     ...internetTypes.map((t) => u(`/internet/${t.slug}`, 0.85)),
-    ...providers.map((p) => u(`/providers/${p.slug}`, 0.85)),
+    ...pageProviders.map((p) => u(`/providers/${p.slug}`, 0.85)),
     u("/faqs", 0.6, "monthly"),
     u("/about", 0.4, "yearly"),
     u("/contact", 0.4, "yearly"),

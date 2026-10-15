@@ -62,6 +62,18 @@ export function ContactForm() {
               Message
               <textarea name="message" required rows={5} className={`${field} mt-1.5 resize-none`} />
             </label>
+            {/* Client-supplied consent disclaimer + required acknowledgement (Oct 2026). */}
+            <label className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 text-xs leading-relaxed text-slate-600 ring-1 ring-slate-200">
+              <input name="consent" type="checkbox" required className="mt-0.5 h-5 w-5 shrink-0 accent-brand-700" />
+              <span>
+                <strong className="block text-sm text-navy">I acknowledge and agree</strong>
+                By clicking the button or entering your information, you consent for {site.legalName}, and any of its affiliate service
+                providers to use automated technology. Including but not limited to: texts, phone calls, prerecorded messages, email or
+                digital technology to contact you at the number and email provided about {site.legalName} offers which may or may not be
+                directly related to this specific marketing campaign using other affiliate companies. This consent is not required to
+                make a purchase. Clicking the button below constitutes your electronic signature.
+              </span>
+            </label>
             <button type="submit" className="btn btn-primary w-full sm:w-auto">
               Send message <Send className="h-4 w-4" />
             </button>

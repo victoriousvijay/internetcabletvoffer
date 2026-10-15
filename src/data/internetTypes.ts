@@ -129,10 +129,10 @@ export const internetTypes: InternetType[] = [
     key: "cable",
     name: "Cable Internet",
     short: "Cable",
-    h1: "Cable Internet Providers & Plans",
-    metaTitle: "Cable Internet Providers 2026 — Compare Plans & Prices",
+    h1: "Cable and Fiber-Powered Internet Providers & Plans",
+    metaTitle: "Cable & Fiber-Powered Internet Providers 2026 — Compare Plans & Prices",
     metaDescription:
-      "Compare cable internet providers like Spectrum and Optimum. See cable internet speeds, prices, pros and cons, and how cable compares to fiber and 5G.",
+      "Compare cable and Fiber-Powered internet providers like Optimum and Spectrum. See speeds, prices, pros and cons, and how cable compares to fiber and 5G.",
     eyebrow: "Widely available broadband",
     quickAnswer:
       "Cable internet delivers broadband over the same coaxial lines used for cable TV. It's available to most U.S. homes, offers download speeds from about 300 Mbps to 2 Gbps, and plans typically start around $40–$50 per month — but upload speeds are usually much lower than fiber.",
@@ -171,7 +171,8 @@ export const internetTypes: InternetType[] = [
       { q: "Is cable internet good?", a: "Yes. Cable internet offers fast download speeds and wide availability, making it a solid choice for streaming and general use." },
       { q: "What's the difference between cable and fiber?", a: "Cable uses coaxial copper lines for the final connection, while fiber uses glass fiber all the way. Fiber offers faster uploads and lower latency." },
       { q: "Do I need cable TV to get cable internet?", a: "No. You can buy cable internet on its own, though bundling with TV can sometimes lower the total cost." },
-      { q: "Does cable internet have data caps?", a: "It depends on the provider. Spectrum and Optimum include unlimited data; some other cable companies have monthly allowances." },
+      { q: "Does cable internet have data caps?", a: "It depends on the provider. Optimum includes unlimited data, as does Spectrum's Fiber-Powered internet; some other cable companies have monthly allowances." },
+      { q: "What is Fiber-Powered internet?", a: "“Fiber-powered” internet means the service uses fiber-optic cables for the main backbone of the network, but switches to older copper or coaxial cable for the final stretch into your home. Formerly known as Hybrid Fiber-Coaxial (HFC)." },
     ],
   },
   {

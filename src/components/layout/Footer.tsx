@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { internetNav, legalNav, resourceNav, site, trademarkDisclaimer } from "@/lib/site";
-import { providers } from "@/data/providers";
+import { providerHref, providers } from "@/data/providers";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -15,7 +15,7 @@ export function Footer() {
           <div>
             <Logo light />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-brand-100/70">
-              {site.name} is an authorized sales partner helping U.S. households find the right internet, cable TV and
+              {site.name} is an authorized sales partner helping U.S. households find the right internet, TV and
               bundle offers — with clear pricing, honest pros and cons, and plain-English guides.
             </p>
             <a href={`mailto:${site.email}`} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-200">
@@ -26,7 +26,7 @@ export function Footer() {
             </p>
           </div>
           <FooterCol title="Internet Types" links={internetNav} />
-          <FooterCol title="Providers" links={providers.map((p) => ({ label: `${p.name} Internet`, href: `/providers/${p.slug}` }))} />
+          <FooterCol title="Providers" links={providers.map((p) => ({ label: p.callOnly ? `${p.name}: call for offers` : `${p.name} Internet`, href: providerHref(p) }))} />
           <FooterCol title="Company" links={[...resourceNav, ...legalNav]} />
         </div>
 
@@ -48,7 +48,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 text-xs sm:flex-row">
-          <p>© {year} {site.name}. All rights reserved.</p>
+          <p>© {year} {site.name}. {site.name} is a {site.legalName}. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {legalNav.map((l) => (
               <Link key={l.href} href={l.href} className="hover:text-white">

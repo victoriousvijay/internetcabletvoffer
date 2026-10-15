@@ -1,10 +1,12 @@
 export const site = {
   name: "Internet Cable TV Offers",
   shortName: "ICTO",
+  /** Business that operates the site (client requirement: must be shown, e.g. in the copyright line). */
+  legalName: "DarTech LLC",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://internetcabletvoffers.com").replace(/\/$/, ""),
   tagline: "Compare internet & TV deals from America's top providers",
   description:
-    "Internet Cable TV Offers helps you compare internet, cable TV and home phone deals from AT&T, Spectrum, Verizon, Frontier, Optimum, HughesNet and more — plans, prices, speeds and honest guidance in one place.",
+    "Internet Cable TV Offers helps you compare internet, TV and home phone deals from AT&T, Spectrum, Verizon, Frontier, Optimum, HughesNet and more — plans, prices, speeds and honest guidance in one place.",
   email: "support@internetcabletvoffers.com",
   lastReviewed: "September 2026",
   lastReviewedISO: "2026-09-24",

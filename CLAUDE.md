@@ -131,6 +131,12 @@ src/
 - The site is an **independent comparison site**. Provider names, logos and trademarks belong to their owners and are shown for identification only.
 - The client is an **authorized sales partner/dealer**. Footer shows "Our Authorized Network Partners" listing all providers; disclaimer says authorized sales partner, not the providers' official site.
 - Provider logos live in `public/logos/*.png`, using the client-supplied **authorized** variants: AT&T "Authorized Retailer", Spectrum "Authorized Reseller", Kinetic "Authorized Agent", Optimum "authorized reseller", EarthLink "Authorized Reseller", Brightspeed "Authorized Agent". Verizon, Frontier and HughesNet use standard logos until the client supplies authorized versions. Only whitespace/flat background is removed; never alter artwork.
+- **Client change notes (Oct 2026):**
+  - Business name: copyright reads "© {year} Internet Cable TV Offers. Internet Cable TV Offers is a DarTech LLC." (`site.legalName`); Privacy Policy opens with "Internet Cable TV Offers, a DarTech LLC".
+  - **Verizon is call-only** (`callOnly` in `providers.ts`): no provider page (redirects to `/internet-providers`), no plans/pricing beyond "from $30", every Verizon link/button dials the phone ("Call for current offers"). Logo = Verizon glow wordmark.
+  - **Spectrum never says "Cable"**: it is "Fiber-Powered" (`typeNames`), plans are "Spectrum Internet 100/500/1 Gig", TV is "Spectrum Stream TV®" (VIP / PRO / Signature), and the hero shows "Spectrum Internet® is powered by fiber and connected to the premises by coaxial lines."
+  - Provider offer disclaimers (verbatim from client) live in `data/offerDisclaimers.ts` and open from "Click here for {provider} offer details" (`ui/OfferDetails.tsx`) under the plans and at the page bottom.
+  - Home: no provider comparison chart (replaced by `TypeCompareTable`, technologies compared) and the speed guide recommends a speed/type only, never specific provider plans. Contact form has the client consent disclaimer with a required acknowledgement checkbox.
 - Every data page shows the pricing disclaimer from `site.ts` ("representative starting rates… confirm with provider").
 - Footer: © Internet Cable TV Offers, disclosure, legal links.
 

@@ -1,4 +1,4 @@
-import { images } from "@/lib/site";
+import { images, phone } from "@/lib/site";
 import { planData, type Plan } from "./providerPlans";
 
 export type { Plan };
@@ -15,6 +15,12 @@ export type Provider = {
   logo: string;
   /** Logo artwork is taller than wide-format wordmarks; render it larger. */
   logoTall?: boolean;
+  /** No provider page or pricing (client: not approved yet); every link becomes a click-to-call. */
+  callOnly?: boolean;
+  /** Provider-specific names for connection types, e.g. Spectrum calls its cable network "Fiber-Powered". */
+  typeNames?: Partial<Record<TypeKey, string>>;
+  /** Required line shown just under the hero. */
+  heroNote?: string;
   blurb: string;
   loader: { primary: string; light: string };
   tagline: string;
@@ -167,14 +173,17 @@ const raw: Omit<Provider, "plans">[] = [
     monogram: "SP",
     accent: "#0b2d5b",
     logo: "/logos/spectrum.png",
-    blurb: "Unlimited cable, no contracts",
+    blurb: "Fiber-Powered, no contracts",
     loader: { primary: "#0b2d5b", light: "#1e5cae" },
-    tagline: "No contracts, no data caps, huge cable footprint",
+    tagline: "No contracts, no data caps, huge Fiber-Powered footprint",
     quickAnswer:
-      "Spectrum is the largest cable internet provider in the U.S., with plans from 500 Mbps up to 2 Gbps, no annual contracts, no data caps and a free modem. Spectrum also offers cable TV, Spectrum Mobile and home phone bundles in 45 states.",
+      "Spectrum is one of the largest internet providers in the U.S., with Fiber-Powered plans, no annual contracts, no data caps and a free modem. Spectrum also offers Spectrum Stream TV®, Spectrum Mobile and home phone bundles in 45 states.",
     intro:
-      "Spectrum is the go-to cable option for millions of households thanks to straightforward pricing, unlimited data and easy bundling with TV and mobile.",
+      "Spectrum is the go-to Fiber-Powered option for millions of households thanks to straightforward pricing, unlimited data and easy bundling with TV and mobile.",
     types: ["cable", "fiber"],
+    // Since Oct 1, 2026 Spectrum no longer uses "Cable" in its marketing; it is "Fiber-Powered".
+    typeNames: { cable: "Fiber-Powered" },
+    heroNote: "Spectrum Internet® is powered by fiber and connected to the premises by coaxial lines.",
     startingPrice: 50,
     maxSpeed: "2 Gbps",
     maxSpeedMbps: 2000,
@@ -206,19 +215,18 @@ const raw: Omit<Provider, "plans">[] = [
     features: [
       { title: "Unlimited data", text: "Stream, game and download as much as you want — no overage fees." },
       { title: "Contract buyout", text: "Spectrum may help cover early termination fees when you switch from another provider." },
-      { title: "Spectrum TV", text: "Cable TV packages plus the Spectrum TV app for streaming on any device." },
+      { title: "Spectrum Stream TV®", text: "Spectrum Stream TV® packages plus the Spectrum TV app for streaming on any device." },
       { title: "Mobile bundle", text: "Add Spectrum Mobile lines and save on both services." },
     ],
     tv: {
-      title: "Spectrum TV bundles",
-      text: "Spectrum TV Select, Silver and Gold packages add 125+ to 200+ channels, local networks and on-demand content. Bundle with internet to simplify your bill.",
+      title: "Spectrum Stream TV® bundles",
+      text: "Spectrum Stream TV® VIP, Spectrum Stream TV® PRO and Spectrum Stream TV® Signature packages add live channels, local networks and on-demand content. Bundle with internet to simplify your bill.",
     },
     faqs: [
-      { q: "How much is Spectrum internet?", a: "Spectrum Internet Premier (500 Mbps) starts around $50/month and Internet Advantage (1 Gbps) around $70/month for the first 12 months, depending on location and promotions." },
       { q: "Does Spectrum have data caps?", a: "No. Every Spectrum Internet plan includes unlimited data with no overage charges." },
       { q: "Does Spectrum require a contract?", a: "No. Spectrum internet is month-to-month with no annual contract." },
-      { q: "Is Spectrum cable or fiber?", a: "Spectrum mainly uses a hybrid fiber-coaxial (cable) network, and is rolling out fiber-to-the-home and symmetrical speeds in select markets." },
-      { q: "Can I bundle Spectrum internet and TV?", a: "Yes. Spectrum offers internet, cable TV, mobile and home phone bundles, and bundling usually lowers the combined price." },
+      { q: "Is Spectrum Internet fiber?", a: "Spectrum Internet® is Fiber-Powered: it is powered by fiber and connected to the premises by coaxial lines. Spectrum is also rolling out fiber-to-the-home and symmetrical speeds in select markets." },
+      { q: "Can I bundle Spectrum internet and TV?", a: "Yes. Spectrum offers internet, Spectrum Stream TV®, mobile and home phone bundles, and bundling usually lowers the combined price." },
     ],
   },
   {
@@ -345,7 +353,7 @@ const raw: Omit<Provider, "plans">[] = [
     monogram: "VZ",
     accent: "#111111",
     logo: "/logos/verizon.png",
-    logoTall: true,
+    callOnly: true,
     blurb: "Fios fiber & 5G Home",
     loader: { primary: "#262626", light: "#525252" },
     tagline: "Fios fiber and 5G Home with price guarantees",
@@ -551,7 +559,7 @@ const raw: Omit<Provider, "plans">[] = [
     sideImage: images.bedroom,
     pros: [
       "Low starting price",
-      "Up to a 3-year price lock",
+      "1-year price lock",
       "Unlimited data, no annual contract",
       "Flexible TV and mobile bundles",
     ],
@@ -604,3 +612,12 @@ export const providers: Provider[] = raw
   .sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug));
 
 export const getProvider = (slug: string) => providers.find((p) => p.slug === slug);
+
+/** Where a provider link goes: its plans page, or the sales line for call-only providers. */
+export const providerHref = (p: Provider) => (p.callOnly ? `tel:${phone.tel}` : `/providers/${p.slug}`);
+
+/** Providers that have their own plans page (call-only providers are excluded). */
+export const pageProviders = providers.filter((p) => !p.callOnly);
+
+/** Connection-type label for a provider, honoring provider-specific names (Spectrum: "Fiber-Powered"). */
+export const providerTypeLabel = (p: Provider, k: TypeKey, labels: Record<TypeKey, string>) => p.typeNames?.[k] ?? labels[k];

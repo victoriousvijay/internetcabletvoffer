@@ -26,7 +26,7 @@ import {
 import { Logo } from "@/components/ui/Logo";
 import { ProviderLogo } from "@/components/ui/ProviderBadge";
 import { internetNav, phone } from "@/lib/site";
-import { providers } from "@/data/providers";
+import { providerHref, providers } from "@/data/providers";
 import { MobileMenu } from "./MobileMenu";
 
 const typeIcons = [LayoutGrid, Zap, Wifi, Cable, Phone, RadioTower, Satellite, CalendarCheck];
@@ -259,13 +259,13 @@ function ProvidersMenu() {
         {providers.map((p) => (
           <motion.div key={p.slug} variants={itemV}>
             <Link
-              href={`/providers/${p.slug}`}
+              href={providerHref(p)}
               className="group flex h-full flex-col items-center justify-center gap-2 rounded-xl p-3 text-center ring-1 ring-slate-100 transition-all duration-300 hover:bg-slate-50 hover:ring-brand-200"
             >
               <span className="flex h-9 items-center transition-transform duration-300 group-hover:scale-105">
                 <ProviderLogo p={p} className="h-7 max-w-[7.5rem]" />
               </span>
-              <span className="text-[11px] font-medium text-slate-500">{p.blurb}</span>
+              <span className="text-[11px] font-medium text-slate-500">{p.callOnly ? "Call for current offers" : p.blurb}</span>
             </Link>
           </motion.div>
         ))}

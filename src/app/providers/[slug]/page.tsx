@@ -10,16 +10,17 @@ import { SubNav } from "@/components/sections/SubNav";
 import { ThemedHero } from "@/components/themed/ThemedHero";
 import { Features, Plans, Ratings, TvBlock } from "@/components/themed/ProviderSections";
 import { ProviderArticle } from "@/components/themed/ProviderArticle";
+import { OfferDetails } from "@/components/ui/OfferDetails";
 import { articles } from "@/data/content";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getProvider, providers } from "@/data/providers";
+import { getProvider, pageProviders, providerTypeLabel } from "@/data/providers";
 import { typeLabels } from "@/data/internetTypes";
 import { providerThemes, themeVars, type PageTheme } from "@/data/themes";
 import { breadcrumbSchema, faqSchema, pageMeta, abs } from "@/lib/schema";
 import { img, site, trademarkDisclaimer } from "@/lib/site";
 
 export function generateStaticParams() {
-  return providers.map((p) => ({ slug: p.slug }));
+  return pageProviders.map((p) => ({ slug: p.slug }));
 }
 
 export const dynamicParams = false;
@@ -27,7 +28,7 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = getProvider(slug);
-  if (!p) return {};
+  if (!p || p.callOnly) return {};
   return pageMeta({
     title: `${p.name} Internet Plans, Prices & Deals (2026)`,
     description: `${p.name} internet plans start at $${p.startingPrice}/mo with speeds up to ${p.maxSpeed}. Compare ${p.name} plans, pricing, features, TV bundles and FAQs, then call to order.`,
@@ -48,7 +49,7 @@ const labels: Record<PageTheme["order"][number], string> = {
 export default async function ProviderPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = getProvider(slug);
-  if (!p) notFound();
+  if (!p || p.callOnly) notFound();
   const theme = providerThemes[p.slug];
   const dark = theme.heroDark;
 
@@ -126,7 +127,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
         image={p.heroImage}
         imageAlt={`Home internet from ${p.name}`}
         logo={{ src: p.logo, alt: `${p.name} logo`, tall: p.logoTall }}
-        chips={p.types.map((t) => typeLabels[t])}
+        chips={p.types.map((t) => providerTypeLabel(p, t, typeLabels))}
         stats={[
           { label: "Starting at", value: `$${p.startingPrice}/mo` },
           { label: "Top speed", value: p.maxSpeed },
@@ -141,6 +142,10 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
           </span>
         }
       />
+
+      {p.heroNote && (
+        <p className="container-x pt-5 text-center text-sm font-semibold text-acc-ink">{p.heroNote}</p>
+      )}
 
       <div>
         <SubNav
@@ -169,6 +174,7 @@ export default async function ProviderPage({ params }: { params: Promise<{ slug:
             </div>
           </Reveal>
           <p className="mt-6 text-xs leading-relaxed text-slate-500">{trademarkDisclaimer}</p>
+          <OfferDetails slug={p.slug} name={p.name} className="mt-3" />
         </section>
       </div>
     </div>

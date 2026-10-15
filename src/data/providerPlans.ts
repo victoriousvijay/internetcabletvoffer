@@ -58,88 +58,84 @@ export const planData: Record<string, PlanOverrides> = {
     maxSpeed: "1 Gbps",
     maxSpeedMbps: 1000,
     quickAnswer:
-      "Spectrum Internet plans are Internet 100 at $30/mo, Internet 500 at $40/mo and Internet 1 Gig at $60/mo, each for the first year. Every plan includes a free modem, no data caps, no contracts and Spectrum Mobile free for a year, and Internet 1 Gig includes Advanced WiFi. Spectrum also bundles cable TV and mobile in 45 states.",
+      "Spectrum Internet plans are Spectrum Internet 100 at $30/mo, Spectrum Internet 500 at $40/mo and Spectrum Internet 1 Gig at $60/mo, each for the first year. Every plan includes a free modem, no data caps, no contracts and Spectrum Mobile free for a year, and Spectrum Internet 1 Gig includes Advanced WiFi. Spectrum Internet® is powered by fiber and connected to the premises by coaxial lines, and bundles with Spectrum Stream TV® and Spectrum Mobile in 45 states.",
     priceFaq:
-      "Spectrum Internet 100 is $30/mo, Internet 500 is $40/mo and Internet 1 Gig is $60/mo, each for the first year. Advanced WiFi is $10/mo on the 100 and 500 plans and included with 1 Gig. Standard rates apply after the promotional period.",
+      "Spectrum Internet 100 is $30/mo, Spectrum Internet 500 is $40/mo and Spectrum Internet 1 Gig is $60/mo, each for the first year. Advanced WiFi is $10/mo on the 100 and 500 plans and included with 1 Gig. Standard rates apply after the promotional period.",
     plans: [
-      { tier: "Internet 100", headline: "100 Mbps Internet", desc: "Browsing, email, video calls and streaming.", download: "100 Mbps", upload: "Up to 10 Mbps", price: 30, term: "/mo for 1 year", icon: "shield", features: ["Add Advanced WiFi for $10/mo", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
-      { tier: "Internet 500", headline: "500 Mbps Internet", desc: "Multiple streams, work from home and gaming, all at once.", download: "500 Mbps", upload: "Up to 20 Mbps", price: 40, term: "/mo for 1 year", badge: "Online exclusive price", popular: true, icon: "flame", features: ["Add Advanced WiFi for $10/mo", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
-      { tier: "Internet 1 Gig", headline: "1000 Mbps Internet", desc: "4K on every screen, lag-free gaming, smart home devices and more.", download: "1000 Mbps", upload: "Up to 35 Mbps", price: 60, term: "/mo for 1 year", badge: "Online exclusive price", icon: "bolt", features: ["Advanced WiFi included", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
+      { tier: "100 Mbps", headline: "Spectrum Internet 100", desc: "Browsing, email, video calls and streaming.", download: "100 Mbps", upload: "Up to 10 Mbps", price: 30, term: "/mo for 1 year", icon: "shield", features: ["Add Advanced WiFi for $10/mo", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
+      { tier: "500 Mbps", headline: "Spectrum Internet 500", desc: "Multiple streams, work from home and gaming, all at once.", download: "500 Mbps", upload: "Up to 20 Mbps", price: 40, term: "/mo for 1 year", badge: "Online exclusive price", popular: true, icon: "flame", features: ["Add Advanced WiFi for $10/mo", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
+      { tier: "1 Gig", headline: "Spectrum Internet 1 Gig", desc: "4K on every screen, lag-free gaming, smart home devices and more.", download: "1000 Mbps", upload: "Up to 35 Mbps", price: 60, term: "/mo for 1 year", badge: "Online exclusive price", icon: "bolt", features: ["Advanced WiFi included", "Spectrum Mobile free for a year", "Free modem", "No data caps, no contracts"] },
     ],
   },
   kinetic: {
-    startingPrice: 34.99,
+    startingPrice: 19.99,
     maxSpeed: "2 Gbps",
     maxSpeedMbps: 2000,
-    tagline: "Fiber from $34.99 with prepaid card offers",
+    tagline: "Fiber internet with prepaid card offers",
     quickAnswer:
-      "Kinetic Fiber plans are Fiber 300 at $34.99/mo, Fiber 1 Gig at $39.99/mo with a $100 prepaid Mastercard, and Fiber 2 Gig at $59.99/mo with a $200 prepaid Mastercard, Wi-Fi 7 and a 2-year price guarantee. Fiber plans include unlimited data, and AT&T Wireless customers save $20/mo on their internet bill.",
+      "Kinetic internet starts at $19.99/mo. Kinetic Fiber plans are Fiber 300 at $29.99/mo, Fiber 1 Gig at $39.99/mo with a $100 prepaid Mastercard, and Fiber 2 Gig at $59.99/mo with a $200 prepaid Mastercard, Wi-Fi 7 and a 2-year price guarantee. Fiber plans include unlimited data, and AT&T Wireless customers save $20/mo on their internet bill.",
     priceFaq:
-      "Kinetic Fiber 300 is $34.99/mo, Fiber 1 Gig is $39.99/mo (plus a $100 prepaid Mastercard) and Fiber 2 Gig is $59.99/mo (plus a $200 prepaid Mastercard and a 2-year price guarantee). AT&T Wireless customers save $20/mo on their Kinetic internet bill. Terms apply.",
+      "Kinetic internet starts at $19.99/mo. Kinetic Fiber 300 is $29.99/mo, Fiber 1 Gig is $39.99/mo (plus a $100 prepaid Mastercard) and Fiber 2 Gig is $59.99/mo (plus a $200 prepaid Mastercard and a 2-year price guarantee). AT&T Wireless customers save $20/mo on their Kinetic internet bill. Terms apply.",
     plans: [
-      { tier: "Fiber 300 Mbps", headline: "300 Mbps Fiber", desc: "Good for most day-to-day internet uses, including streaming video.", download: "300 Mbps", upload: "300 Mbps", price: 34.99, term: "per month, terms apply", icon: "shield", features: ["Work, stream and play on multiple devices", "Download a 2.5-hour 4K movie in about 8 minutes", "AT&T Wireless customers save $20/mo on internet", "Unlimited data"] },
+      { tier: "Fiber 300 Mbps", headline: "300 Mbps Fiber", desc: "Good for most day-to-day internet uses, including streaming video.", download: "300 Mbps", upload: "300 Mbps", price: 29.99, term: "per month, terms apply", icon: "shield", features: ["Work, stream and play on multiple devices", "Download a 2.5-hour 4K movie in about 8 minutes", "AT&T Wireless customers save $20/mo on internet", "Unlimited data"] },
       { tier: "Fiber 1 Gig", headline: "1 Gig Fiber", desc: "Boosted speed and capacity for working from home and gaming.", download: "1 Gbps", upload: "1 Gbps", price: 39.99, term: "per month, terms apply", badge: "$100 prepaid Mastercard", icon: "bolt", features: ["$100 prepaid Mastercard", "Plenty of bandwidth for mid-sized households", "Faster upload speeds than cable", "AT&T Wireless customers save $20/mo on internet"] },
       { tier: "Fiber 2 Gig", headline: "2 Gig Fiber", desc: "Ultra-fast speeds for large smart homes.", download: "2 Gbps", upload: "2 Gbps", price: 59.99, term: "per month, 2-year price guarantee", badge: "Best value", popular: true, icon: "rocket", features: ["$200 prepaid Mastercard", "Ideal for immersive gaming", "Supports dozens of devices streaming at once", "The most advanced Wi-Fi 7 technology", "AT&T Wireless customers save $20/mo on internet"] },
     ],
   },
   brightspeed: {
-    startingPrice: 50,
+    startingPrice: 29.99,
     maxSpeed: "1 Gbps",
     maxSpeedMbps: 1000,
     quickAnswer:
-      "Brightspeed Fiber plans start at $50/mo for Fiber 200, $65/mo for Fiber 500 and $80/mo for Fiber Gig, with unlimited data and no annual contract. Brightspeed serves rural and suburban communities in 20 states and offers DSL where fiber hasn't arrived yet.",
+      "Brightspeed Fiber plans start at $29.99/mo for Fiber 200, $59.99/mo for Fiber 500 and $79.99/mo for Fiber Gig, with unlimited data and no annual contract. Brightspeed serves rural and suburban communities in 20 states and offers DSL where fiber hasn't arrived yet.",
     priceFaq:
-      "Brightspeed Fiber 200 starts at $50/mo, Fiber 500 at $65/mo and Fiber Gig (1000 Mbps) at $80/mo. Pricing and speeds depend on your address, so call to confirm what's available at your home.",
+      "Brightspeed Fiber 200 starts at $29.99/mo, Fiber 500 at $59.99/mo and Fiber Gig (1000 Mbps) at $79.99/mo. Pricing and speeds depend on your address, so call to confirm what's available at your home.",
     plans: [
-      { tier: "Brightspeed Fiber 200", headline: "200 Mbps Fiber", desc: "Solid everyday speed for browsing, streaming and video calls.", download: "Up to 200 Mbps", upload: "Up to 200 Mbps", price: 50, term: "/mo", icon: "shield", features: ["100% fiber connection", "Unlimited data", "Wi-Fi router included", "No annual contract"] },
-      { tier: "Brightspeed Fiber 500", headline: "500 Mbps Fiber", desc: "Room for the whole family to stream, game and work at once.", download: "Up to 500 Mbps", upload: "Up to 500 Mbps", price: 65, term: "/mo", popular: true, icon: "flame", features: ["Symmetrical upload & download", "Unlimited data", "Wi-Fi router included", "No annual contract"] },
-      { tier: "Brightspeed Fiber Gig", headline: "1 Gig Fiber", desc: "Gig-speed fiber for heavy streaming, gaming and large downloads.", download: "Up to 1000 Mbps", upload: "Up to 1000 Mbps", price: 80, term: "/mo", icon: "bolt", features: ["Brightspeed's fastest fiber tier", "Unlimited data", "Wi-Fi router included", "No annual contract"] },
+      { tier: "Brightspeed Fiber 200", headline: "200 Mbps Fiber", desc: "Solid everyday speed for browsing, streaming and video calls.", download: "Up to 200 Mbps", upload: "Up to 200 Mbps", price: 29.99, term: "/mo", icon: "shield", features: ["100% fiber connection", "Unlimited data", "Wi-Fi router included", "No annual contract"] },
+      { tier: "Brightspeed Fiber 500", headline: "500 Mbps Fiber", desc: "Room for the whole family to stream, game and work at once.", download: "Up to 500 Mbps", upload: "Up to 500 Mbps", price: 59.99, term: "/mo", popular: true, icon: "flame", features: ["Symmetrical upload & download", "Unlimited data", "Wi-Fi router included", "No annual contract"] },
+      { tier: "Brightspeed Fiber Gig", headline: "1 Gig Fiber", desc: "Gig-speed fiber for heavy streaming, gaming and large downloads.", download: "Up to 1000 Mbps", upload: "Up to 1000 Mbps", price: 79.99, term: "/mo", icon: "bolt", features: ["Brightspeed's fastest fiber tier", "Unlimited data", "Wi-Fi router included", "No annual contract"] },
     ],
   },
   verizon: {
-    startingPrice: 65,
+    startingPrice: 30,
     maxSpeed: "2 Gbps",
     maxSpeedMbps: 2000,
-    tagline: "Fios fiber with up to a 5-year price lock",
-    quickAnswer:
-      "Verizon Fios plans are 500 Mbps for $65/mo (3-year price lock), 1 Gig for $80/mo and 2 Gig for $90/mo (5-year price lock). Gig plans include a router plus Whole-Home Wi-Fi at no extra cost, and Mobile + Home customers get extra perks such as $10/mo toward Netflix, Disney+ and more, a waived $99 setup fee and Cellular Wi-Fi Backup.",
-    priceFaq:
-      "Verizon Fios 500 Mbps is $65/mo with a 3-year price lock, Fios 1 Gig is $80/mo and Fios 2 Gig is $90/mo, both with a 5-year price lock. Verizon mobile customers who enroll in Mobile + Home get extra perks and a waived $99 pro setup fee.",
-    plans: [
-      { tier: "Fios 500 Mbps", headline: "500 Mbps Fiber", desc: "Fast, dependable fiber for streaming, school and work-from-home.", download: "Up to 500 Mbps", upload: "Up to 500 Mbps", price: 65, term: "/mo, price locked for 3 years", icon: "shield", features: ["Router included at no additional cost", "Mobile + Home: $99 pro setup fee waived", "Cellular Wi-Fi Backup with Mobile + Home", "Priority Care customer support with Mobile + Home"] },
-      { tier: "Fios 1 Gig", headline: "1 Gig Fiber", desc: "Up to 940 Mbps for gaming, 4K streaming and busy homes.", download: "Up to 940 Mbps", upload: "Up to 880 Mbps", price: 80, term: "/mo, price locked for 5 years", badge: "5-year price lock", popular: true, icon: "bolt", features: ["Router and Whole-Home Wi-Fi included", "Mobile + Home: $10/mo toward a perk (Netflix, Disney+ & more)", "$99 pro setup fee waived with Mobile + Home", "Cellular Wi-Fi Backup & Priority Care"] },
-      { tier: "Fios 2 Gig", headline: "2 Gig Fiber", desc: "Up to 2.3 Gbps for large households, creators and power users.", download: "Up to 2.3 Gbps", upload: "Up to 2.3 Gbps", price: 90, term: "/mo, price locked for 5 years", badge: "5-year price lock", icon: "rocket", features: ["Router and Whole-Home Wi-Fi Plus included", "Digital Home Secure Plus", "Mobile + Home: $10/mo toward a perk", "$99 setup fee waived, Cellular Wi-Fi Backup & Priority Care"] },
-    ],
+    tagline: "Call for current Verizon offers",
+    // Client (Oct 2026): Verizon plan pages and pricing details are not approved yet, so Verizon is call-only.
+    quickAnswer: "Call for current Verizon home internet offers available at your address.",
+    priceFaq: "Call for current Verizon home internet offers and pricing at your address.",
+    plans: [],
   },
   frontier: {
-    startingPrice: 44.99,
-    maxSpeed: "2 Gbps",
+    startingPrice: 29.99,
+    // Client: Frontier always shows "Gig" rather than Mbps/Gbps where it applies.
+    maxSpeed: "2 Gig",
     maxSpeedMbps: 2000,
     blurb: "Pure fiber with Visa reward cards",
     tagline: "100% fiber with Wi-Fi 7 and up to a 5-year price guarantee",
     quickAnswer:
-      "Frontier Fiber plans are Fiber 500 at $44.99/mo, Fiber 1 Gig at $64.99/mo and Fiber 2 Gig at $79.99/mo with AutoPay, and Fiber 500 and 1 Gig include the first month free. Each plan includes a Wi-Fi 7 router, a Visa Reward Card ($100 to $200) and a 4- or 5-year price guarantee, with even lower prices for Verizon mobile customers.",
+      "Frontier Fiber starts as low as $29.99/mo with Verizon mobile. Plans are Fiber 500 at $44.99/mo, Fiber 1 Gig at $64.99/mo and Fiber 2 Gig at $79.99/mo with AutoPay, and Fiber 500 and 1 Gig include the first month free. Each plan includes a Wi-Fi 7 router, a Visa Reward Card ($100 to $200) and a 4- or 5-year price guarantee, with even lower prices for Verizon mobile customers.",
     priceFaq:
       "Frontier Fiber 500 is $44.99/mo and Fiber 1 Gig is $64.99/mo with AutoPay after one free month; Fiber 2 Gig is $79.99/mo with AutoPay. With Verizon mobile, prices drop to as low as $29.99, $49.99 and $64.99/mo. Plans come with a $100, $150 or $200 Visa Reward Card.",
     plans: [
       { tier: "Fiber 500", headline: "500/500 Mbps", desc: "Work, stream and play on several devices.", download: "500 Mbps", upload: "500 Mbps", price: 44.99, wasPrice: 54.99, term: "/mo w/ AutoPay after 1 month; as low as $29.99 w/ Verizon mobile", badge: "1 month of fiber on us", icon: "shield", features: ["Claim a $100 Visa Reward Card", "Free expert install", "Wi-Fi 7 router included", "4-year price guarantee"] },
-      { tier: "Fiber 1 Gig", headline: "1000/1000 Mbps", desc: "For smart homes with dozens of devices.", download: "1000 Mbps", upload: "1000 Mbps", price: 64.99, wasPrice: 74.99, term: "/mo w/ AutoPay after 1 month; as low as $49.99 w/ Verizon mobile", badge: "Recommended", popular: true, icon: "bolt", features: ["Claim a $150 Visa Reward Card", "1 month of fiber on us", "Free expert install + Whole-Home Wi-Fi", "Wi-Fi 7 & advanced parental controls", "5-year price guarantee"] },
-      { tier: "Fiber 2 Gig", headline: "2000/2000 Mbps", desc: "Ultra-fast speeds for large smart homes.", download: "2000 Mbps", upload: "2000 Mbps", price: 79.99, wasPrice: 89.99, term: "/mo w/ AutoPay; as low as $64.99 w/ Verizon mobile", badge: "Special gift, on us", icon: "rocket", features: ["Claim a $200 Visa Reward Card", "Free expert install", "Free Whole-Home Wi-Fi", "Reliable Wi-Fi 7 coverage", "5-year price guarantee"] },
+      { tier: "Fiber 1 Gig", headline: "1 Gig", desc: "For smart homes with dozens of devices.", download: "1 Gig", upload: "1 Gig", price: 64.99, wasPrice: 74.99, term: "/mo w/ AutoPay after 1 month; as low as $49.99 w/ Verizon mobile", badge: "Recommended", popular: true, icon: "bolt", features: ["Claim a $150 Visa Reward Card", "1 month of fiber on us", "Free expert install + Whole-Home Wi-Fi", "Wi-Fi 7 & advanced parental controls", "5-year price guarantee"] },
+      { tier: "Fiber 2 Gig", headline: "2 Gig", desc: "Ultra-fast speeds for large smart homes.", download: "2 Gig", upload: "2 Gig", price: 79.99, wasPrice: 89.99, term: "/mo w/ AutoPay; as low as $64.99 w/ Verizon mobile", badge: "Special gift, on us", icon: "rocket", features: ["Claim a $200 Visa Reward Card", "Free expert install", "Free Whole-Home Wi-Fi", "Reliable Wi-Fi 7 coverage", "5-year price guarantee"] },
     ],
   },
   optimum: {
     startingPrice: 35,
     maxSpeed: "1 Gbps",
     maxSpeedMbps: 1000,
-    tagline: "Fiber internet from $35 with up to a 3-year price lock",
+    tagline: "Fiber internet from $35 with a 1-year price lock",
     quickAnswer:
-      "Optimum Fiber plans are 300 Mbps for $35/mo, 500 Mbps for $45/mo and 1 Gig for $55/mo, each with an eligible $10 AutoPay and paperless bill discount plus taxes and fees. Every plan includes up to a 3-year price lock and unlimited data, and the 1 Gig plan adds up to a $50 gift of your choice.",
+      "Optimum Fiber plans are 300 Mbps for $35/mo, 500 Mbps for $45/mo and 1 Gig for $55/mo, each with an eligible $10 AutoPay and paperless bill discount plus taxes and fees. Every plan includes a 1-year price lock and unlimited data. Ask about a 1 Gig gift card offer.",
     priceFaq:
-      "Optimum 300 Mbps Fiber is $35/mo, 500 Mbps Fiber is $45/mo and 1 Gig Fiber is $55/mo, with an eligible $10 AutoPay and paperless bill discount, plus taxes and fees. Plans include up to a 3-year price lock.",
+      "Optimum 300 Mbps Fiber is $35/mo, 500 Mbps Fiber is $45/mo and 1 Gig Fiber is $55/mo, with an eligible $10 AutoPay and paperless bill discount, plus taxes and fees. Plans include a 1-year price lock.",
     plans: [
-      { tier: "Optimum Fiber 300", headline: "300 Mbps Fiber Internet", desc: "Supports essential online activities for everyday households.", download: "300 Mbps", upload: "Varies", price: 35, term: "w/ elig. $10 AutoPay & paperless bill discount, plus taxes & fees", icon: "shield", features: ["Supports essential online activities", "5x faster upload than 5G internet", "Up to 3-year price lock", "Unlimited data, no annual contract"] },
-      { tier: "Optimum Fiber 500", headline: "500 Mbps Fiber Internet", desc: "Great for everyday use across more devices.", download: "500 Mbps", upload: "Varies", price: 45, term: "w/ elig. $10 AutoPay & paperless bill discount, plus taxes & fees", popular: true, icon: "flame", features: ["Great for everyday use", "9x faster upload than 5G internet", "Up to 3-year price lock", "Unlimited data, no annual contract"] },
-      { tier: "Optimum Fiber 1 Gig", headline: "1 Gig Fiber Internet", desc: "More speed for more screens, gaming and working from home.", download: "1 Gbps", upload: "Varies", price: 55, term: "w/ elig. $10 AutoPay & paperless bill discount, plus taxes & fees", badge: "Up to $50 gift", icon: "bolt", features: ["More speed for more screens", "17x faster upload than 5G internet", "Up to 3-year price lock", "Up to $50 gift of your choice"] },
+      { tier: "Optimum Fiber 300", headline: "300 Mbps Fiber Internet", desc: "Supports essential online activities for everyday households.", download: "300 Mbps", upload: "Varies", price: 35, term: "w/ elig. $10 AutoPay & paperless bill discount, plus taxes & fees", icon: "shield", features: ["Supports essential online activities", "5x faster upload than 5G internet", "1-Year Price Lock", "Unlimited data, no annual contract"] },
+      { tier: "Optimum Fiber 500", headline: "500 Mbps Fiber Internet", desc: "Great for everyday use across more devices.", download: "500 Mbps", upload: "Varies", price: 45, term: "w/ elig. $10 AutoPay & paperless bill discount, plus taxes & fees", popular: true, icon: "flame", features: ["Great for everyday use", "9x faster upload than 5G internet", "1-Year Price Lock", "Unlimited data, no annual contract"] },
+      { tier: "Optimum Fiber 1 Gig", headline: "1 Gig Fiber Internet", desc: "More speed for more screens, gaming and working from home.", download: "1 Gbps", upload: "Varies", price: 55, term: "w/ elig. $10 AutoPay & paperless bill discount, plus taxes & fees", badge: "Ask about gift card offer", icon: "bolt", features: ["More speed for more screens", "17x faster upload than 5G internet", "1-Year Price Lock", "Ask about a 1 Gig gift card offer"] },
     ],
   },
   earthlink: {
@@ -147,15 +143,15 @@ export const planData: Record<string, PlanOverrides> = {
     maxSpeed: "5 Gbps",
     maxSpeedMbps: 5000,
     quickAnswer:
-      "EarthLink Fiber starts at $39.95/mo for Fiber 100 and $49.95/mo for 300 Mbps, with 500 Mbps at $64.95/mo, 1 Gig at $74.95/mo and 2 Gig at $129.95/mo, each for 12 months. Fiber 5 Gig is available in select areas. Every EarthLink Fiber plan includes unlimited data.",
+      "EarthLink Fiber starts at $39.95/mo for Fiber 100 and $49.95/mo for 300 Mbps, with 500 Mbps at $54.95/mo, 1 Gig at $74.95/mo and 2 Gig at $109.95/mo, each for 12 months. Fiber 5 Gig is available in select areas. Every EarthLink Fiber plan includes unlimited data.",
     priceFaq:
-      "EarthLink Fiber 100 is $39.95/mo, 300 Mbps is $49.95/mo, 500 Mbps is $64.95/mo, 1 Gig is $74.95/mo and 2 Gig is $129.95/mo, each for 12 months. Call for Fiber 5 Gig pricing at your address.",
+      "EarthLink Fiber 100 is $39.95/mo, 300 Mbps is $49.95/mo, 500 Mbps is $54.95/mo, 1 Gig is $74.95/mo and 2 Gig is $109.95/mo, each for 12 months. Call for Fiber 5 Gig pricing at your address.",
     plans: [
       { tier: "EarthLink Fiber 100", headline: "100 Mbps Fiber", desc: "Affordable fiber for browsing, email and HD streaming.", download: "100 Mbps", upload: "Up to 100 Mbps", price: 39.95, term: "/mo for 12 months", icon: "shield", features: ["Unlimited data", "Fiber connection", "U.S.-based support", "Privacy-first ISP"] },
       { tier: "Optimal Value High-Speed", headline: "300 Mbps Fiber", desc: "Perfect for multiplayer gaming and smooth 4K streaming.", download: "300 Mbps", upload: "Up to 300 Mbps", price: 49.95, term: "/mo for 12 months", icon: "flame", features: ["Unlimited data", "Streams in 4K and UHD", "U.S.-based support", "Privacy-first ISP"] },
-      { tier: "Preferred Choice Ultra-Fast", headline: "500 Mbps Fiber", desc: "Ideal for households with many users and devices.", download: "500 Mbps", upload: "Up to 500 Mbps", price: 64.95, term: "/mo for 12 months", popular: true, icon: "bolt", features: ["Unlimited data", "No speed drops with many users", "U.S.-based support", "Privacy-first ISP"] },
+      { tier: "Preferred Choice Ultra-Fast", headline: "500 Mbps Fiber", desc: "Ideal for households with many users and devices.", download: "500 Mbps", upload: "Up to 500 Mbps", price: 54.95, term: "/mo for 12 months", popular: true, icon: "bolt", features: ["Unlimited data", "No speed drops with many users", "U.S.-based support", "Privacy-first ISP"] },
       { tier: "Supreme Fiber Maximum Velocity", headline: "1 Gig Fiber", desc: "Top-tier streaming and gaming on a stable connection.", download: "1000 Mbps", upload: "Up to 1000 Mbps", price: 74.95, term: "/mo for 12 months", icon: "bolt", features: ["Unlimited data", "Stable, reliable connection", "U.S.-based support", "Privacy-first ISP"] },
-      { tier: "EarthLink Fiber 2 Gig", headline: "2 Gig Fiber", desc: "Multi-gig speed for creators and large homes.", download: "2000 Mbps", upload: "Up to 2000 Mbps", price: 129.95, term: "/mo for 12 months", icon: "rocket", features: ["Unlimited data", "Multi-gig fiber", "U.S.-based support", "Privacy-first ISP"] },
+      { tier: "EarthLink Fiber 2 Gig", headline: "2 Gig Fiber", desc: "Multi-gig speed for creators and large homes.", download: "2000 Mbps", upload: "Up to 2000 Mbps", price: 109.95, term: "/mo for 12 months", icon: "rocket", features: ["Unlimited data", "Multi-gig fiber", "U.S.-based support", "Privacy-first ISP"] },
       { tier: "EarthLink Fiber 5 Gig", headline: "5 Gig Fiber", desc: "EarthLink's fastest fiber in select areas.", download: "5000 Mbps", upload: "Up to 5000 Mbps", term: "Call for pricing at your address", icon: "rocket", features: ["Unlimited data", "Fastest EarthLink tier", "U.S.-based support", "Privacy-first ISP"] },
     ],
   },

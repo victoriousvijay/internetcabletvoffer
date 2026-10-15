@@ -3,7 +3,7 @@ import type { Faq } from "./providers";
 export const homeFaqs: Faq[] = [
   { q: "How do I find the best internet provider for my home?", a: "Start with what's available at your address, then compare connection type (fiber is usually best), price after promotions, data caps, contract terms and upload speed. Our provider and internet-type guides walk you through each factor." },
   { q: "How much internet speed do I need?", a: "Most households do well with 300–500 Mbps. Light users can get by with 100 Mbps, while homes with many 4K streams, gamers or remote workers benefit from 1 Gbps or more." },
-  { q: "What is the cheapest way to get internet and cable TV?", a: "Bundling internet with TV from providers like Spectrum, Optimum or Verizon Fios usually lowers the combined price. Many households also save by pairing fast internet with a live TV streaming service." },
+  { q: "What is the cheapest way to get internet and TV?", a: "Bundling internet with TV from providers like Spectrum, Optimum or Verizon Fios usually lowers the combined price. Many households also save by pairing fast internet with a live TV streaming service." },
   { q: "Which type of internet is the fastest?", a: "Fiber internet is the fastest and most reliable, with multi-gig plans up to 8 Gbps and symmetrical upload speeds. Cable is next, followed by 5G home internet, fixed wireless, DSL and satellite." },
   { q: "Is Internet Cable TV Offers a provider?", a: "No. Internet Cable TV Offers is an authorized sales partner for leading internet and TV providers. We compare plans and pricing, help you choose the right service and can place your order over the phone. Your service is provided and billed by the provider you choose." },
 ];

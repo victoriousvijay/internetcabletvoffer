@@ -57,7 +57,7 @@ export const researchSections: Record<string, ArticleSection[]> = {
       id: "spectrum-what-it-means",
       h2: "What the merger means for you",
       body: [
-        "If you live in a former Cox area, you'll gradually see Spectrum's simple lineup of Internet 100, Internet 500 and Internet 1 Gig, with no data caps and no contracts. If you're already a Spectrum customer, the larger network gives Spectrum more scale to keep upgrading speeds and expanding its fiber-powered network. Either way, call us to confirm which Spectrum plans and promotions are available at your address today.",
+        "If you live in a former Cox area, you'll gradually see Spectrum's simple lineup of Spectrum Internet 100, Spectrum Internet 500 and Spectrum Internet 1 Gig, with no data caps and no contracts. If you're already a Spectrum customer, the larger network gives Spectrum more scale to keep upgrading speeds and expanding its Fiber-Powered network. Either way, call us to confirm which Spectrum plans and promotions are available at your address today.",
       ],
     },
   ],

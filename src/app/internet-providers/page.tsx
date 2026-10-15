@@ -10,13 +10,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqList } from "@/components/ui/FaqList";
 import { CallButton } from "@/components/ui/CallButton";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { providers } from "@/data/providers";
+import { pageProviders, providers } from "@/data/providers";
+import { money } from "@/data/providerPlans";
 import { breadcrumbSchema, faqSchema, pageMeta, abs } from "@/lib/schema";
 import { img, images } from "@/lib/site";
 
 const faqs = [
-  { q: "Who is the best internet provider?", a: "For most people, the best provider is the fastest fiber option available at their address — often AT&T Fiber, Verizon Fios or Frontier Fiber. Where fiber isn't available, Spectrum and Optimum cable or 5G home internet are strong alternatives." },
-  { q: "Which internet provider is the cheapest?", a: "Among the providers we cover, Optimum and Kinetic have some of the lowest starting prices at around $40/month. Always compare the price after any promotional period." },
+  { q: "Who is the best internet provider?", a: "For most people, the best provider is the fastest fiber option available at their address — often AT&T Fiber, Verizon Fios or Frontier Fiber. Where fiber isn't available, Spectrum's Fiber-Powered internet, Optimum or 5G home internet are strong alternatives." },
+  { q: "Which internet provider is the cheapest?", a: "Among the providers we cover, Kinetic starts at $19.99/month and Brightspeed and Frontier start at $29.99/month. Always compare the price after any promotional period." },
   { q: "Which providers have no data caps?", a: "AT&T Fiber, Spectrum, Verizon, Frontier, Kinetic, Brightspeed and Optimum all offer unlimited data. HughesNet uses priority data instead of hard caps." },
   { q: "How many internet providers are available at my address?", a: "Most U.S. addresses have two to four wired or wireless options, plus satellite. Rural addresses may have fewer choices." },
 ];
@@ -39,7 +40,7 @@ export default function ProvidersHub() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Internet providers compared",
-    itemListElement: providers.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: `${p.name} Internet`, url: abs(`/providers/${p.slug}`) })),
+    itemListElement: pageProviders.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: `${p.name} Internet`, url: abs(`/providers/${p.slug}`) })),
   };
   return (
     <>
@@ -59,10 +60,10 @@ export default function ProvidersHub() {
 
       <section className="container-x">
         <QuickAnswer
-          text="The best internet providers in 2026 are AT&T Fiber and Verizon Fios for reliability and symmetrical speed, Frontier and Optimum for multi-gig fiber value, Spectrum for widely available cable with no data caps, and HughesNet for rural satellite coverage. The right choice depends on which providers serve your address."
+          text="The best internet providers in 2026 are AT&T Fiber and Verizon Fios for reliability and symmetrical speed, Frontier and Optimum for multi-gig fiber value, Spectrum for widely available Fiber-Powered internet with no data caps, and HughesNet for rural satellite coverage. The right choice depends on which providers serve your address."
           facts={[
             { label: "Providers compared", value: `${providers.length}` },
-            { label: "Lowest starting price", value: `$${Math.min(...providers.map((p) => p.startingPrice))}/mo` },
+            { label: "Lowest starting price", value: `${money(Math.min(...providers.map((p) => p.startingPrice)))}/mo` },
             { label: "Fastest plan", value: "8 Gbps" },
             { label: "Unlimited data", value: "8 of 9 providers" },
           ]}

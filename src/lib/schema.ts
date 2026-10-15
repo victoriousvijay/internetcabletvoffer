@@ -19,6 +19,7 @@ export const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: site.name,
+  legalName: site.legalName,
   url: site.url,
   logo: abs("/icon.svg"),
   email: site.email,

@@ -79,13 +79,13 @@ export const part1: Record<string, Article> = {
 
   spectrum: {
     lead:
-      "Spectrum is the largest cable internet provider in the country, reaching homes in 45 states. Its plans are easy to understand: no data caps, no annual contracts and a year of Unlimited Mobile included. Here's everything to know before you order Spectrum Internet, TV or a bundle.",
+      "Spectrum is one of the largest internet providers in the country, reaching homes in 45 states. Its plans are easy to understand: no data caps, no annual contracts and a year of Unlimited Mobile included. Here's everything to know before you order Spectrum Internet, TV or a bundle.",
     sections: [
       {
         id: "overview",
         h2: "Spectrum Internet at a glance",
         body: [
-          "Spectrum delivers internet over a fiber-powered network that connects to homes with coaxial cable. That design lets Spectrum offer fast download speeds almost everywhere it operates, from 100 Mbps up to 1 Gig, with multi-gig speeds in select markets.",
+          "Spectrum Internet® is powered by fiber and connected to the premises by coaxial lines. That Fiber-Powered design lets Spectrum offer fast download speeds almost everywhere it operates, from 100 Mbps up to 1 Gig, with multi-gig speeds in select markets.",
           "Every plan includes unlimited data, a modem and no annual contract. New customers currently get Spectrum Mobile free for a year, which makes Spectrum one of the best-value choices for families that also need phone service.",
         ],
       },
@@ -94,9 +94,9 @@ export const part1: Record<string, Article> = {
         h2: "Spectrum Internet plans explained",
         body: ["Spectrum's three core plans cover almost every household. Promotional prices apply for the first 12 months."],
         subs: [
-          { h3: "Internet 100 — 100 Mbps for $30/mo", body: "A reliable, budget-friendly plan for browsing, email, video calls and streaming on a few devices. Add Advanced WiFi for $10/mo." },
-          { h3: "Internet 500 — 500 Mbps for $40/mo", body: "The plan most families should start with. 500 Mbps comfortably powers work, school, 4K streaming and gaming across many devices at once. Add Advanced WiFi for $10/mo for mesh coverage." },
-          { h3: "Internet 1 Gig — 1000 Mbps for $60/mo", body: "Spectrum's fastest widely available plan, built for serious gaming, large households and working from home. Advanced WiFi is included at no extra charge." },
+          { h3: "Spectrum Internet 100 — 100 Mbps for $30/mo", body: "A reliable, budget-friendly plan for browsing, email, video calls and streaming on a few devices. Add Advanced WiFi for $10/mo." },
+          { h3: "Spectrum Internet 500 — 500 Mbps for $40/mo", body: "The plan most families should start with. 500 Mbps comfortably powers work, school, 4K streaming and gaming across many devices at once. Add Advanced WiFi for $10/mo for mesh coverage." },
+          { h3: "Spectrum Internet 1 Gig — $60/mo", body: "Spectrum's fastest widely available plan, built for serious gaming, large households and working from home. Advanced WiFi is included at no extra charge." },
         ],
       },
       {
@@ -108,17 +108,17 @@ export const part1: Record<string, Article> = {
       },
       {
         id: "tv",
-        h2: "Spectrum TV and streaming bundles",
+        h2: "Spectrum Stream TV® and internet bundles",
         body: [
-          "Spectrum TV Select and Spectrum Stream TV packages bring local channels, live sports, news and entertainment together, and many packages include popular streaming apps at no extra cost. Spectrum TV Lite is a low-cost option for households that mainly want local channels.",
+          "Spectrum Stream TV® VIP, Spectrum Stream TV® PRO and Spectrum Stream TV® Signature bring local channels, live sports, news and entertainment together, and qualifying plans include popular streaming apps. Channel availability varies by package and location.",
           "Bundling internet, TV and mobile on one bill is the easiest way to lower your total cost. Our team can price a double-play or triple-play bundle for your address in minutes.",
         ],
       },
       {
-        id: "cable-vs-fiber",
-        h2: "Is Spectrum cable as good as fiber?",
+        id: "fiber-powered-vs-fiber",
+        h2: "Is Spectrum Fiber-Powered internet as good as fiber?",
         body: [
-          "For downloads, Spectrum matches fiber on most everyday tasks: streaming, browsing and gaming all run smoothly on 500 Mbps or 1 Gig. The main trade-off is upload speed, which is lower on cable. If you regularly upload large videos or run a home business, compare Spectrum's upload speeds with fiber options at your address.",
+          "For downloads, Spectrum matches fiber on most everyday tasks: streaming, browsing and gaming all run smoothly on 500 Mbps or 1 Gig. The main trade-off is upload speed, which is lower. If you regularly upload large videos or run a home business, compare Spectrum's upload speeds with fiber options at your address.",
         ],
         bullets: ["No data caps on any plan", "No annual contract", "Free modem, WiFi router available", "Available in 45 states"],
       },
@@ -154,9 +154,9 @@ export const part1: Record<string, Article> = {
       {
         id: "plans-explained",
         h2: "Kinetic plans and pricing",
-        body: ["Kinetic Fiber comes in three simple tiers. AT&T Wireless customers save $20/mo on their Kinetic internet bill. Terms apply."],
+        body: ["Kinetic internet starts at $19.99/mo, and Kinetic Fiber comes in three simple tiers. AT&T Wireless customers save $20/mo on their Kinetic internet bill. Terms apply."],
         subs: [
-          { h3: "Fiber 300 Mbps — $34.99/mo", body: "Good for most day-to-day internet use, including streaming video. Work, stream and play on multiple devices, and download a 2.5-hour 4K movie in about eight minutes." },
+          { h3: "Fiber 300 Mbps — $29.99/mo", body: "Good for most day-to-day internet use, including streaming video. Work, stream and play on multiple devices, and download a 2.5-hour 4K movie in about eight minutes." },
           { h3: "Fiber 1 Gig — $39.99/mo", body: "Boosted speed and capacity for working from home and gaming, with faster uploads than cable and plenty of bandwidth for mid-sized households. New customers get a $100 prepaid Mastercard." },
           { h3: "Fiber 2 Gig — $59.99/mo (best value)", body: "Ultra-fast speeds for large smart homes and immersive gaming, the latest Wi-Fi 7 technology, a $200 prepaid Mastercard and a 2-year price guarantee." },
         ],

@@ -18,9 +18,9 @@ export const part3: Record<string, Article> = {
         h2: "Optimum plans and pricing",
         body: ["Prices below include an eligible $10 AutoPay and paperless bill discount, plus taxes and fees."],
         subs: [
-          { h3: "300 Mbps Fiber Internet — $35/mo", body: "Supports essential online activities like streaming, browsing and video calls, with uploads about 5x faster than 5G home internet and up to a 3-year price lock." },
-          { h3: "500 Mbps Fiber Internet — $45/mo", body: "Great for everyday use in busier homes, with uploads about 9x faster than 5G home internet and up to a 3-year price lock." },
-          { h3: "1 Gig Fiber Internet — $55/mo", body: "More speed for more screens, gaming and working from home. Uploads are about 17x faster than 5G home internet, and the plan includes up to a 3-year price lock plus up to a $50 gift of your choice." },
+          { h3: "300 Mbps Fiber Internet — $35/mo", body: "Supports essential online activities like streaming, browsing and video calls, with uploads about 5x faster than 5G home internet and a 1-year price lock." },
+          { h3: "500 Mbps Fiber Internet — $45/mo", body: "Great for everyday use in busier homes, with uploads about 9x faster than 5G home internet and a 1-year price lock." },
+          { h3: "1 Gig Fiber Internet — $55/mo", body: "More speed for more screens, gaming and working from home. Uploads are about 17x faster than 5G home internet, and the plan includes a 1-year price lock. Ask about a 1 Gig gift card offer." },
         ],
       },
       {
@@ -34,7 +34,7 @@ export const part3: Record<string, Article> = {
         id: "why",
         h2: "Why choose Optimum?",
         body: ["Optimum is a strong all-in-one choice for households that want internet, TV and mobile from one company."],
-        bullets: ["Fiber from $35/mo", "Up to a 3-year price lock", "Up to a $50 gift on 1 Gig", "Unlimited data", "No annual contract"],
+        bullets: ["Fiber from $35/mo", "1-Year Price Lock", "Ask about a 1 Gig gift card offer", "Unlimited data", "No annual contract"],
       },
       {
         id: "availability",
@@ -63,9 +63,9 @@ export const part3: Record<string, Article> = {
         subs: [
           { h3: "Fiber 100 — $39.95/mo", body: "Affordable fiber for browsing, email and HD streaming." },
           { h3: "Optimal Value High-Speed (300 Mbps) — $49.95/mo", body: "Great for multiplayer gaming and smooth 4K and Ultra HD streaming." },
-          { h3: "Preferred Choice Ultra-Fast (500 Mbps) — $64.95/mo", body: "Ideal for households with many devices, with no speed drops when several people are online." },
+          { h3: "Preferred Choice Ultra-Fast (500 Mbps) — $54.95/mo", body: "Ideal for households with many devices, with no speed drops when several people are online." },
           { h3: "Supreme Fiber Maximum Velocity (1 Gig) — $74.95/mo", body: "Top-tier streaming and gaming with a stable, reliable connection." },
-          { h3: "Fiber 2 Gig — $129.95/mo, Fiber 5 Gig — call for pricing", body: "Multi-gig tiers for creators and large households, available in select areas." },
+          { h3: "Fiber 2 Gig — $109.95/mo, Fiber 5 Gig — call for pricing", body: "Multi-gig tiers for creators and large households, available in select areas." },
         ],
       },
       {
